@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -30,15 +28,15 @@ import java.util.Properties;
 public class HibernateConfig {
 
     private static final List<String> ENTITY_CLASSES = List.of(
-        "de.jexcellence.lmbeauty.database.entity.User",
-        "de.jexcellence.lmbeauty.database.entity.OAuthAccount",
-        "de.jexcellence.lmbeauty.database.entity.OAuthProvider",
-        "de.jexcellence.lmbeauty.database.entity.RefreshToken",
-        "de.jexcellence.lmbeauty.database.entity.Permission",
-        "de.jexcellence.lmbeauty.database.entity.Order",
-        "de.jexcellence.lmbeauty.database.entity.Treatment",
-        "de.jexcellence.lmbeauty.database.entity.TreatmentRefill",
-        "de.jexcellence.lmbeauty.database.entity.TreatmentAudit",
+            "de.jexcellence.lmbeauty.database.entity.User",
+            "de.jexcellence.lmbeauty.database.entity.OAuthAccount",
+            "de.jexcellence.lmbeauty.database.entity.OAuthProvider",
+            "de.jexcellence.lmbeauty.database.entity.RefreshToken",
+            "de.jexcellence.lmbeauty.database.entity.Permission",
+            "de.jexcellence.lmbeauty.database.entity.Order",
+            "de.jexcellence.lmbeauty.database.entity.Treatment",
+            "de.jexcellence.lmbeauty.database.entity.TreatmentRefill",
+            "de.jexcellence.lmbeauty.database.entity.TreatmentAudit",
             "de.jexcellence.lmbeauty.database.entity.WeeklyAvailability",
             "de.jexcellence.lmbeauty.database.entity.SpecificDateAvailability",
             "de.jexcellence.lmbeauty.database.entity.LoyaltyStamp",
@@ -49,12 +47,14 @@ public class HibernateConfig {
     @Bean
     @Primary
     public EntityManagerFactory entityManagerFactory() {
+        // Load hibernate properties
         Properties hibernateProperties = loadHibernateProperties();
 
+        // Create custom PersistenceUnitInfo with explicit entity classes
         PersistenceUnitInfo persistenceUnitInfo = new PersistenceUnitInfo() {
             @Override
             public String getPersistenceUnitName() {
-                return "LMBeautyPersistenceUnit";
+                return "JEPersistenceUnit";
             }
 
             @Override
@@ -139,6 +139,7 @@ public class HibernateConfig {
 
             @Override
             public void addTransformer(ClassTransformer classTransformer) {
+                // not required
             }
 
             @Override
@@ -148,13 +149,7 @@ public class HibernateConfig {
         };
 
         return new HibernatePersistenceProvider()
-            .createContainerEntityManagerFactory(persistenceUnitInfo, hibernateProperties);
-    }
-
-    @Bean
-    @Primary
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        return new JpaTransactionManager(entityManagerFactory);
+                .createContainerEntityManagerFactory(persistenceUnitInfo, hibernateProperties);
     }
 
     private Properties loadHibernateProperties() {
@@ -164,8 +159,10 @@ public class HibernateConfig {
         try {
             Resource resource;
             if (configLocation != null && !configLocation.isEmpty()) {
+                // Load from external file (Docker/production)
                 resource = new FileSystemResource(configLocation);
             } else {
+                // Load from classpath (local development)
                 resource = new ClassPathResource("hibernate.properties");
             }
 
