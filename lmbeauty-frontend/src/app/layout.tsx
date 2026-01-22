@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { Providers } from '@/components/providers/Providers';
 import {baseURL, fonts, style} from '@/resources/once-ui.config';
 import classNames from "classnames";
-import {Background, Banner, Column, Flex, Icon, Meta} from "@once-ui-system/core";
+import {Background, Banner, Column, Flex, Icon} from "@once-ui-system/core";
 import React from "react";
 import {meta} from "@/resources";
 
@@ -52,15 +52,10 @@ const themeScript = `
   })();
 `;
 
-export async function generateMetadata() {
-    return Meta.generate({
-        title: meta.home.title,
-        description: meta.home.description,
-        baseURL: baseURL,
-        path: meta.home.path,
-        image: meta.home.image,
-    });
-}
+export const metadata: Metadata = {
+    title: meta.home.title,
+    description: meta.home.description,
+};
 
 export default function RootLayout({children}: Readonly<{
     children: React.ReactNode;

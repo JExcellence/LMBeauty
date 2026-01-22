@@ -1,3 +1,4 @@
+/*
 "use client";
 
 import { useState, useCallback, Suspense, useEffect } from 'react';
@@ -91,7 +92,7 @@ function LoginContent() {
         className={styles.loginForm}
       >
         
-        {/* Header */}
+        {/!* Header *!/}
         <Column center paddingY="m">
           <Heading 
             as="h1" 
@@ -109,7 +110,7 @@ function LoginContent() {
           </Text>
         </Column>
 
-        {/* Error */}
+        {/!* Error *!/}
         {error && (
           <Column center gap="xs" padding="s" marginBottom="m" className={styles.error}>
             <Icon name="warning" size="s" />
@@ -117,7 +118,7 @@ function LoginContent() {
           </Column>
         )}
 
-        {/* Login Options */}
+        {/!* Login Options *!/}
         <Column gap="xs" marginBottom="m">
           {providers.map((provider) => (
             <Button
@@ -125,7 +126,7 @@ function LoginContent() {
               variant="primary"
               size="m"
               fillWidth
-              onClick={() => handleLogin(provider.id)}
+              onClick={() => console.log("Bald Verfügbar")}//handleLogin(provider.id)}
               disabled={loading !== null}
               prefixIcon={provider.id === 'google' ? 'google' : 'instagram'}
               className={styles.loginButton}
@@ -142,7 +143,7 @@ function LoginContent() {
           ))}
         </Column>
 
-        {/* Footer */}
+        {/!* Footer *!/}
         <div className={styles.footer}>
           <Text variant="body-default-xs" className={styles.legal}>
             Mit der Anmeldung stimmst du unserer{' '}
@@ -179,4 +180,10 @@ export default function LoginPage() {
       <LoginContent />
     </Suspense>
   );
+}*/
+
+export default function LoginPage() {
+    return (
+        <div/>
+    )
 }

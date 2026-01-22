@@ -1,8 +1,8 @@
+/*
 "use client";
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Column, Flex } from "@once-ui-system/core";
 import styles from './callback.module.scss';
 
 export default function AuthCallbackPage() {
@@ -10,8 +10,15 @@ export default function AuthCallbackPage() {
     const router = useRouter();
     const [status, setStatus] = useState<'processing' | 'success' | 'error'>('processing');
     const [message, setMessage] = useState('Einen Moment...');
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+        
         const accessToken = searchParams.get('accessToken');
         const refreshToken = searchParams.get('refreshToken');
         const error = searchParams.get('error');
@@ -36,17 +43,24 @@ export default function AuthCallbackPage() {
             setMessage('Etwas ist schiefgelaufen.');
             setTimeout(() => router.push('/anmelden'), 3000);
         }
-    }, [searchParams, router]);
+    }, [searchParams, router, mounted]);
+
+    if (!mounted) {
+        return (
+            <div className={styles.callbackPage}>
+                <div className={styles.content} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+                    <div className={styles.statusContainer}>
+                        <div className={styles.spinner} aria-label="Wird verarbeitet" />
+                    </div>
+                    <p className={styles.message}>Einen Moment...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <Column fillWidth className={styles.callbackPage}>
-            <Flex 
-                flex={1}
-                direction="column"
-                horizontal="center"
-                vertical="center"
-                className={styles.content}
-            >
+        <div className={styles.callbackPage}>
+            <div className={styles.content} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
                 <div className={styles.statusContainer}>
                     {status === 'processing' && (
                         <div className={styles.spinner} aria-label="Wird verarbeitet" />
@@ -67,7 +81,13 @@ export default function AuthCallbackPage() {
                     )}
                 </div>
                 <p className={styles.message}>{message}</p>
-            </Flex>
-        </Column>
+            </div>
+        </div>
     );
+}
+*/
+
+
+export default function AuthCallbackPage() {
+    return (<div/>)
 }

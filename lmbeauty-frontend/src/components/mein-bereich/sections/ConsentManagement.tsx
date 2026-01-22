@@ -522,3 +522,5 @@ export function ConsentManagement() {
     </div>
   );
 }
+
+export default ConsentManagement;

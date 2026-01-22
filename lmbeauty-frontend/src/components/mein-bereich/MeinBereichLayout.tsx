@@ -1,3 +1,4 @@
+/*
 'use client';
 
 import { useState, ReactNode } from 'react';
@@ -114,3 +115,4 @@ export function MeinBereichLayout({ children, activeTab: propActiveTab }: MeinBe
     </div>
   );
 }
+*/

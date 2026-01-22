@@ -1,11 +1,3 @@
-// ============================================
-// EINWILLIGUNG — DSGVO-konforme Datenverwaltung
-// Premium Beauty Space für Consent Management
-// ============================================
-
-// ============================================
-// Compact Layout for Integration
-// ============================================
 .compactConsentContainer {
   width: 100%;
   display: flex;
@@ -843,21 +835,5 @@
 
   .modalButton {
     width: 100%;
-  }
-}
-
-// ============================================
-// Reduced Motion
-// ============================================
-@media (prefers-reduced-motion: reduce) {
-  .categoryCard,
-  .dataField,
-  .consentItem,
-  .editButton,
-  .revokeButton,
-  .viewButton,
-  .modalButton {
-    transition: none;
-    transform: none;
   }
 }

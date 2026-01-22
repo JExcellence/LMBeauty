@@ -1,4 +1,5 @@
-'use client';
+/*
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import {
@@ -14,12 +15,6 @@ import {
   LetterFx,
   StatusIndicator,
 } from '@once-ui-system/core';
-
-/**
- * OAuth Callback Components — "Stille Eleganz"
- * 
- * Premium, emotionally warm loading & error states
- */
 
 export type OAuthStatus = 
   | 'authenticating' 
@@ -368,3 +363,4 @@ export const OAuthSuccessState: React.FC<{ provider: string }> = ({ provider }) 
 };
 
 export default OAuthCallbackLoader;
+*/

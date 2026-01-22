@@ -1,8 +1,8 @@
+/*
 "use client";
 
 import React from 'react';
 import { Row, Column, Text, Icon } from "@once-ui-system/core";
-import { TabType } from './MeinBereichLayout';
 import styles from './BottomTabBar.module.scss';
 
 interface NavigationItem {
@@ -97,4 +97,4 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({
   );
 };
 
-export default BottomTabBar;
+export default BottomTabBar;*/

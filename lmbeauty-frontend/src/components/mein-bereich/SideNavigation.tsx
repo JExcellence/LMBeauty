@@ -1,3 +1,4 @@
+/*
 "use client";
 
 import React from 'react';
@@ -60,7 +61,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
       role="navigation"
       aria-label="Mein Bereich Navigation"
     >
-      {/* Header */}
+      {/!* Header *!/}
       <Row
         paddingX="l"
         paddingY="m"
@@ -80,7 +81,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
         </Row>
       </Row>
 
-      {/* Navigation Items */}
+      {/!* Navigation Items *!/}
       <Column
         padding="s"
         vertical="start"
@@ -141,4 +142,4 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({
   );
 };
 
-export default SideNavigation;
+export default SideNavigation;*/

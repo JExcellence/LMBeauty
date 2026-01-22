@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Column } from "@once-ui-system/core";
-import { Sidebar } from "@/components/sidebar/Sidebar";
 import { Footer } from "@/components/footer/Footer";
 import styles from './layout.module.scss';
 
