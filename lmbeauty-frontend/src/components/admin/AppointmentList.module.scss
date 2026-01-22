@@ -1,0 +1,240 @@
+.appointmentFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1200px;
+}
+
+.flowHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flowTitle {
+  font-size: 32px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.flowSubtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.timeFilter {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.filterMoment {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.filterMoment:hover {
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.filterMoment.present {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.filterLabel {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.appointmentRiver {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quietSpace {
+  display: flex;
+  justify-content: center;
+  padding: 64px 24px;
+}
+
+.quietText {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.emptyFlow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  opacity: 0.2;
+  margin-bottom: 8px;
+}
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.emptyMessage {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 1.5;
+}
+
+.momentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.appointmentMoment {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.appointmentMoment:hover {
+  background: rgba(0, 0, 0, 0.01);
+  margin: 0 -16px;
+  padding: 24px 16px;
+  border-radius: 8px;
+  border-bottom: 1px solid transparent;
+}
+
+.appointmentMoment.today {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding: 24px 8px;
+}
+
+.appointmentMoment.past {
+  opacity: 0.6;
+}
+
+.timePresence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.dayText {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timeText {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  font-variant-numeric: tabular-nums;
+}
+
+.encounter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.personName {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.treatmentName {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.statusText {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.statusText.gentle {
+  color: rgba(245, 158, 11, 0.8);
+}
+
+.statusText.calm {
+  color: rgba(16, 185, 129, 0.8);
+}
+
+.statusText.soft {
+  color: rgba(107, 114, 128, 0.8);
+}
+
+.statusText.quiet {
+  color: rgba(156, 163, 175, 0.8);
+}
+
+.gentleActions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .appointmentFlow {
+    gap: 32px;
+  }
+
+  .flowTitle {
+    font-size: 28px;
+  }
+
+  .appointmentMoment {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .timePresence {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    min-width: auto;
+  }
+
+  .timeFilter {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filterMoment {
+    flex: 1;
+    text-align: center;
+  }
+}

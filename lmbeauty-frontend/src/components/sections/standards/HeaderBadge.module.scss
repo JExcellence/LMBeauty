@@ -1,0 +1,67 @@
+// HeaderBadge.module.scss
+// Floating badge with gentle animation
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(196, 96, 122, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  
+  // Initial state
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: 
+    opacity 400ms var(--lm-ease-reveal),
+    transform 400ms var(--lm-ease-reveal);
+  transition-delay: 100ms;
+  
+  @media (max-width: 767px) {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: gentleFloat 4s ease-in-out infinite;
+  animation-delay: 600ms;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: var(--lm-pink-dark);
+  
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+// Reduced Motion Support
+/*@media (prefers-reduced-motion: reduce) {
+  .headerBadge {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .visible {
+    animation: none;
+  }
+}*/

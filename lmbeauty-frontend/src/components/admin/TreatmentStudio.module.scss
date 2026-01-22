@@ -1,0 +1,727 @@
+// ============================================
+// Treatment Studio - Premium Admin Experience
+// Editorial layout + emotional safety + calm confidence
+// ============================================
+
+.treatmentStudio {
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.studioHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  
+  // Glass morphism header
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  
+  // Soft shadow for depth
+  box-shadow: 0 1px 20px rgba(196, 96, 122, 0.06);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 40px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 20px 20px;
+  }
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.studioTitle {
+  font-size: 32px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.studioSubtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8A8580;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.actionButton {
+  padding: 12px 20px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-radius: 12px !important;
+  
+  // Premium button styling
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%) !important;
+  border: none !important;
+  color: white !important;
+  
+  // Soft shadow
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.2) !important;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  
+  &:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(196, 96, 122, 0.25) !important;
+  }
+  
+  @media (max-width: 768px) {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.navigationSection {
+  padding: 0 40px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 0 20px 20px;
+  }
+}
+
+// ============================================
+// Segmented Control - Premium Design
+// ============================================
+
+.segmentedControl {
+  display: flex;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 4px;
+  backdrop-filter: blur(10px);
+  
+  // Soft inner shadow
+  box-shadow: inset 0 1px 3px rgba(196, 96, 122, 0.08);
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.segment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  
+  font-size: 14px;
+  font-weight: 400;
+  color: #8A8580;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  @media (max-width: 768px) {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+  
+  &:hover {
+    color: #2D2A26;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.segmentActive {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #2D2A26 !important;
+  
+  // Soft shadow for active state
+  box-shadow: 
+    0 2px 8px rgba(196, 96, 122, 0.12),
+    0 1px 2px rgba(196, 96, 122, 0.08) !important;
+}
+
+.segmentLabel {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+// ============================================
+// Studio Main Content
+// ============================================
+
+.studioMain {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+  }
+}
+
+// ============================================
+// Overview View
+// ============================================
+
+.overviewView {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.studioStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  
+  // Glass morphism card
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  
+  // Soft shadow
+  box-shadow: 
+    0 8px 32px rgba(196, 96, 122, 0.08),
+    0 1px 2px rgba(196, 96, 122, 0.04);
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(196, 96, 122, 0.12),
+      0 2px 4px rgba(196, 96, 122, 0.06);
+  }
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  
+  // Gradient background
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  color: white;
+  
+  // Soft shadow
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.2);
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: 400;
+  color: #2D2A26;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 13px;
+  font-weight: 300;
+  color: #8A8580;
+  letter-spacing: 0.01em;
+}
+
+// ============================================
+// Categories Container
+// ============================================
+
+.categoriesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.categorySection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.categoryTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.categoryTitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.01em;
+  
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.categoryCount {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.countText {
+  font-size: 12px;
+  font-weight: 300;
+  color: #8A8580;
+  letter-spacing: 0.01em;
+}
+
+// ============================================
+// Treatment Grid & Cards
+// ============================================
+
+.treatmentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.treatmentCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  
+  // Glass morphism card
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  
+  // Soft shadow
+  box-shadow: 
+    0 8px 32px rgba(196, 96, 122, 0.08),
+    0 1px 2px rgba(196, 96, 122, 0.04);
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 16px 48px rgba(196, 96, 122, 0.12),
+      0 2px 4px rgba(196, 96, 122, 0.06);
+    
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.categoryBadge {
+  padding: 4px 10px;
+  background: rgba(212, 112, 138, 0.1);
+  border: 1px solid rgba(212, 112, 138, 0.2);
+  border-radius: 8px;
+}
+
+.categoryText {
+  font-size: 11px;
+  font-weight: 400;
+  color: #C4607A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+  color: #8A8580;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2D2A26;
+    transform: scale(1.05);
+  }
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  color: #FF6B6B;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover:not(:disabled) {
+    background: rgba(255, 107, 107, 0.2);
+    color: #FF4444;
+    transform: scale(1.05);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.treatmentTitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #2D2A26;
+  line-height: 1.3;
+}
+
+.treatmentDescription {
+  font-size: 14px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.5;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.treatmentMeta {
+  display: flex;
+  gap: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaText {
+  font-size: 13px;
+  font-weight: 300;
+  color: #8A8580;
+}
+
+.treatmentStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusActive {
+  background: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.statusInactive {
+  background: #9E9E9E;
+}
+
+.statusText {
+  font-size: 12px;
+  font-weight: 300;
+  color: #8A8580;
+}
+
+// ============================================
+// Empty State
+// ============================================
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 80px 40px;
+  text-align: center;
+  
+  // Glass morphism container
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
+}
+
+.emptyIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  
+  // Gradient background
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  color: white;
+  opacity: 0.8;
+  
+  // Soft shadow
+  box-shadow: 0 8px 32px rgba(196, 96, 122, 0.2);
+}
+
+.emptyTitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.emptyDescription {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.5;
+  max-width: 400px;
+  
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.createButton {
+  margin-top: 8px;
+  padding: 14px 24px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  border-radius: 12px !important;
+  
+  // Premium button styling
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%) !important;
+  border: none !important;
+  color: white !important;
+  
+  // Soft shadow
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.2) !important;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  
+  &:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(196, 96, 122, 0.25) !important;
+  }
+}
+
+// ============================================
+// Analytics View
+// ============================================
+
+.analyticsView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  
+  // Glass morphism container
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  
+  @media (max-width: 768px) {
+    padding: 40px 24px;
+  }
+}
+
+.comingSoonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  
+  // Gradient background
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  color: white;
+  opacity: 0.7;
+  
+  // Soft shadow
+  box-shadow: 0 6px 24px rgba(196, 96, 122, 0.2);
+}
+
+.comingSoonTitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.01em;
+}
+
+.comingSoonDescription {
+  font-size: 15px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.5;
+  max-width: 350px;
+}
+
+// ============================================
+// Loading States
+// ============================================
+
+.studioLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 40px;
+  
+  // Glass morphism card
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  
+  // Soft shadow
+  box-shadow: 
+    0 8px 32px rgba(196, 96, 122, 0.08),
+    0 1px 2px rgba(196, 96, 122, 0.04);
+}
+
+.loadingSpinner {
+  color: #D4708A;
+  opacity: 0.7;
+  
+  // Gentle pulse animation
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.4; }
+}
+
+.loadingText {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8A8580;
+  text-align: center;
+  letter-spacing: 0.01em;
+}

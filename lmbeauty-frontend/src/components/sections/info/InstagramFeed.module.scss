@@ -1,0 +1,114 @@
+.handle {
+  color: var(--brand-on-background-strong);
+  text-decoration: none;
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    opacity: 0.7;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-on-background-strong);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+}
+
+.grid {
+  width: 100%;
+}
+
+.post {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: scale(1.03);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-on-background-strong);
+    outline-offset: 3px;
+  }
+
+  img {
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+.placeholder {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--brand-alpha-weak) 50%,
+    var(--surface) 100%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.empty {
+  grid-column: 1 / -1;
+  color: var(--neutral-on-background-weak);
+  text-align: center;
+}
+
+.moreLink {
+  color: var(--brand-on-background-strong);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    border-bottom-color: var(--brand-on-background-strong);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-on-background-strong);
+    outline-offset: 6px;
+    border-radius: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    img {
+      transition: none;
+    }
+    
+    &:hover img {
+      transform: none;
+    }
+  }
+  
+  .placeholder {
+    animation: none;
+    background: var(--surface);
+  }
+}

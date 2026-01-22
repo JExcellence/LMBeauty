@@ -1,0 +1,89 @@
+.socialButton {
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: translateX(4px);
+    
+    span {
+      color: var(--brand-on-background-strong) !important;
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: translateX(4px);
+    
+    span {
+      color: var(--brand-on-background-strong) !important;
+    }
+    
+    svg {
+      color: var(--brand-on-background-strong);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.bottomBar {
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.legalLinks {
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.legalLink {
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    span {
+      color: var(--brand-on-background-strong) !important;
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.developerLink {
+  color: var(--brand-on-background-strong);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brand-alpha-medium);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}

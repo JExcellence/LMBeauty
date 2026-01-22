@@ -1,0 +1,904 @@
+// ============================================
+// Beauty Studio Dashboard - Professional & Reliable
+// 100vh for PC, fancy for mobile
+// ============================================
+
+.beautyStudioDashboard {
+  height: 100vh;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  
+  position: relative;
+  overflow: hidden;
+  
+  // Subtle background for PC
+  background: linear-gradient(135deg, 
+    rgba(255, 248, 250, 0.3) 0%, 
+    rgba(255, 240, 244, 0.2) 100%
+  );
+  
+  @media (max-width: 768px) {
+    // Fancy mobile background
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(255, 240, 244, 0.6) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255, 248, 250, 0.4) 0%, transparent 40%),
+      linear-gradient(135deg, #FFF8FA 0%, #FFEEF0 25%, #FFE8EC 50%, #FFF0F2 75%, #FFF8FA 100%);
+    
+    padding: 20px 16px;
+    gap: 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+// ============================================
+// Loading State
+// ============================================
+
+.loadingState {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(196, 96, 122, 0.1);
+  border-top: 3px solid #D4708A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8A8580;
+  text-align: center;
+}
+
+// ============================================
+// Professional Header
+// ============================================
+
+.dashboardHeader {
+  flex-shrink: 0;
+  padding: 20px 24px;
+  
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  
+  box-shadow: 0 4px 20px rgba(196, 96, 122, 0.08);
+  
+  @media (max-width: 768px) {
+    // Fancy mobile header
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    box-shadow: 
+      0 8px 32px rgba(196, 96, 122, 0.12),
+      0 2px 8px rgba(196, 96, 122, 0.06);
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.greetingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.greetingText {
+  font-size: 28px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 32px;
+    background: linear-gradient(135deg, #2D2A26 0%, #8A8580 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.dateText {
+  font-size: 14px;
+  font-weight: 300;
+  color: #8A8580;
+  text-transform: capitalize;
+}
+
+.timeDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 80px;
+  height: 80px;
+  
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  border-radius: 50%;
+  
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.2);
+  
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+    align-self: flex-end;
+    
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(255, 248, 250, 0.9) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    box-shadow: 
+      0 8px 24px rgba(196, 96, 122, 0.15),
+      0 2px 8px rgba(196, 96, 122, 0.08);
+  }
+}
+
+.currentTime {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  font-variant-numeric: tabular-nums;
+  
+  @media (max-width: 768px) {
+    color: #2D2A26;
+    font-size: 18px;
+  }
+}
+
+// ============================================
+// Metrics Grid - Professional for PC
+// ============================================
+
+.metricsGrid {
+  position: relative;
+  height: 120px;
+  flex-shrink: 0;
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  
+  @media (max-width: 768px) {
+    // Fancy floating orbs for mobile
+    height: 200px;
+    display: block;
+  }
+}
+
+.metricOrb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  
+  box-shadow: 0 2px 12px rgba(196, 96, 122, 0.06);
+  
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(196, 96, 122, 0.12);
+  }
+  
+  @media (max-width: 768px) {
+    // Fancy floating position for mobile
+    position: absolute;
+    animation: orbFloat 6s ease-in-out infinite;
+    
+    &.orbSmall { transform: scale(0.8); }
+    &.orbMedium { transform: scale(1); }
+    &.orbLarge { transform: scale(1.2); }
+    
+    &.orbPulse .orbCore {
+      animation: orbPulse 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 112, 138, 0.3); }
+  50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(212, 112, 138, 0.5); }
+}
+
+.orbCore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  color: white;
+  
+  box-shadow: 0 2px 8px rgba(196, 96, 122, 0.2);
+  
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(255, 248, 250, 0.9) 100%
+    );
+    color: #D4708A;
+    
+    box-shadow: 
+      0 6px 20px rgba(196, 96, 122, 0.15),
+      0 2px 8px rgba(196, 96, 122, 0.08);
+  }
+}
+
+.orbHalo {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    
+    background: linear-gradient(135deg, 
+      rgba(212, 112, 138, 0.1) 0%, 
+      rgba(196, 96, 122, 0.05) 100%
+    );
+    
+    animation: haloRotate 8s linear infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes haloRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.orbData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.orbValue {
+  font-size: 18px;
+  font-weight: 400;
+  color: #2D2A26;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.orbLabel {
+  font-size: 11px;
+  font-weight: 300;
+  color: #8A8580;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+// ============================================
+// Main Content Layout
+// ============================================
+
+.mainContent {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  min-height: 0;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.scheduleSection,
+.servicesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.sectionHeader {
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: #2D2A26;
+  letter-spacing: -0.01em;
+}
+
+// ============================================
+// Flowing Timeline - Simplified for PC
+// ============================================
+
+.flowingTimeline {
+  flex: 1;
+  padding: 24px;
+  
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  
+  box-shadow: 0 2px 12px rgba(196, 96, 122, 0.06);
+  
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    // Fancy mobile timeline
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(255, 248, 250, 0.6) 100%
+    );
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    
+    box-shadow: 
+      0 8px 32px rgba(196, 96, 122, 0.12),
+      0 2px 8px rgba(196, 96, 122, 0.06);
+  }
+}
+
+.timelineRiver {
+  width: 100%;
+  min-height: 80px;
+  
+  background: linear-gradient(90deg, 
+    rgba(212, 112, 138, 0.1) 0%,
+    rgba(212, 112, 138, 0.2) 50%,
+    rgba(212, 112, 138, 0.1) 100%
+  );
+  border-radius: 40px;
+  
+  position: relative;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    min-height: 100px;
+    border-radius: 50px;
+  }
+}
+
+.riverFlow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+  
+  animation: riverFlow 6s ease-in-out infinite;
+}
+
+@keyframes riverFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.timelineNode {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  
+  animation: nodeAppear 0.6s ease-out forwards;
+  opacity: 0;
+  
+  @media (max-width: 768px) {
+    position: static;
+    margin: 12px 0;
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@keyframes nodeAppear {
+  0% { opacity: 0; transform: translateY(-50%) scale(0.8); }
+  100% { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+.nodeCore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(212, 112, 138, 0.3);
+  
+  box-shadow: 0 2px 8px rgba(196, 96, 122, 0.1);
+  
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+    border-color: rgba(212, 112, 138, 0.5);
+  }
+}
+
+.nodeTime {
+  font-size: 10px;
+  font-weight: 400;
+  color: #C4607A;
+  font-variant-numeric: tabular-nums;
+}
+
+.nodeDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  
+  box-shadow: 0 2px 8px rgba(196, 96, 122, 0.06);
+}
+
+.nodeClient {
+  font-size: 12px;
+  font-weight: 400;
+  color: #2D2A26;
+  line-height: 1.2;
+}
+
+.nodeTreatment {
+  font-size: 10px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.2;
+}
+
+.nodeConnection {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 30px;
+  height: 1px;
+  
+  background: linear-gradient(90deg, 
+    rgba(212, 112, 138, 0.3) 0%, 
+    transparent 100%
+  );
+  
+  transform: translateY(-50%);
+}
+
+// ============================================
+// Timeline Empty State
+// ============================================
+
+.timelineEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+  height: 150px;
+  text-align: center;
+  position: relative;
+}
+
+.emptyRipple {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  
+  background: radial-gradient(
+    circle,
+    rgba(212, 112, 138, 0.1) 0%,
+    rgba(212, 112, 138, 0.05) 50%,
+    transparent 100%
+  );
+  
+  animation: ripple 3s ease-in-out infinite;
+}
+
+@keyframes ripple {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 0.3; }
+}
+
+.emptyMessage {
+  font-size: 16px;
+  font-weight: 300;
+  color: #2D2A26;
+  line-height: 1.3;
+}
+
+.emptySubtext {
+  font-size: 12px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.4;
+}
+
+// ============================================
+// Constellation View - Simplified
+// ============================================
+
+.constellationView {
+  flex: 1;
+  padding: 24px;
+  
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  
+  box-shadow: 0 2px 12px rgba(196, 96, 122, 0.06);
+  
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(255, 248, 250, 0.6) 100%
+    );
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    
+    box-shadow: 
+      0 8px 32px rgba(196, 96, 122, 0.12),
+      0 2px 8px rgba(196, 96, 122, 0.06);
+  }
+}
+
+.starField {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+}
+
+.treatmentStar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  
+  animation: starTwinkle 3s ease-in-out infinite;
+  
+  @media (max-width: 768px) {
+    position: static;
+    margin: 8px;
+    animation: starTwinkle 4s ease-in-out infinite;
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.starCore {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  
+  box-shadow: 0 0 8px rgba(212, 112, 138, 0.4);
+  
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;
+    box-shadow: 
+      0 0 12px rgba(212, 112, 138, 0.4),
+      0 0 24px rgba(212, 112, 138, 0.2);
+  }
+}
+
+.starGlow {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  
+  background: radial-gradient(
+    circle,
+    rgba(212, 112, 138, 0.2) 0%,
+    rgba(212, 112, 138, 0.1) 50%,
+    transparent 100%
+  );
+  
+  animation: starGlow 2s ease-in-out infinite;
+  z-index: -1;
+  
+  @media (max-width: 768px) {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    animation: starGlow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes starGlow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.9; }
+}
+
+.starLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  
+  box-shadow: 0 2px 6px rgba(196, 96, 122, 0.06);
+}
+
+.starName {
+  font-size: 10px;
+  font-weight: 400;
+  color: #2D2A26;
+  line-height: 1.2;
+}
+
+.starPrice {
+  font-size: 9px;
+  font-weight: 300;
+  color: #C4607A;
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.constellationLine {
+  stroke: rgba(212, 112, 138, 0.2);
+  stroke-width: 0.5;
+  stroke-dasharray: 2, 2;
+  
+  animation: lineGlow 4s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.constellationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.constellationTitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: #2D2A26;
+}
+
+.constellationSubtext {
+  font-size: 11px;
+  font-weight: 300;
+  color: #8A8580;
+}
+
+// ============================================
+// Studio Mood - Simplified
+// ============================================
+
+.studioMood {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  
+  background: rgba(255, 248, 250, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 112, 138, 0.1);
+  border-radius: 12px;
+  
+  box-shadow: 0 2px 8px rgba(196, 96, 122, 0.06);
+  
+  @media (max-width: 768px) {
+    background: linear-gradient(135deg, 
+      rgba(255, 248, 250, 0.9) 0%, 
+      rgba(255, 240, 244, 0.7) 100%
+    );
+    backdrop-filter: blur(25px);
+    border-radius: 16px;
+    
+    box-shadow: 
+      0 6px 24px rgba(196, 96, 122, 0.12),
+      0 2px 8px rgba(196, 96, 122, 0.06);
+  }
+}
+
+.moodIndicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, 
+    rgba(212, 112, 138, 0.1) 0%, 
+    rgba(196, 96, 122, 0.05) 100%
+  );
+}
+
+.moodPulse {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  
+  animation: moodPulse 2s ease-in-out infinite;
+}
+
+@keyframes moodPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(212, 112, 138, 0.3);
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(212, 112, 138, 0.5);
+  }
+}
+
+.moodContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.moodTitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: #2D2A26;
+  line-height: 1.3;
+}
+
+.moodDescription {
+  font-size: 11px;
+  font-weight: 300;
+  color: #8A8580;
+  line-height: 1.3;
+}
+
+// ============================================
+// Mobile Responsive Adjustments
+// ============================================
+
+@media (max-width: 768px) {
+  .metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    height: auto;
+  }
+  
+  .metricOrb {
+    position: static;
+    animation: none;
+    transform: none !important;
+  }
+  
+  .starField {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    height: auto;
+  }
+  
+  .treatmentStar {
+    position: static;
+    margin: 0;
+  }
+}

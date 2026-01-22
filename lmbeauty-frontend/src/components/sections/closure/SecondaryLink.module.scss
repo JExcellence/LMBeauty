@@ -1,0 +1,64 @@
+// SecondaryLink.module.scss
+// Subtle secondary link with arrow icon and hover effect
+
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 8px 4px;
+  
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--lm-text-medium);
+  text-decoration: none;
+  
+  transition: color 200ms ease-out;
+  
+  &:hover {
+    color: var(--lm-pink-dark);
+    
+    .linkIcon {
+      transform: translateX(4px);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--lm-pink-dark);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 639px) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+}
+
+.linkIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 200ms ease-out;
+  
+  @media (max-width: 639px) {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// ============================================
+// Reduced Motion Support
+// ============================================
+/*
+@media (prefers-reduced-motion: reduce) {
+  .linkIcon {
+    transition: none;
+  }
+  
+  .secondaryLink:hover .linkIcon {
+    transform: none;
+  }
+}
+*/

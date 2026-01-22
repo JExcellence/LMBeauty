@@ -1,0 +1,127 @@
+.treatmentCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(212, 112, 138, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 4px 20px rgba(212, 112, 138, 0.08);
+  
+  &:hover {
+    border-color: rgba(212, 112, 138, 0.25);
+    box-shadow: 0 8px 30px rgba(212, 112, 138, 0.15);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.95);
+    
+    .selectIndicator {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #C4607A;
+    outline-offset: 2px;
+  }
+  
+  &.selected {
+    border-color: #C4607A;
+    box-shadow: 0 8px 30px rgba(196, 96, 122, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    
+    .selectIndicator {
+      opacity: 1;
+      transform: translateX(0);
+      background: #C4607A;
+      color: white;
+    }
+  }
+}
+
+.popularBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(196, 96, 122, 0.3);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.treatmentImage {
+  object-fit: cover;
+  transition: transform 400ms ease;
+  
+  .treatmentCard:hover & {
+    transform: scale(1.02);
+  }
+}
+
+.imagePlaceholder {
+  background: linear-gradient(135deg, rgba(212, 112, 138, 0.1) 0%, rgba(196, 96, 122, 0.05) 100%);
+  color: #C4607A;
+}
+
+.cardContent {
+  padding: 20px;
+}
+
+.treatmentName {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #2C1810;
+  font-weight: 600;
+}
+
+.treatmentDescription {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: rgba(44, 24, 16, 0.7);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  padding-top: 12px;
+  border-top: 1px solid rgba(212, 112, 138, 0.1);
+}
+
+.metaIcon {
+  color: #C4607A;
+}
+
+.metaText {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: rgba(44, 24, 16, 0.6);
+}
+
+.price {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #C4607A;
+  font-weight: 600;
+}
+
+.selectIndicator {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: rgba(196, 96, 122, 0.1);
+  border-radius: 50%;
+  color: #C4607A;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: all 250ms ease;
+}

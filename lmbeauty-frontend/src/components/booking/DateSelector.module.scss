@@ -1,0 +1,145 @@
+.dateSelector {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(196, 96, 122, 0.08);
+  max-width: 400px;
+  margin: 0 auto;
+  
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
+}
+
+.calendarHeader {
+  margin-bottom: 24px;
+}
+
+.monthTitle {
+  color: #2D2A26;
+}
+
+.weekdayHeader {
+  margin-bottom: 8px;
+}
+
+.weekdayCell {
+  flex: 1;
+  padding: 8px 0;
+}
+
+.weekdayText {
+  color: #8A8580;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  padding: 2px;
+}
+
+.dayButton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+  
+  &:focus-visible {
+    outline: 2px solid #C4607A;
+    outline-offset: 2px;
+  }
+}
+
+.available {
+  color: #2D2A26;
+  
+  &:hover {
+    background: rgba(196, 96, 122, 0.08);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #C4607A;
+    opacity: 0.5;
+  }
+}
+
+.unavailable {
+  color: #D1D1D1;
+  cursor: not-allowed;
+  
+  &:hover {
+    background: transparent;
+  }
+}
+
+.selected {
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.3);
+  
+  &::after {
+    display: none;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, #B5506A 0%, #C4607A 100%);
+  }
+  
+  * {
+    color: white;
+  }
+}
+
+.today {
+  font-weight: 600;
+  
+  &:not(.selected) {
+    border: 2px solid rgba(196, 96, 122, 0.3);
+  }
+}
+
+.legend {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(196, 96, 122, 0.08);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legendAvailable {
+  background: #C4607A;
+  opacity: 0.5;
+}
+
+.legendSelected {
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%);
+}

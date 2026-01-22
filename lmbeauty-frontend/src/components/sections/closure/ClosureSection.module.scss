@@ -1,0 +1,362 @@
+// ClosureSection.module.scss
+// Enhanced emotional permission — two-column layout
+
+.closureSection {
+  position: relative;
+  width: 100%;
+  padding: 120px 80px;
+  overflow: hidden;
+  background: var(--lm-bg-warm, #FFF8F5);
+
+  @media (max-width: 1023px) {
+    padding: 100px 40px;
+  }
+
+  @media (max-width: 639px) {
+    padding: 80px 20px;
+  }
+}
+
+// Background gradient
+.backgroundGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--lm-pink-pale, #FFF0F4) 0%,
+    transparent 60%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+  
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Two-column layout
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+// Left Column — CTA
+.ctaColumn {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+}
+
+.visible .ctaColumn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Emotional permission — the whisper before the ask
+.permission {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--lm-text-medium, #5A5550);
+  margin: 0 0 32px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--lm-pink-pale, #FFF0F4);
+  max-width: 400px;
+  
+  @media (max-width: 900px) {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 639px) {
+    font-size: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+}
+
+.label {
+  display: inline-block;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--lm-pink-dark, #C4607A);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--lm-text-dark, #2D2A26);
+  margin: 0 0 20px 0;
+  text-wrap: balance;
+
+  @media (max-width: 1023px) {
+    font-size: 36px;
+  }
+
+  @media (max-width: 639px) {
+    font-size: 32px;
+  }
+}
+
+.accent {
+  color: var(--lm-pink-dark, #C4607A);
+}
+
+.description {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--lm-text-medium, #5A5550);
+  margin: 0 0 32px 0;
+  max-width: 480px;
+  hyphens: auto;
+
+  @media (max-width: 639px) {
+    font-size: 16px;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  
+  @media (max-width: 900px) {
+    align-items: center;
+  }
+}
+
+// Primary CTA — matching PremiumCta exactly
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  min-width: 180px;
+  height: 52px;
+  padding: 0 32px;
+  
+  // Gradient matching hero
+  background: linear-gradient(135deg, 
+    var(--lm-pink-medium, #D4708A) 0%, 
+    var(--lm-pink-dark, #C4607A) 100%
+  );
+  color: #FFFFFF;
+  
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  
+  // Shadow matching hero
+  box-shadow: 0 4px 24px rgba(196, 96, 122, 0.25);
+  
+  transition: 
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(196, 96, 122, 0.35);
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  
+  &:focus-visible {
+    outline: 3px solid var(--lm-pink-dark);
+    outline-offset: 3px;
+  }
+  
+  svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 639px) {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+.ctaNote {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--lm-text-light, #8A8580);
+  font-style: italic;
+}
+
+// Right Column — Contact Card
+.contactColumn {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+  transition-delay: 150ms;
+}
+
+.visible .contactColumn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contactCard {
+  background: var(--lm-bg-white, #FFFFFF);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--lm-border, rgba(45, 42, 38, 0.08));
+}
+
+.contactTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lm-text-dark, #2D2A26);
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.contactMethod {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--lm-bg-warm, #FFF8F5);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 
+    background 200ms ease-out,
+    transform 200ms ease-out;
+  
+  opacity: 0;
+  transform: translateX(16px);
+  
+  &:hover {
+    background: var(--lm-pink-pale, #FFF0F4);
+    transform: translateX(4px);
+  }
+}
+
+.visible .contactMethod {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 
+    opacity 400ms ease-out,
+    transform 400ms ease-out,
+    background 200ms ease-out;
+  transition-delay: calc(300ms + (var(--method-index, 0) * 80ms));
+  
+  &:hover {
+    transform: translateX(4px);
+  }
+}
+
+.methodIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--lm-bg-white, #FFFFFF);
+  border-radius: 12px;
+  color: var(--lm-pink-dark, #C4607A);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.methodContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.methodLabel {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--lm-text-light, #8A8580);
+}
+
+.methodValue {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--lm-text-dark, #2D2A26);
+}
+
+.methodArrow {
+  color: var(--lm-text-light, #8A8580);
+  transition: transform 200ms ease-out;
+}
+
+.contactMethod:hover .methodArrow {
+  transform: translateX(4px);
+  color: var(--lm-pink-dark, #C4607A);
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--lm-border, rgba(45, 42, 38, 0.08));
+  color: var(--lm-text-light, #8A8580);
+}

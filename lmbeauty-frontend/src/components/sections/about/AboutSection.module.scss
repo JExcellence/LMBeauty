@@ -1,0 +1,23 @@
+.headlineUnderline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-background-strong) 0%,
+    var(--brand-background-medium) 100%
+  );
+  border-radius: 2px;
+
+  @media (max-width: 639px) {
+    width: 60px;
+    height: 2px;
+  }
+}
+
+.imageColumn {
+  @media (max-width: 640px) {
+    max-width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

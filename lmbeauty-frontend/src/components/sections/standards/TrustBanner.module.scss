@@ -1,0 +1,48 @@
+// TrustBanner.module.scss
+// Controlled richness — subtle trust reinforcement
+
+.trustBanner {
+  margin-top: 48px;
+  padding: 24px 32px;
+  
+  background: linear-gradient(
+    135deg,
+    rgba(255, 240, 244, 0.5) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  border-radius: 16px;
+  border: 1px solid rgba(196, 96, 122, 0.08);
+  
+  text-align: center;
+  
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+  transition-delay: 500ms;
+  
+  @media (max-width: 767px) {
+    margin-top: 36px;
+    padding: 20px 24px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bannerText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--lm-text-medium);
+  margin: 0;
+  line-height: 1.65;
+  font-style: italic;
+  
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+}

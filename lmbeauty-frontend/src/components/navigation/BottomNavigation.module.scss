@@ -1,0 +1,91 @@
+/* Bottom Navigation - Mobile First with LM Beauty Colors */
+.bottomNav {
+  background: var(--lm-bg-warm, #FFF8F5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(212, 112, 138, 0.08);
+  box-shadow: 0 -4px 20px rgba(212, 112, 138, 0.06);
+  
+  /* Hide on desktop - we'll use sidebar there */
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-width: 60px;
+  
+  &:hover {
+    background: rgba(212, 112, 138, 0.04);
+    transform: translateY(-1px);
+  }
+  
+  &.active {
+    background: rgba(212, 112, 138, 0.08);
+    
+    &:hover {
+      background: rgba(212, 112, 138, 0.12);
+    }
+  }
+}
+
+.navButton {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(44, 24, 16, 0.6);
+  transition: all 0.3s ease;
+  
+  &.activeButton {
+    color: var(--lm-pink-medium, #D4708A);
+    background: rgba(212, 112, 138, 0.1) !important;
+  }
+  
+  .navItem:hover & {
+    color: rgba(44, 24, 16, 0.8);
+  }
+  
+  .navItem.active:hover & {
+    color: var(--lm-pink-dark, #C4607A);
+  }
+}
+
+.navLabel {
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(44, 24, 16, 0.6);
+  letter-spacing: 0.01em;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.2;
+  
+  &.activeLabel {
+    color: var(--lm-pink-medium, #D4708A);
+    font-weight: 500;
+  }
+  
+  .navItem:hover & {
+    color: rgba(44, 24, 16, 0.8);
+  }
+  
+  .navItem.active:hover & {
+    color: var(--lm-pink-dark, #C4607A);
+  }
+}
+
+/* Ensure content doesn't get hidden behind bottom nav */
+:global(body) {
+  padding-bottom: 80px;
+  
+  @media (min-width: 769px) {
+    padding-bottom: 0;
+  }
+}

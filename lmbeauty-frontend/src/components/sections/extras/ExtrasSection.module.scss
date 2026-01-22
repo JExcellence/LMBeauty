@@ -1,0 +1,450 @@
+// ExtrasSection.module.scss
+// Post-scriptum of Services — NOT a new section
+
+// ============================================
+// Design Tokens
+// ============================================
+:root {
+  --extras-pink-dark: #C4607A;
+  --extras-pink-medium: #D4708A;
+  --extras-pink-light: #E8A4B8;
+  --extras-pink-pale: #FFF0F4;
+  --extras-text-dark: #2D2A26;
+  --extras-text-medium: #5A5550;
+  --extras-text-light: #8A8580;
+  --extras-bg-warm: #FFF9F7;
+}
+
+// ============================================
+// Section Container — Aggressive overlap
+// ============================================
+.extrasSection {
+  position: relative;
+  width: 100%;
+  // Same background as Services — seamless
+  background: #FFF9F7;
+  // Aggressive negative margin for true overlap
+  margin-top: -24px;
+  padding: 0 80px 64px;
+  overflow: visible;
+  z-index: 3;
+  
+  @media (max-width: 1023px) {
+    margin-top: -20px;
+    padding: 0 40px 56px;
+  }
+  
+  @media (max-width: 639px) {
+    margin-top: -16px;
+    padding: 0 20px 48px;
+  }
+}
+
+// ============================================
+// Visual Bridge — Subtle, not decorative
+// ============================================
+.visualBridge {
+  display: none; // Remove — the overlap handles continuity
+}
+
+.extrasContainer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  // Minimal top padding — feels attached
+  padding-top: 32px;
+  z-index: 2;
+  
+  @media (max-width: 639px) {
+    padding-top: 24px;
+  }
+}
+
+// ============================================
+// Scroll Reveal — Gentler, faster
+// ============================================
+.sectionHeader,
+.serviceGroup,
+.bridgeLine,
+.stylistNote,
+.softCta {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: 
+    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.extraCard {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: 
+    opacity 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 180ms ease-out,
+    box-shadow 180ms ease-out;
+}
+
+.sectionVisible {
+  .bridgeLine {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0ms;
+  }
+  
+  .sectionHeader {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 80ms;
+  }
+  
+  .serviceGroup {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .extraCard {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .stylistNote {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 400ms;
+  }
+  
+  .softCta {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 480ms;
+  }
+}
+
+// Reduced motion support
+/*@media (prefers-reduced-motion: reduce) {
+  .sectionHeader,
+  .serviceGroup,
+  .extraCard,
+  .bridgeLine,
+  .stylistNote,
+  .softCta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}*/
+
+// ============================================
+// Emotional Bridge Line — Critical
+// ============================================
+.bridgeLine {
+  text-align: center;
+  margin-bottom: 24px;
+  
+  p {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--extras-text-light);
+    margin: 0;
+    
+    @media (max-width: 639px) {
+      font-size: 14px;
+    }
+  }
+}
+
+// ============================================
+// Section Header — Downgraded authority
+// ============================================
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 32px;
+  
+  @media (max-width: 639px) {
+    margin-bottom: 28px;
+  }
+}
+
+// Smaller, more intimate headline
+.headline {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--extras-text-dark);
+  margin: 0 0 10px 0;
+  
+  @media (max-width: 639px) {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+}
+
+.headlineEmphasis {
+  color: var(--extras-pink-dark);
+  font-weight: 600;
+}
+
+.subline {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--extras-text-medium);
+  max-width: 360px;
+  margin: 0 auto;
+  
+  @media (max-width: 639px) {
+    font-size: 14px;
+  }
+}
+
+// ============================================
+// Service Groups — Staggered 2+2
+// ============================================
+.groupsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 36px;
+  
+  @media (max-width: 639px) {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+}
+
+.serviceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
+  // Staggered alignment
+  &:nth-child(odd) {
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 60px;
+    
+    @media (max-width: 800px) {
+      padding-right: 20px;
+    }
+  }
+  
+  &:nth-child(even) {
+    align-items: flex-end;
+    padding-right: 0;
+    padding-left: 60px;
+    
+    .groupLabel {
+      text-align: right;
+    }
+    
+    @media (max-width: 800px) {
+      padding-left: 20px;
+    }
+  }
+  
+  @media (max-width: 639px) {
+    &:nth-child(odd),
+    &:nth-child(even) {
+      align-items: stretch;
+      padding: 0;
+      
+      .groupLabel {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.groupLabel {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--extras-pink-medium);
+  opacity: 0.8;
+  padding: 0 2px;
+}
+
+.groupCards {
+  display: flex;
+  gap: 12px;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+}
+
+// ============================================
+// Extra Card — Soft container, not catalog
+// ============================================
+.extraCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  min-width: 240px;
+  max-width: 300px;
+  // Soft surface tint, not white card
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  // No shadow — just surface
+  box-shadow: none;
+  
+  &:hover {
+    background: rgba(255, 240, 244, 0.7);
+    // Subtle lift
+    box-shadow: 0 2px 8px rgba(196, 96, 122, 0.06);
+    transform: translateY(-2px);
+    
+    .cardArrow {
+      opacity: 1;
+      transform: translateX(3px);
+      color: var(--extras-pink-dark);
+    }
+    
+    .cardTitle {
+      color: var(--extras-pink-dark);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--extras-pink-dark);
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 600px) {
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+  }
+}
+
+.cardInner {
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--extras-text-dark);
+  margin: 0 0 2px 0;
+  transition: color 180ms ease-out;
+}
+
+.cardDescription {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--extras-text-medium);
+  margin: 0;
+}
+
+.cardArrow {
+  font-size: 16px;
+  color: var(--extras-text-light);
+  opacity: 0.3;
+  transition: 
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    color 180ms ease-out;
+  flex-shrink: 0;
+}
+
+// ============================================
+// Stylist's Note — Quieter
+// ============================================
+.stylistNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto 24px;
+  padding: 14px 18px;
+  background: rgba(255, 240, 244, 0.4);
+  border-radius: 10px;
+  border-left: 2px solid var(--extras-pink-light);
+  
+  @media (max-width: 639px) {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.noteIcon {
+  font-size: 12px;
+  color: var(--extras-pink-medium);
+  line-height: 1.5;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.stylistNote p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--extras-text-medium);
+  margin: 0;
+}
+
+// ============================================
+// Soft CTA — Almost invisible
+// ============================================
+.softCta {
+  text-align: center;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--extras-text-light);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  transition: 
+    color 180ms ease-out,
+    background 180ms ease-out;
+  
+  &::after {
+    content: '→';
+    font-size: 12px;
+    transition: transform 180ms ease-out;
+  }
+  
+  &:hover {
+    color: var(--extras-pink-dark);
+    background: rgba(255, 240, 244, 0.5);
+    
+    &::after {
+      transform: translateX(2px);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--extras-pink-dark);
+    outline-offset: 2px;
+  }
+}

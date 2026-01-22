@@ -1,0 +1,101 @@
+// StandardCard.module.scss
+// Card matching hero design language - simple, calm, no decorative effects
+
+.standardCard {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  
+  // Simple shadow matching hero
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  
+  // Subtle border
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  
+  // Initial state for animation
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 500ms var(--lm-ease-reveal),
+    transform 500ms var(--lm-ease-reveal),
+    box-shadow 300ms ease-out;
+  transition-delay: calc(200ms + (var(--card-index, 0) * 100ms));
+  
+  // Hover matching hero (subtle -2px lift)
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  @media (max-width: 1023px) {
+    padding: 28px 20px;
+  }
+  
+  @media (max-width: 767px) {
+    padding: 28px 20px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Icon Container - simple, no gradient
+.iconContainer {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  
+  background: var(--lm-pink-pale);
+  border-radius: 14px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 1023px) {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  color: var(--lm-pink-dark);
+  
+  @media (max-width: 1023px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Typography
+.cardTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lm-text-dark);
+  margin: 0 0 10px 0;
+  
+  @media (max-width: 1023px) {
+    font-size: 17px;
+  }
+}
+
+.cardDescription {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--lm-text-medium);
+  margin: 0;
+  
+  @media (max-width: 1023px) {
+    font-size: 14px;
+  }
+}

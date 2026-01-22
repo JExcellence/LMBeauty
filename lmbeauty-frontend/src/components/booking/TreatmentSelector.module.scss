@@ -1,0 +1,40 @@
+.selectorContainer {
+  padding: 0 24px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #FFF8FA;
+  
+  @media (min-width: 768px) {
+    padding: 0 40px 64px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 60px 80px;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 112, 138, 0.15);
+}
+
+.treatmentGrid {
+  width: 100%;
+}
+
+.skeletonCard {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(212, 112, 138, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(212, 112, 138, 0.08);
+}
+
+.emptyState {
+  padding: 80px 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 112, 138, 0.15);
+}

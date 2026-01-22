@@ -1,0 +1,400 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 64px 24px;
+}
+
+.loadingText {
+  font-size: 14px;
+  color: rgba(196, 96, 122, 0.6);
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px;
+  background: rgba(255, 248, 245, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(196, 96, 122, 0.08);
+  box-shadow: 0 8px 32px rgba(196, 96, 122, 0.06);
+}
+
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.greeting {
+  font-size: 32px;
+  font-weight: 600;
+  color: #C4607A;
+  line-height: 1.2;
+}
+
+.welcomeMessage {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5A5A5A;
+  line-height: 1.4;
+}
+
+.currentTime {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(196, 96, 122, 0.6);
+  margin-top: 8px;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(196, 96, 122, 0.12) !important;
+  color: #C4607A !important;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(196, 96, 122, 0.2) !important;
+  }
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%) !important;
+  border: none !important;
+  color: white !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #B55569 0%, #C4607A 100%) !important;
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.appointmentsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionHeading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2D2D2D;
+}
+
+.viewAllButton {
+  color: #C4607A !important;
+  background: transparent !important;
+  border: none !important;
+  
+  &:hover {
+    background: rgba(196, 96, 122, 0.04) !important;
+  }
+}
+
+.appointmentsList {
+  background: rgba(255, 248, 245, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(196, 96, 122, 0.08);
+  overflow: hidden;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  opacity: 0.3;
+  color: #C4607A;
+}
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5A5A5A;
+}
+
+.emptyDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(196, 96, 122, 0.6);
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.appointmentsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointmentCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(196, 96, 122, 0.06);
+  transition: all 0.2s ease;
+  position: relative;
+  
+  &:hover {
+    background: rgba(196, 96, 122, 0.02);
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.appointmentTime {
+  min-width: 60px;
+}
+
+.timeText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #C4607A;
+  font-variant-numeric: tabular-nums;
+}
+
+.appointmentDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.customerName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2D2D2D;
+}
+
+.treatmentName {
+  font-size: 14px;
+  font-weight: 400;
+  color: #5A5A5A;
+}
+
+.statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.quickActionsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quickActionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quickActionCard {
+  background: rgba(255, 248, 245, 0.6) !important;
+  border: 1px solid rgba(196, 96, 122, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  text-align: left !important;
+  height: auto !important;
+  transition: all 0.2s ease !important;
+  
+  &:hover {
+    background: rgba(255, 248, 245, 0.8) !important;
+    border-color: rgba(196, 96, 122, 0.12) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(196, 96, 122, 0.08);
+  }
+}
+
+.quickActionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.quickActionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quickActionIcon {
+  color: #C4607A;
+}
+
+.badge {
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.quickActionText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quickActionTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2D2D2D;
+}
+
+.quickActionDescription {
+  font-size: 12px;
+  font-weight: 400;
+  color: #5A5A5A;
+}
+
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.monthlyStats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 248, 245, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(196, 96, 122, 0.08);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #C4607A;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A5A5A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statTrend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.statChange {
+  font-size: 12px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .dashboardHeader {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+  
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    gap: 24px;
+  }
+  
+  .greeting {
+    font-size: 28px;
+  }
+  
+  .appointmentCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  
+  .appointmentTime {
+    min-width: auto;
+  }
+  
+  .quickActionsGrid {
+    gap: 8px;
+  }
+  
+  .quickActionCard {
+    padding: 16px !important;
+  }
+}

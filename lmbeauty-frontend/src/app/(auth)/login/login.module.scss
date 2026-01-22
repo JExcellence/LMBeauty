@@ -1,0 +1,157 @@
+.loginContainer {
+  min-height: 100vh;
+  // Clean solid background matching other sections
+  background: #FFF8FA;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+  }
+}
+
+.backgroundOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // Clean solid overlay instead of gradient
+  background: rgba(255, 248, 250, 0.9);
+}
+
+.loginForm {
+  max-width: 400px;
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px 32px;
+  
+  // Enhanced glassmorphism matching other sections
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 4px 24px rgba(196, 96, 122, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(196, 96, 122, 0.15);
+
+  @media (max-width: 480px) {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  // Clean solid background instead of gradient
+  background: rgba(196, 96, 122, 0.1);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.logo {
+  color: #C4607A; // HeroSection pink color
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2D2A26; // HeroSection text color
+  margin: 0 0 8px 0;
+  font-family: 'Merriweather Sans', sans-serif;
+  
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+}
+
+.subtitle {
+  color: #5A5550; // HeroSection medium text color
+  margin: 0;
+}
+
+/* Error */
+.error {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 12px;
+  color: #DC2626;
+}
+
+.loginButton {
+  // Enhanced button styling matching HeroSection
+  background: linear-gradient(135deg, #C4607A 0%, #C4607A 100%);
+  color: white;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(196, 96, 122, 0.15);
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 600;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196, 96, 122, 0.25);
+    background: #B85A6E;
+    border-color: rgba(196, 96, 122, 0.25);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(196, 96, 122, 0.15);
+}
+
+.legal {
+  color: #8A8580; // HeroSection light text color
+  line-height: 1.5;
+}
+
+.link {
+  color: #C4607A; // HeroSection pink color
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  
+  &:hover {
+    color: #B85A6E;
+    text-decoration: underline;
+  }
+}
+
+.helpLink {
+  color: #C4607A; // HeroSection pink color
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: #B85A6E;
+    text-decoration: underline;
+  }
+}
+
+/* Loading */
+.loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // Clean solid background instead of gradient
+  background: #FFF8FA;
+  gap: 16px;
+}

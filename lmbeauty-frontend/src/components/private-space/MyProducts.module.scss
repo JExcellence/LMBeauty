@@ -1,0 +1,66 @@
+.myProducts {
+  animation: fadeIn 400ms ease-out forwards;
+  animation-delay: 240ms;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionIcon {
+  width: 40px;
+  height: 40px;
+  background: #FFF0F4;
+  border-radius: 10px;
+  color: #C4607A;
+  flex-shrink: 0;
+}
+
+.productsGrid {
+  flex-wrap: wrap;
+}
+
+.productItem {
+  background: white;
+  border: 1px solid rgba(196, 96, 122, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 120px;
+  flex: 1;
+  max-width: 160px;
+  transition: all 200ms ease;
+
+  &:hover {
+    border-color: #C4607A;
+    transform: translateY(-2px);
+  }
+}
+
+.productImageWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productPlaceholder {
+  width: 64px;
+  height: 64px;
+  background: #FFF0F4;
+  border-radius: 12px;
+  color: #C4607A;
+}

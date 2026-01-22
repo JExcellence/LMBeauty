@@ -1,0 +1,63 @@
+// PremiumCta.module.scss
+// CTA button matching hero design language
+
+.premiumCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  min-width: 180px;
+  height: 52px;
+  padding: 0 32px;
+  
+  // Gradient matching hero
+  background: linear-gradient(135deg, 
+    var(--lm-pink-medium, #D4708A) 0%, 
+    var(--lm-pink-dark, #C4607A) 100%
+  );
+  color: #FFFFFF;
+  
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  
+  // Shadow matching hero
+  box-shadow: 0 4px 24px rgba(196, 96, 122, 0.25);
+  
+  transition: 
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(196, 96, 122, 0.35);
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  
+  &:focus-visible {
+    outline: 3px solid var(--lm-pink-dark);
+    outline-offset: 3px;
+  }
+  
+  @media (max-width: 639px) {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+.ctaIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+  flex-shrink: 0;
+}

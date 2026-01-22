@@ -1,0 +1,79 @@
+.container {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.title {
+  color: #2D2A26;
+}
+
+.subtitle {
+  color: #5A5550;
+}
+
+.stampsGrid {
+  display: flex;
+  justify-content: center;
+}
+
+.stamp {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFF8F5;
+  border: 2px dashed #E8A4B8;
+  transition: all 0.3s ease;
+
+  &.filled {
+    background: linear-gradient(135deg, #C4607A, #D4708A);
+    border: 2px solid #C4607A;
+    box-shadow: 0 2px 8px rgba(196, 96, 122, 0.3);
+  }
+
+  &.recent {
+    animation: stampPop 0.5s ease-out;
+  }
+}
+
+@keyframes stampPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stampIcon {
+  color: white;
+}
+
+.stampNumber {
+  color: #8A8580;
+}
+
+.rewardBanner {
+  background: linear-gradient(135deg, #FFF0F4, #FFF8F5);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #E8A4B8;
+}
+
+.rewardIcon {
+  color: #C4607A;
+}
+
+.rewardText {
+  color: #C4607A;
+  text-align: center;
+}
+
+.info {
+  color: #8A8580;
+  text-align: center;
+}

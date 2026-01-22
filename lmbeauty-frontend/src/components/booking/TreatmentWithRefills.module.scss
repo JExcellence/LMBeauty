@@ -1,0 +1,280 @@
+.treatmentCard {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--static-radius-12);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--accent-300);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    border-color: var(--accent-500);
+    box-shadow: 0 0 0 2px rgba(var(--accent-500-rgb), 0.2);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.treatmentImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .treatmentCard:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.discountBadge {
+  position: absolute;
+  top: var(--static-space-12);
+  right: var(--static-space-12);
+  z-index: 1;
+}
+
+.content {
+  padding: var(--static-space-20);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--static-space-12);
+  gap: var(--static-space-12);
+}
+
+.treatmentName {
+  font-size: var(--static-font-size-20);
+  font-weight: var(--static-font-weight-semibold);
+  color: var(--neutral-900);
+  margin: 0;
+  flex: 1;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--static-space-4);
+}
+
+.originalPrice {
+  font-size: var(--static-font-size-14);
+  color: var(--neutral-500);
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  font-size: var(--static-font-size-18);
+  font-weight: var(--static-font-weight-bold);
+  color: var(--accent-600);
+}
+
+.description {
+  font-size: var(--static-font-size-14);
+  color: var(--neutral-600);
+  line-height: 1.5;
+  margin: 0 0 var(--static-space-16) 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--static-space-12);
+  margin-bottom: var(--static-space-16);
+}
+
+.duration {
+  font-size: var(--static-font-size-12);
+  color: var(--neutral-500);
+  background: var(--neutral-100);
+  padding: var(--static-space-4) var(--static-space-8);
+  border-radius: var(--static-radius-4);
+}
+
+.refillInfo {
+  margin-bottom: var(--static-space-16);
+  padding: var(--static-space-12);
+  border-radius: var(--static-radius-8);
+}
+
+.eligibleInfo {
+  background: linear-gradient(135deg, var(--success-50) 0%, var(--success-25) 100%);
+  border: 1px solid var(--success-200);
+}
+
+.notEligibleInfo {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+}
+
+.eligibleText {
+  font-size: var(--static-font-size-12);
+  color: var(--success-700);
+  font-weight: var(--static-font-weight-medium);
+}
+
+.notEligibleText {
+  font-size: var(--static-font-size-12);
+  color: var(--neutral-600);
+}
+
+.selectButton {
+  width: 100%;
+}
+
+.refillDetails {
+  border-top: 1px solid var(--neutral-200);
+  padding: var(--static-space-20);
+  background: var(--neutral-25);
+}
+
+.hideRefillsButton {
+  width: 100%;
+  margin-top: var(--static-space-12);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 160px;
+  }
+
+  .content {
+    padding: var(--static-space-16);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--static-space-8);
+  }
+
+  .priceContainer {
+    align-items: flex-start;
+  }
+
+  .treatmentName {
+    font-size: var(--static-font-size-18);
+  }
+
+  .refillDetails {
+    padding: var(--static-space-16);
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 140px;
+  }
+
+  .content {
+    padding: var(--static-space-12);
+  }
+
+  .treatmentName {
+    font-size: var(--static-font-size-16);
+  }
+
+  .currentPrice {
+    font-size: var(--static-font-size-16);
+  }
+
+  .meta {
+    flex-wrap: wrap;
+    gap: var(--static-space-8);
+  }
+}
+
+/* Animation for selected state */
+.treatmentCard.selected {
+  animation: selectedPulse 2s infinite;
+}
+
+@keyframes selectedPulse {
+  0% {
+    box-shadow: 0 0 0 2px rgba(var(--accent-500-rgb), 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(var(--accent-500-rgb), 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 2px rgba(var(--accent-500-rgb), 0.2);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .treatmentCard {
+    background: var(--neutral-900);
+    border-color: var(--neutral-700);
+  }
+
+  .treatmentName {
+    color: var(--neutral-100);
+  }
+
+  .description {
+    color: var(--neutral-400);
+  }
+
+  .duration {
+    background: var(--neutral-800);
+    color: var(--neutral-400);
+  }
+
+  .eligibleInfo {
+    background: linear-gradient(135deg, var(--success-900) 0%, var(--success-800) 100%);
+    border-color: var(--success-700);
+  }
+
+  .eligibleText {
+    color: var(--success-300);
+  }
+
+  .notEligibleInfo {
+    background: var(--neutral-800);
+    border-color: var(--neutral-700);
+  }
+
+  .notEligibleText {
+    color: var(--neutral-400);
+  }
+
+  .refillDetails {
+    background: var(--neutral-800);
+    border-color: var(--neutral-700);
+  }
+}
+
+/* Loading state */
+.treatmentCard.loading {
+  opacity: 0.7;
+  pointer-events: none;
+
+  .treatmentImage {
+    filter: blur(2px);
+  }
+}
+
+/* Error state */
+.treatmentCard.error {
+  border-color: var(--danger-300);
+  background: var(--danger-25);
+
+  .treatmentName {
+    color: var(--danger-700);
+  }
+}

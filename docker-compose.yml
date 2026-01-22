@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks: [appnet]
+
+  backend:
+    build: ./backend
+    container_name: spring-backend
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "127.0.0.1:5000:5000"
+    networks: [appnet]
+
+  frontend:
+    build: ./frontend
+    container_name: react-frontend
+    ports:
+      - "127.0.0.1:3000:80"
+    networks: [appnet]
+
+volumes:
+  db_data:
+
+networks:
+  appnet:

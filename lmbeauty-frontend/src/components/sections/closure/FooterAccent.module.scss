@@ -1,0 +1,82 @@
+// FooterAccent.module.scss
+// Decorative element with lines and star, draw-in animation from center
+
+.footerAccent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  
+  @media (max-width: 639px) {
+    gap: 12px;
+  }
+}
+
+.accentLine {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--lm-pink-light) 50%,
+    transparent 100%
+  );
+  
+  // Draw-in animation from center
+  transform: scaleX(0);
+  transition: transform 500ms var(--lm-ease-reveal);
+  transition-delay: 850ms;
+  
+  @media (max-width: 639px) {
+    width: 48px;
+  }
+}
+
+.lineLeft {
+  transform-origin: right center;
+}
+
+.lineRight {
+  transform-origin: left center;
+}
+
+.visible .accentLine {
+  transform: scaleX(1);
+}
+
+.accentStar {
+  width: 12px;
+  height: 12px;
+  color: var(--lm-pink-medium);
+  flex-shrink: 0;
+  
+  // Fade in with slight scale
+  opacity: 0;
+  transform: scale(0.5);
+  transition: 
+    opacity 400ms var(--lm-ease-reveal),
+    transform 400ms var(--lm-ease-reveal);
+  transition-delay: 900ms;
+  
+  @media (max-width: 639px) {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.visible .accentStar {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// ============================================
+// Reduced Motion Support
+// ============================================
+/*@media (prefers-reduced-motion: reduce) {
+  .accentLine,
+  .accentStar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}*/

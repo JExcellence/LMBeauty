@@ -1,0 +1,96 @@
+// ExperienceBadge.module.scss
+// Floating experience badge with premium styling
+
+.experienceBadge {
+  position: absolute;
+  top: -16px;
+  right: 0;
+  z-index: 50;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  
+  background: #FFFFFF;
+  border-radius: 100px;
+  box-shadow: 
+    0 8px 32px rgba(196, 96, 122, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  
+  // Animation initial state
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 
+    opacity 400ms var(--lm-ease-reveal),
+    transform 400ms var(--lm-ease-bounce);
+  transition-delay: 350ms;
+
+  @media (max-width: 1023px) {
+    position: relative;
+    top: 0;
+    right: auto;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  @media (max-width: 639px) {
+    padding: 10px 16px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Icon Wrapper
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  background: var(--lm-pink-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 639px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  color: var(--lm-pink-dark);
+
+  @media (max-width: 639px) {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+// Text
+.text {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-text-dark);
+  white-space: nowrap;
+
+  @media (max-width: 639px) {
+    font-size: 13px;
+  }
+}
+
+// Reduced Motion Support
+/*
+@media (prefers-reduced-motion: reduce) {
+  .experienceBadge {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+*/

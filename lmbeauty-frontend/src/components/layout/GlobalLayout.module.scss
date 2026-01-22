@@ -1,0 +1,61 @@
+.globalLayout {
+  min-height: 100vh;
+}
+
+.mainContent {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 769px) {
+    margin-left: 300px;
+    
+    &.collapsed {
+      margin-left: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 80px;
+  }
+
+  &.admin {
+    @media (min-width: 769px) {
+      margin-left: 300px;
+      width: calc(100% - 300px);
+      
+      &.collapsed {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+      }
+    }
+  }
+  
+  &.user {
+    @media (min-width: 769px) {
+      margin-left: 300px;
+      width: calc(100% - 300px);
+      
+      &.collapsed {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+      }
+    }
+  }
+  
+  &.public {
+    @media (min-width: 769px) {
+      margin-left: 300px;
+      width: calc(100% - 300px);
+      
+      &.collapsed {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+      }
+    }
+  }
+}
+
+.sidebarOverlay {
+  @media (min-width: 769px) {
+    display: none;
+  }
+}

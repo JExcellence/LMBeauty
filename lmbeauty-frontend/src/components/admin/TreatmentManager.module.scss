@@ -1,0 +1,253 @@
+.treatmentFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1200px;
+}
+
+.flowHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.flowTitle {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--neutral-on-background-strong);
+  letter-spacing: -0.01em;
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.flowSubtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--neutral-alpha-medium);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.offeringsRiver {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.quietSpace {
+  display: flex;
+  justify-content: center;
+  padding: 64px 24px;
+}
+
+.quietText {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.emptyFlow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  opacity: 0.3;
+  margin-bottom: 8px;
+  color: var(--accent-medium);
+}
+
+.emptyTitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--neutral-on-background-strong);
+}
+
+.emptyMessage {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--neutral-alpha-medium);
+  line-height: 1.5;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.categoryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 107, 157, 0.08);
+}
+
+.categoryTitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--neutral-on-background-strong);
+  
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.categoryCount {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--neutral-alpha-medium);
+  padding: 6px 12px;
+  background: rgba(255, 107, 157, 0.04);
+  border: 1px solid rgba(255, 107, 157, 0.1);
+  border-radius: 12px;
+}
+
+.offeringsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.treatmentOffering {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 107, 157, 0.08);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.treatmentOffering:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 107, 157, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 107, 157, 0.12);
+}
+
+.essence {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.treatmentName {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--neutral-on-background-strong);
+}
+
+.treatmentDescription {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--neutral-alpha-medium);
+  line-height: 1.5;
+}
+
+.categoryLabel {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--neutral-alpha-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.durationText {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--neutral-alpha-medium);
+}
+
+.investment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.priceText {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent-medium);
+}
+
+.gentleActions {
+  display: flex;
+  gap: 12px;
+  
+  button {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: var(--neutral-alpha-medium) !important;
+    border: 1px solid rgba(255, 107, 157, 0.2) !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    
+    &:hover {
+      color: var(--accent-medium) !important;
+      border-color: rgba(255, 107, 157, 0.4) !important;
+      background: rgba(255, 107, 157, 0.04) !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .treatmentFlow {
+    gap: 32px;
+  }
+
+  .flowTitle {
+    font-size: 28px;
+  }
+
+  .treatmentOffering {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .details {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .categoriesList {
+    gap: 32px;
+  }
+}

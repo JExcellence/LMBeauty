@@ -1,0 +1,146 @@
+.headlineUnderline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-background-strong) 0%,
+    var(--brand-background-medium) 100%
+  );
+  border-radius: 2px;
+  
+  @media (max-width: 639px) {
+    width: 60px;
+    height: 2px;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.cardImageWrapper:hover .expandHint,
+.cardImageWrapper:focus .expandHint {
+  opacity: 1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.includesList {
+  
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brand-background-strong);
+    }
+  }
+}
+
+.allServicesLink {
+  
+  &:hover {
+    color: var(--brand-background-strong);
+    
+    .allServicesLinkText::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--brand-background-strong);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+.allServicesLinkText {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(
+      90deg,
+      var(--brand-background-strong) 0%,
+      var(--brand-background-medium) 100%
+    );
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 150ms ease-out;
+  }
+}
+
+.extrasServiceGroup {
+  &:nth-child(odd) {
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 60px;
+
+    @media (max-width: 768px) {
+      padding-right: 0;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) and (min-width: 769px) {
+      padding-right: 20px;
+    }
+  }
+
+  &:nth-child(even) {
+    align-items: flex-end;
+    padding-right: 0;
+    padding-left: 60px;
+
+    @media (max-width: 768px) {
+      padding-left: 0;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) and (min-width: 769px) {
+      padding-left: 20px;
+    }
+  }
+}
+
+.extrasGroupLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

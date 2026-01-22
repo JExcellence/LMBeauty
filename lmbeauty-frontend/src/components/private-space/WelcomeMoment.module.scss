@@ -1,0 +1,69 @@
+.welcomeMoment {
+  padding: 24px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(196, 96, 122, 0.1);
+  animation: fadeIn 400ms ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avatar {
+  border: 3px solid #FFF0F4;
+  transition: transform 200ms ease-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.avatarPlaceholder {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #FFF0F4 0%, #FFE4EC 100%);
+  border-radius: 50%;
+  color: #C4607A;
+  flex-shrink: 0;
+}
+
+.greetingLabel {
+  color: #8A8580;
+}
+
+.name {
+  color: #2D2A26;
+}
+
+.subtext {
+  color: #5A5550;
+  padding-left: 80px;
+
+  @media (max-width: 479px) {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 479px) {
+  .welcomeMoment {
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+
+    > div:first-child {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

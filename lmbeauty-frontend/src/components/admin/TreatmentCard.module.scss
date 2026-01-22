@@ -1,0 +1,61 @@
+.card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  &.inactive {
+    opacity: 0.6;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.expandButton {
+  transition: transform 0.2s ease;
+  
+  &.expanded {
+    transform: rotate(180deg);
+  }
+}
+
+.imagePreview {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.priceTag {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8FB1 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.durationTag {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+}

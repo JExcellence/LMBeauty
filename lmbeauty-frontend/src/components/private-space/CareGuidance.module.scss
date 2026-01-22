@@ -1,0 +1,58 @@
+.careGuidance {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.guidanceHeader {
+  text-align: center;
+}
+
+.guidanceTitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #2D2D2D;
+  line-height: 1.4;
+}
+
+.guidanceNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.careNote {
+  padding: 24px 32px;
+  background: rgba(255, 248, 245, 0.4);
+  border-radius: 16px;
+  border-left: 3px solid rgba(196, 96, 122, 0.2);
+  transition: all 0.4s ease;
+  
+  &:hover {
+    background: rgba(255, 248, 245, 0.6);
+    border-left-color: rgba(196, 96, 122, 0.3);
+    transform: translateX(4px);
+  }
+}
+
+.noteText {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(90, 90, 90, 0.8);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .guidanceTitle {
+    font-size: 18px;
+  }
+  
+  .careNote {
+    padding: 20px 24px;
+  }
+  
+  .noteText {
+    font-size: 14px;
+  }
+}

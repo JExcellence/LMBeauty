@@ -1,0 +1,70 @@
+.connection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: center;
+  padding: 48px 32px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(196, 96, 122, 0.04);
+}
+
+.connectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.connectionTitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #2D2D2D;
+  line-height: 1.4;
+}
+
+.connectionDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(90, 90, 90, 0.7);
+  line-height: 1.5;
+}
+
+.connectionWays {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.connectionButton {
+  background: rgba(196, 96, 122, 0.06) !important;
+  border: 1px solid rgba(196, 96, 122, 0.1) !important;
+  color: rgba(196, 96, 122, 0.9) !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    background: rgba(196, 96, 122, 0.1) !important;
+    border-color: rgba(196, 96, 122, 0.15) !important;
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .connection {
+    padding: 32px 24px;
+  }
+  
+  .connectionTitle {
+    font-size: 18px;
+  }
+  
+  .connectionWays {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .connectionButton {
+    width: 200px;
+  }
+}

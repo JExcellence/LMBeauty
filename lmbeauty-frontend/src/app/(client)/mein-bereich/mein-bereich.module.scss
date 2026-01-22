@@ -1,0 +1,880 @@
+// ============================================
+// MEIN BEREICH — Premium Beauty Space 2026
+// A calm, intimate digital studio experience
+// ============================================
+
+// ============================================
+// Foundation
+// ============================================
+.beautySpaceContainer {
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #FFFBF9 0%,
+    #FFF8F5 40%,
+    #FFF5F2 100%
+  );
+}
+
+.beautySpace {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+// ============================================
+// Navigation — Desktop Side
+// ============================================
+.desktopNav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  z-index: 50;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+// ============================================
+// Navigation — Mobile Bottom
+// ============================================
+.mobileNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  @media (min-width: 901px) {
+    display: none;
+  }
+}
+
+// ============================================
+// Content Flow
+// ============================================
+.contentFlow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (min-width: 901px) {
+    margin-left: 260px;
+  }
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 24px 120px;
+
+  @media (min-width: 901px) {
+    padding: 48px 32px 64px;
+  }
+}
+
+// ============================================
+// Welcome Header
+// ============================================
+.welcomeHeader {
+  margin-bottom: 48px;
+  text-align: center;
+
+  @media (min-width: 901px) {
+    text-align: left;
+    margin-bottom: 56px;
+  }
+}
+
+.welcomeGreeting {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.welcomeName {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2D2A26;
+  line-height: 1.2;
+  margin: 0;
+
+  @media (min-width: 600px) {
+    font-size: 32px;
+  }
+}
+
+.welcomeAccent {
+  color: #C4607A;
+}
+
+// ============================================
+// Section Navigation (SegmentedControl style)
+// ============================================
+.sectionNav {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    justify-content: center;
+  }
+}
+
+.sectionNavItem {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.6);
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+
+  &:hover {
+    color: rgba(45, 42, 38, 0.8);
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  &.active {
+    color: #2D2A26;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+}
+
+// ============================================
+// Content Sections
+// ============================================
+.sectionContent {
+  animation: sectionFadeIn 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// Soft Panel — Base Container
+// ============================================
+.softPanel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+
+  @media (min-width: 600px) {
+    padding: 32px;
+  }
+}
+
+// ============================================
+// Next Appointment — Prominent Display
+// ============================================
+.nextAppointment {
+  text-align: center;
+  padding: 40px 24px;
+
+  @media (min-width: 600px) {
+    padding: 48px 32px;
+  }
+}
+
+.appointmentLabel {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.appointmentDate {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 8px;
+
+  @media (min-width: 600px) {
+    font-size: 28px;
+  }
+}
+
+.appointmentTime {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #C4607A;
+  margin-bottom: 16px;
+}
+
+.appointmentTreatment {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.7);
+  margin-bottom: 32px;
+}
+
+.appointmentActions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.appointmentAction {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.6);
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 300ms ease;
+
+  &:hover {
+    color: #C4607A;
+    background: rgba(196, 96, 122, 0.08);
+  }
+}
+
+// ============================================
+// No Appointment State
+// ============================================
+.noAppointment {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.noAppointmentText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.6);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.bookButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: all 350ms ease;
+  box-shadow: 0 4px 20px rgba(196, 96, 122, 0.25);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(196, 96, 122, 0.35);
+  }
+}
+
+// ============================================
+// Beauty Journey — History Timeline
+// ============================================
+.journeySection {
+  padding: 8px 0;
+}
+
+.journeyTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 24px;
+}
+
+.journeyTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.journeyItem {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(45, 42, 38, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.journeyMarker {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.journeyContent {
+  flex: 1;
+}
+
+.journeyTreatment {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2D2A26;
+  margin-bottom: 4px;
+}
+
+.journeyDate {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+}
+
+.journeyRebook {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #C4607A;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: opacity 300ms ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.journeyEmpty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(45, 42, 38, 0.5);
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+}
+
+// ============================================
+// Loyalty Section — Treue
+// ============================================
+.loyaltySection {
+  padding: 8px 0;
+}
+
+.loyaltyTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 8px;
+}
+
+.loyaltySubtitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.6);
+  margin-bottom: 28px;
+}
+
+.loyaltyProgress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.loyaltyStamp {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(196, 96, 122, 0.1);
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.filled {
+    background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+    box-shadow: 0 2px 8px rgba(196, 96, 122, 0.3);
+  }
+}
+
+.loyaltyReward {
+  background: rgba(196, 96, 122, 0.06);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rewardInfo {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rewardTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2D2A26;
+  margin-bottom: 4px;
+}
+
+.rewardExpiry {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+}
+
+.rewardButton {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #C4607A;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// ============================================
+// Review Prompt
+// ============================================
+.reviewPrompt {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 248, 245, 0.8) 100%);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.reviewText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.7);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.reviewButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2D2A26;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.reviewIcon {
+  width: 18px;
+  height: 18px;
+}
+
+// ============================================
+// Profile Section
+// ============================================
+.profileSection {
+  padding: 8px 0;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.profileAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFE8EC 0%, #FFD4DC 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #C4607A;
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileName {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 4px;
+}
+
+.profileEmail {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.6);
+}
+
+// ============================================
+// Form Fields
+// ============================================
+.formSection {
+  margin-bottom: 32px;
+}
+
+.formSectionTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.formField {
+  margin-bottom: 20px;
+}
+
+.fieldLabel {
+  display: block;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.7);
+  margin-bottom: 8px;
+}
+
+.fieldInput {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #2D2A26;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  transition: all 300ms ease;
+
+  &::placeholder {
+    color: rgba(45, 42, 38, 0.4);
+  }
+
+  &:focus {
+    background: white;
+    box-shadow: 0 0 0 2px rgba(196, 96, 122, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.fieldHint {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+  margin-top: 6px;
+}
+
+// ============================================
+// Toggle Options
+// ============================================
+.toggleGroup {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toggleOption {
+  padding: 10px 18px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.6);
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  &.active {
+    color: white;
+    background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// Consent Section
+// ============================================
+.consentSection {
+  background: rgba(196, 96, 122, 0.04);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.consentTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 12px;
+}
+
+.consentText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.7);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.consentStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4CAF50;
+}
+
+.consentPending {
+  color: #FF9800;
+}
+
+.consentHint {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(255, 152, 0, 0.08);
+  border-radius: 8px;
+}
+
+// ============================================
+// Action Buttons
+// ============================================
+.actionRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.primaryAction {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px 24px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #D4708A 0%, #C4607A 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 350ms ease;
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.25);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(196, 96, 122, 0.35);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.secondaryAction {
+  padding: 14px 24px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.7);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+// ============================================
+// Support Section
+// ============================================
+.supportSection {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.supportTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.7);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.supportActions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.supportButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(45, 42, 38, 0.7);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+  }
+}
+
+// ============================================
+// Loading States
+// ============================================
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 16px;
+}
+
+.loadingText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(45, 42, 38, 0.5);
+}
+
+// ============================================
+// Reduced Motion
+// ============================================
+@media (prefers-reduced-motion: reduce) {
+  .sectionContent,
+  .softPanel,
+  .bookButton,
+  .toggleOption,
+  .primaryAction,
+  .secondaryAction {
+    animation: none;
+    transition: none;
+  }
+}

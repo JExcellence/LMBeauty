@@ -1,0 +1,238 @@
+// ============================================
+// RealityPage - Premium "Stille Eleganz" Design
+// "Wie es wirklich ist" — Anxiety reduction page
+// Matching HeroSection's emotional safety approach
+// ============================================
+
+.realityPage {
+  min-height: 100vh;
+  
+  // Premium gradient background matching HeroSection
+  background: linear-gradient(
+    135deg,
+    #FFF8FA 0%,
+    #FFEEF0 25%,
+    #FFE8EC 50%,
+    #FFF0F2 75%,
+    #FFF8FA 100%
+  );
+}
+
+.mainContent {
+  padding-top: 80px; // Account for fixed header
+}
+
+// ============================================
+// Purpose Header — Premium Hero-style
+// ============================================
+.purposeHeader {
+  position: relative;
+  width: 100%;
+  padding: 100px 80px 80px;
+  text-align: center;
+  overflow: hidden;
+  
+  // Premium gradient overlay
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 250, 0.9) 0%,
+    rgba(255, 238, 240, 0.6) 100%
+  );
+  
+  // Subtle texture for premium feel
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(196, 96, 122, 0.03) 1px,
+      transparent 0
+    );
+    background-size: 20px 20px;
+    opacity: 0.6;
+  }
+  
+  // Scroll reveal animation
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 1023px) {
+    padding: 80px 40px 64px;
+  }
+  
+  @media (max-width: 639px) {
+    padding: 60px 20px 48px;
+  }
+  
+  @media (max-width: 374px) {
+    padding: 48px 16px 40px;
+  }
+}
+
+.purposeContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+// Back Link - Premium glassmorphism style
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  
+  // Premium glassmorphism
+  background: rgba(255, 240, 244, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 164, 184, 0.4);
+  border-radius: 100px;
+  
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #C4607A;
+  text-decoration: none;
+  margin-bottom: 32px;
+  
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.1);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    background: rgba(255, 240, 244, 0.95);
+    border-color: rgba(232, 164, 184, 0.6);
+    box-shadow: 0 6px 24px rgba(196, 96, 122, 0.15);
+    transform: translateX(-4px);
+  }
+  
+  &:focus-visible {
+    outline: 3px solid #C4607A;
+    outline-offset: 3px;
+  }
+  
+  svg {
+    flex-shrink: 0;
+    transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  &:hover svg {
+    transform: translateX(-2px);
+  }
+  
+  @media (max-width: 639px) {
+    font-size: 13px;
+    padding: 8px 14px;
+    margin-bottom: 24px;
+  }
+}
+
+.purposeHeadline {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #2D2A26;
+  margin: 0 0 20px 0;
+  text-wrap: balance;
+  
+  // Premium text shadow
+  text-shadow: 0 2px 4px rgba(196, 96, 122, 0.08);
+  
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    font-size: 44px;
+  }
+  
+  @media (max-width: 1023px) {
+    font-size: 36px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 1.25;
+    text-shadow: 0 3px 6px rgba(196, 96, 122, 0.12);
+  }
+  
+  @media (max-width: 639px) {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+  
+  @media (max-width: 374px) {
+    font-size: 26px;
+  }
+}
+
+.purposeSubline {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #C4607A;
+  margin: 0 0 24px 0;
+  
+  @media (max-width: 639px) {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 374px) {
+    font-size: 16px;
+  }
+}
+
+.purposeIntro {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #5A5550;
+  margin: 0;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (max-width: 639px) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 374px) {
+    font-size: 15px;
+  }
+}
+
+// ============================================
+// Reduced Motion Support
+// ============================================
+@media (prefers-reduced-motion: reduce) {
+  .purposeHeader {
+    transition: none;
+  }
+  
+  .backLink {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    &:hover svg {
+      transform: none;
+    }
+  }
+}

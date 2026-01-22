@@ -1,0 +1,27 @@
+.treatmentMemory {
+  padding: 16px;
+  border-radius: 12px;
+  transition: background 200ms ease;
+
+  &:hover {
+    background: rgba(196, 96, 122, 0.04);
+  }
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  background: #FFF0F4;
+  border-radius: 10px;
+  color: #C4607A;
+  flex-shrink: 0;
+}
+
+.notes {
+  max-width: 200px;
+  text-align: right;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}

@@ -1,0 +1,332 @@
+// ============================================
+// Mobile Bottom Navigation - "Stille Eleganz" Design
+// Premium mobile navigation matching landing page aesthetic
+// ============================================
+.mobileBottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+  
+  // Premium glassmorphism background matching AdminSidebar
+  background: rgba(255, 248, 250, 0.95);
+  
+  // Premium glassmorphism effect
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  
+  // Elegant border system matching landing page
+  border-top: 1px solid rgba(212, 112, 138, 0.2);
+  
+  // Premium shadow system from landing page sections
+  box-shadow: 
+    0 -8px 32px rgba(212, 112, 138, 0.12),
+    0 -4px 16px rgba(196, 96, 122, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  
+  // Safe area support for modern phones
+  padding-bottom: env(safe-area-inset-bottom);
+  
+  // Only show on mobile
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+// ============================================
+// Navigation Items - Premium Touch-Optimized Design
+// ============================================
+.navItem {
+  text-decoration: none;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 12px 8px;
+  border-radius: 16px;
+  margin: 0 4px;
+  position: relative;
+  z-index: 1;
+  
+  // Touch target optimization (minimum 44px)
+  min-height: 56px;
+  
+  // Smooth transitions matching landing page
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  // Subtle hover preparation
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: rgba(212, 112, 138, 0.06);
+    opacity: 0;
+    transition: opacity 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.96);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #C4607A;
+    outline-offset: 3px;
+    border-radius: 16px;
+  }
+}
+
+.navContent {
+  position: relative;
+  z-index: 2;
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 14px;
+  padding: 8px 12px;
+  
+  &.active {
+    // Premium active state with glassmorphism
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 112, 138, 0.25);
+    
+    // Elegant shadow system from landing page
+    box-shadow: 
+      0 4px 20px rgba(212, 112, 138, 0.15),
+      0 2px 8px rgba(196, 96, 122, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+    
+    // Subtle gradient overlay
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 13px;
+      background: linear-gradient(135deg, 
+        rgba(255, 240, 244, 0.6) 0%, 
+        rgba(255, 245, 242, 0.4) 100%
+      );
+      pointer-events: none;
+    }
+  }
+}
+
+// ============================================
+// Icons & Labels - Premium Typography & Animation
+// ============================================
+.navIcon {
+  color: rgba(44, 24, 16, 0.65);
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.activeIcon {
+    color: #C4607A;
+    // Premium glow effect matching landing page
+    filter: drop-shadow(0 0 6px rgba(196, 96, 122, 0.4));
+    transform: scale(1.1);
+  }
+  
+  .navItem:hover & {
+    color: rgba(44, 24, 16, 0.85);
+    transform: translateY(-1px) scale(1.05);
+  }
+  
+  .navItem:hover &.activeIcon {
+    color: #C4607A;
+    filter: drop-shadow(0 0 8px rgba(196, 96, 122, 0.5));
+    transform: translateY(-1px) scale(1.15);
+  }
+}
+
+.navLabel {
+  color: rgba(44, 24, 16, 0.75);
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  // Enhanced readability
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  
+  &.activeLabel {
+    color: #C4607A;
+    font-weight: 600;
+    // Subtle text shadow for depth matching landing page
+    text-shadow: 0 1px 3px rgba(196, 96, 122, 0.15);
+  }
+  
+  .navItem:hover & {
+    color: rgba(44, 24, 16, 0.9);
+    transform: translateY(-0.5px);
+  }
+  
+  .navItem:hover &.activeLabel {
+    color: #C4607A;
+    text-shadow: 0 1px 4px rgba(196, 96, 122, 0.2);
+  }
+}
+
+// ============================================
+// Accessibility & Reduced Motion Support
+// ============================================
+@media (prefers-reduced-motion: reduce) {
+  .navItem,
+  .navContent,
+  .navIcon,
+  .navLabel {
+    transition: none !important;
+  }
+  
+  .navItem:hover,
+  .navItem:active {
+    transform: none !important;
+  }
+  
+  .navIcon.activeIcon {
+    transform: scale(1.1) !important;
+    filter: none !important;
+  }
+  
+  // Preserve focus visibility for accessibility
+  .navItem:focus-visible {
+    outline: 2px solid #C4607A;
+    outline-offset: 3px;
+  }
+}
+
+// ============================================
+// High Contrast Mode Support
+// ============================================
+@media (prefers-contrast: high) {
+  .mobileBottomNav {
+    border-top-color: #C4607A;
+    border-top-width: 2px;
+    background: #FFF8F5;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .navContent.active {
+    border-color: #C4607A;
+    border-width: 2px;
+    background: rgba(255, 240, 244, 0.9);
+  }
+  
+  .navIcon.activeIcon,
+  .navLabel.activeLabel {
+    color: #B85A6E;
+    font-weight: 700;
+  }
+  
+  .navIcon.activeIcon {
+    filter: none !important;
+  }
+}
+
+// ============================================
+// Large Text Support
+// ============================================
+@media (prefers-reduced-data: reduce) {
+  .mobileBottomNav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #FFF8F5;
+  }
+  
+  .navContent.active {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+// ============================================
+// Enhanced Touch Support
+// ============================================
+@media (hover: none) and (pointer: coarse) {
+  .navItem:hover {
+    background: none;
+    transform: none;
+    
+    &::before {
+      opacity: 0;
+    }
+  }
+  
+  .navItem:hover .navIcon,
+  .navItem:hover .navLabel {
+    transform: none;
+  }
+  
+  // Enhanced active feedback for touch
+  .navItem:active {
+    background: rgba(212, 112, 138, 0.1);
+    transform: scale(0.96);
+  }
+}
+
+// ============================================
+// Entrance Animation
+// ============================================
+@keyframes slideUpFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileBottomNav {
+  animation: slideUpFromBottom 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Staggered animation for navigation items
+.navItem {
+  opacity: 0;
+  animation: fadeInUp 400ms ease-out forwards;
+  
+  &:nth-child(1) { animation-delay: 100ms; }
+  &:nth-child(2) { animation-delay: 150ms; }
+  &:nth-child(3) { animation-delay: 200ms; }
+  &:nth-child(4) { animation-delay: 250ms; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Disable animations for reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .mobileBottomNav {
+    animation: none;
+  }
+  
+  .navItem {
+    animation: none;
+    opacity: 1;
+  }
+}

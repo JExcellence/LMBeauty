@@ -1,0 +1,26 @@
+.loaderContainer {
+  min-height: 60vh;
+  background: linear-gradient(180deg, 
+    rgba(255, 251, 248, 1) 0%, 
+    rgba(255, 248, 245, 1) 100%);
+}
+
+.loaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 107, 157, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(255, 107, 157, 0.08);
+}
+
+.loaderText {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--neutral-alpha-medium);
+  text-align: center;
+}

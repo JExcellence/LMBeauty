@@ -1,0 +1,60 @@
+.callbackPage {
+  min-height: 100vh;
+  background: var(--page-background);
+}
+
+.content {
+  padding: 40px 20px;
+}
+
+.statusContainer {
+  margin-bottom: 24px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--neutral-border-medium);
+  border-top-color: var(--brand-on-background-strong);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.successIcon,
+.errorIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--brand-alpha-weak);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-on-background-strong);
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.message {
+  font-family: var(--font-family);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--neutral-on-background-medium);
+  text-align: center;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

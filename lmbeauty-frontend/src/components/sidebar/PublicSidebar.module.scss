@@ -1,0 +1,5 @@
+// Import shared styles from main Sidebar
+@import './Sidebar.module.scss';
+
+// PublicSidebar uses the same styles as the main Sidebar
+// This file exists to allow for future customization if needed

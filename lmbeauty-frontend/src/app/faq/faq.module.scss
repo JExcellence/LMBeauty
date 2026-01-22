@@ -1,0 +1,741 @@
+// FAQ Page - Premium LM Beauty Design
+// Matching hero and services section aesthetics
+
+// ============================================
+// Design Tokens
+// ============================================
+$pink-dark: #C4607A;
+$pink-medium: #D4708A;
+$pink-light: #E8A4B8;
+$pink-pale: #FFF0F4;
+$text-dark: #2D2A26;
+$text-medium: #5A5550;
+$text-light: #8A8580;
+$bg-warm: #FFF9F7;
+$bg-white: #FFFFFF;
+
+// ============================================
+// Page Container
+// ============================================
+.faqPage {
+  min-height: 100vh;
+  background: $bg-warm;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.main {
+  flex: 1;
+  position: relative;
+}
+
+// ============================================
+// Animated Background Elements
+// ============================================
+.backgroundDecor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floatingOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: floatOrb 20s ease-in-out infinite;
+  
+  &:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba($pink-light, 0.3) 0%, rgba($pink-pale, 0.2) 100%);
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+  }
+  
+  &:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba($pink-medium, 0.15) 0%, rgba($pink-light, 0.1) 100%);
+    bottom: 20%;
+    left: -80px;
+    animation-delay: -7s;
+  }
+  
+  &:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, rgba($pink-pale, 0.4) 0%, rgba($pink-light, 0.2) 100%);
+    top: 40%;
+    right: -50px;
+    animation-delay: -14s;
+  }
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 10px) scale(1.02);
+  }
+}
+
+// ============================================
+// Hero Section
+// ============================================
+.heroSection {
+  position: relative;
+  padding: 140px 24px 80px;
+  text-align: center;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba($pink-light, 0.08) 0%,
+      rgba($pink-pale, 0.04) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, $pink-pale 0%, rgba($pink-light, 0.3) 100%);
+  border-radius: 20px;
+  color: $pink-dark;
+  box-shadow: 0 8px 32px rgba($pink-dark, 0.15);
+  
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.heroTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: $text-dark;
+  margin: 0 0 16px 0;
+  
+  span {
+    background: linear-gradient(135deg, $pink-dark 0%, $pink-medium 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.heroSubtitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text-medium;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+// ============================================
+// FAQ Section
+// ============================================
+.faqSection {
+  position: relative;
+  padding: 40px 24px 80px;
+  z-index: 1;
+}
+
+.faqContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// ============================================
+// FAQ Category
+// ============================================
+.faqCategory {
+  margin-bottom: 48px;
+  animation: fadeInUp 0.6s ease-out backwards;
+  
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.categoryHeader {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($pink-light, 0.3);
+}
+
+.categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, $pink-pale 0%, rgba($pink-light, 0.4) 100%);
+  border-radius: 14px;
+  color: $pink-dark;
+  box-shadow: 0 4px 16px rgba($pink-dark, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba($pink-dark, 0.15);
+  }
+}
+
+.categoryTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: $text-dark;
+  letter-spacing: -0.01em;
+}
+
+// ============================================
+// FAQ Items
+// ============================================
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  background: rgba($bg-white, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba($pink-light, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba($pink-medium, 0.25);
+    box-shadow: 0 4px 20px rgba($pink-dark, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  &.open {
+    background: $bg-white;
+    border-color: rgba($pink-medium, 0.3);
+    box-shadow: 0 8px 32px rgba($pink-dark, 0.12);
+    
+    .faqAnswer {
+      max-height: 400px;
+      padding: 0 24px 20px;
+      opacity: 1;
+    }
+    
+    .faqIcon {
+      background: linear-gradient(135deg, $pink-dark 0%, $pink-medium 100%);
+      color: white;
+      transform: rotate(180deg);
+    }
+    
+    .questionText {
+      color: $pink-dark;
+    }
+  }
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+  
+  &:hover {
+    background: rgba($pink-pale, 0.3);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $pink-medium;
+    outline-offset: -2px;
+    border-radius: 16px;
+  }
+}
+
+.questionText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $text-dark;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.faqIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba($pink-pale, 0.8);
+  border-radius: 10px;
+  color: $pink-dark;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.faqAnswer {
+  max-height: 0;
+  padding: 0 24px;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answerText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $text-medium;
+}
+
+// ============================================
+// Beauty Tips Section
+// ============================================
+.tipsSection {
+  position: relative;
+  padding: 80px 24px;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba($pink-pale, 0.3) 30%,
+      rgba($pink-pale, 0.3) 70%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+}
+
+.tipsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tipsHeader {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.tipsIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, $pink-medium 0%, $pink-dark 100%);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 32px rgba($pink-dark, 0.25);
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.tipsTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-dark;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.tipsSubtitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $text-medium;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tipCard {
+  position: relative;
+  background: $bg-white;
+  border: 1px solid rgba($pink-light, 0.2);
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+  
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{0.1 + $i * 0.1}s;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, $pink-medium 0%, $pink-light 100%);
+    border-radius: 0 0 3px 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba($pink-dark, 0.15);
+    border-color: rgba($pink-medium, 0.3);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .tipNumber {
+      background: linear-gradient(135deg, $pink-medium 0%, $pink-dark 100%);
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.tipNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 16px;
+  background: $pink-pale;
+  border-radius: 10px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: $pink-dark;
+  transition: all 0.3s ease;
+}
+
+.tipTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: $text-dark;
+  margin-bottom: 10px;
+}
+
+.tipText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text-medium;
+}
+
+// ============================================
+// CTA Section
+// ============================================
+.ctaSection {
+  position: relative;
+  padding: 80px 24px 100px;
+  z-index: 1;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.ctaCard {
+  background: $bg-white;
+  border: 1px solid rgba($pink-light, 0.2);
+  border-radius: 28px;
+  padding: 48px 40px;
+  box-shadow: 0 16px 64px rgba($pink-dark, 0.1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $pink-light 0%, $pink-medium 50%, $pink-dark 100%);
+  }
+}
+
+.ctaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, $pink-pale 0%, rgba($pink-light, 0.4) 100%);
+  border-radius: 22px;
+  color: $pink-dark;
+  
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.ctaTitle {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-dark;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.ctaText {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text-medium;
+  margin-bottom: 32px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, $pink-medium 0%, $pink-dark 100%);
+  color: white;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba($pink-dark, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba($pink-dark, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.ctaButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: transparent;
+  color: $pink-dark;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid rgba($pink-medium, 0.3);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $pink-pale;
+    border-color: $pink-medium;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================
+// Responsive Styles
+// ============================================
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 120px 20px 60px;
+  }
+  
+  .heroTitle {
+    font-size: 36px;
+  }
+  
+  .heroSubtitle {
+    font-size: 17px;
+  }
+  
+  .faqSection {
+    padding: 32px 20px 60px;
+  }
+  
+  .categoryTitle {
+    font-size: 20px;
+  }
+  
+  .faqQuestion {
+    padding: 16px 20px;
+  }
+  
+  .questionText {
+    font-size: 15px;
+  }
+  
+  .faqAnswer {
+    padding: 0 20px;
+  }
+  
+  .faqItem.open .faqAnswer {
+    padding: 0 20px 16px;
+  }
+  
+  .tipsSection {
+    padding: 60px 20px;
+  }
+  
+  .tipsTitle {
+    font-size: 26px;
+  }
+  
+  .tipCard {
+    padding: 24px 20px;
+  }
+  
+  .ctaSection {
+    padding: 60px 20px 80px;
+  }
+  
+  .ctaCard {
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+  
+  .ctaTitle {
+    font-size: 24px;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    
+    a {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .heroIcon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .heroTitle {
+    font-size: 30px;
+  }
+  
+  .categoryIcon {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .faqIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
