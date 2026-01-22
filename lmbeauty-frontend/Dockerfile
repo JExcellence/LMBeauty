@@ -1,35 +1,26 @@
-# ---- Build Stage ----
+# ---- Builder ----
 FROM node:20-alpine AS builder
-
-# Set working directory
 WORKDIR /app
 
-# Copy only package files first for caching
+# Copy package files
 COPY package*.json ./
-
-# Install dependencies (production & dev for build)
 RUN npm install
 
-# Copy the rest of the source code
+# Copy source code
 COPY . .
 
-# Build the Next.js app
+# Build the application
 RUN npm run build
 
-# ---- Production Stage ----
-FROM nginx:alpine
+# ---- Runner ----
+FROM node:20-alpine
+WORKDIR /app
 
-# Remove default nginx content
-RUN rm -rf /usr/share/nginx/html/*
+ENV NODE_ENV=production
 
-# Copy built app from builder
-COPY --from=builder /app/out /usr/share/nginx/html
+# Copy everything from builder
+COPY --from=builder /app ./
 
-# Copy custom nginx config if needed (optional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 3000
 
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
