@@ -48,7 +48,7 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
-            .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
     }
 
     @Bean
@@ -59,74 +59,74 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            .authorizeHttpRequests(auth -> auth
-                // OPTIONS requests for CORS preflight
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                
-                // OAuth endpoints - public (login/callback)
-                .requestMatchers("/api/oauth/*/callback", "/api/oauth/*/url").permitAll()
-                .requestMatchers("/api/oauth/*/callback/redirect").permitAll()
-                
-                // OAuth webhooks - public (called by Meta/Instagram)
-                .requestMatchers("/api/oauth/webhook/**").permitAll()
-                
-                // Instagram/Facebook deauthorize and data deletion - public (called by Meta)
-                .requestMatchers("/api/auth/instagram/deauthorize", "/api/auth/instagram/data-deletion").permitAll()
-                .requestMatchers("/api/auth/facebook/deauthorize", "/api/auth/facebook/data-deletion").permitAll()
-                .requestMatchers("/api/auth/deletion-status/**").permitAll()
-                
-                // OAuth account management - requires authentication
-                .requestMatchers("/api/oauth/accounts/**").authenticated()
-                
-                // Auth endpoints - public
-                .requestMatchers("/api/auth/refresh-token").permitAll()
-                
-                // Booking endpoints - treatments listing is public
-                .requestMatchers(HttpMethod.GET, "/api/treatments", "/api/treatments/{id}").permitAll()
-                
-                // Frontend API endpoints - public
-                .requestMatchers(HttpMethod.GET, "/api/frontend/**").permitAll()
-                
-                // Booking endpoints - slots require authentication
-                .requestMatchers("/api/slots/**").authenticated()
-                
-                // Booking endpoints - appointments require authentication
-                .requestMatchers("/api/appointments/**").authenticated()
-                
-                // Booking endpoints - availability management (OWNER/ADMIN only via @PreAuthorize)
-                .requestMatchers("/api/availability/**").authenticated()
-                
-                // Public endpoints
-                .requestMatchers("/public/**").permitAll()
-                .requestMatchers("/api/public/**").permitAll()
-                
-                // Health check
-                .requestMatchers("/actuator/health").permitAll()
-                
-                // All other endpoints require authentication
-                .anyRequest().authenticated()
-            )
-            .exceptionHandling(exceptions -> exceptions
-                .authenticationEntryPoint((request, response, authException) -> {
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.setContentType("application/json");
-                    response.getWriter().write("{\"success\":false,\"message\":\"Unauthorized\"}");
-                })
-                .accessDeniedHandler((request, response, accessDeniedException) -> {
-                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                    response.setContentType("application/json");
-                    response.getWriter().write("{\"success\":false,\"message\":\"Access denied\"}");
-                })
-            )
-            .authenticationProvider(authenticationProvider())
-            .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-            .formLogin(form -> form.disable())
-            .httpBasic(basic -> basic.disable());
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .authorizeHttpRequests(auth -> auth
+                        // OPTIONS requests for CORS preflight
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                        // OAuth endpoints - public (login/callback)
+                        .requestMatchers("/api/oauth/*/callback", "/api/oauth/*/url").permitAll()
+                        .requestMatchers("/api/oauth/*/callback/redirect").permitAll()
+
+                        // OAuth webhooks - public (called by Meta/Instagram)
+                        .requestMatchers("/api/oauth/webhook/**").permitAll()
+
+                        // Instagram/Facebook deauthorize and data deletion - public (called by Meta)
+                        .requestMatchers("/api/auth/instagram/deauthorize", "/api/auth/instagram/data-deletion").permitAll()
+                        .requestMatchers("/api/auth/facebook/deauthorize", "/api/auth/facebook/data-deletion").permitAll()
+                        .requestMatchers("/api/auth/deletion-status/**").permitAll()
+
+                        // OAuth account management - requires authentication
+                        .requestMatchers("/api/oauth/accounts/**").authenticated()
+
+                        // Auth endpoints - public
+                        .requestMatchers("/api/auth/refresh-token").permitAll()
+
+                        // Booking endpoints - treatments listing is public
+                        .requestMatchers(HttpMethod.GET, "/api/treatments", "/api/treatments/{id}").permitAll()
+
+                        // Frontend API endpoints - public
+                        .requestMatchers(HttpMethod.GET, "/api/frontend/**").permitAll()
+
+                        // Booking endpoints - slots require authentication
+                        .requestMatchers("/api/slots/**").authenticated()
+
+                        // Booking endpoints - appointments require authentication
+                        .requestMatchers("/api/appointments/**").authenticated()
+
+                        // Booking endpoints - availability management (OWNER/ADMIN only via @PreAuthorize)
+                        .requestMatchers("/api/availability/**").authenticated()
+
+                        // Public endpoints
+                        .requestMatchers("/public/**").permitAll()
+                        .requestMatchers("/api/public/**").permitAll()
+
+                        // Health check
+                        .requestMatchers("/actuator/health").permitAll()
+
+                        // All other endpoints require authentication
+                        .anyRequest().authenticated()
+                )
+                .exceptionHandling(exceptions -> exceptions
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                            response.setContentType("application/json");
+                            response.getWriter().write("{\"success\":false,\"message\":\"Unauthorized\"}");
+                        })
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            response.setContentType("application/json");
+                            response.getWriter().write("{\"success\":false,\"message\":\"Access denied\"}");
+                        })
+                )
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+                .formLogin(form -> form.disable())
+                .httpBasic(basic -> basic.disable());
 
         return http.build();
     }
