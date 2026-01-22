@@ -22,13 +22,6 @@ RUN mkdir -p /app/config && chown appuser:appuser /app/config
 # Copy the built fat jar from the build stage
 COPY --from=build /workspace/build/libs/*.jar /app/app.jar
 
-# Create upload directories with proper permissions
-RUN for dir in products invoices assets avatars; do \
-        mkdir -p /app/public/uploads/$dir; \
-    done && \
-    chown -R appuser:appuser /app/public/uploads && \
-    chmod -R 775 /app/public/uploads
-
 # JVM and Spring environment settings
 ENV JAVA_OPTS="-XX:+UseG1GC -XX:MaxRAMPercentage=75 -Djava.security.egd=file:/dev/./urandom"
 ENV SPRING_CONFIG_ADDITIONAL_LOCATION=file:/app/config/
