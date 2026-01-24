@@ -444,7 +444,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       
       try {
         setIsLoading(true);
-        const response = await fetch('http://localhost:5000/api/frontend/services/enhanced');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const response = await fetch(`${apiUrl}/frontend/services/enhanced`);
         const result = await response.json();
         
         if (result.success && Array.isArray(result.data) && result.data.length > 0) {
@@ -467,21 +468,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   useEffect(() => {
     const fetchInstagram = async () => {
       try {
-        console.log('Fetching real Instagram posts for services...');
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        console.log('Fetching Instagram posts from:', `${apiUrl}/frontend/instagram/posts`);
         
-        const response = await fetch('http://localhost:5000/api/frontend/instagram/posts', {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // Increased to 10 seconds
+        
+        const response = await fetch(`${apiUrl}/frontend/instagram/posts`, {
           signal: controller.signal
         });
         clearTimeout(timeoutId);
         
         if (!response.ok) {
           console.warn('Instagram API returned non-OK status:', response.status);
+          const errorText = await response.text();
+          console.warn('Error response:', errorText);
+          setIsInstagramLoading(false);
           return;
         }
         
         const result = await response.json();
+        console.log('Instagram API response:', result);
         
         if (result.success && result.data && Object.keys(result.data).length > 0) {
           const transformedData: InstagramData = {
@@ -511,11 +518,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         setIsInstagramLoading(false);
       } catch (error) {
         if (error instanceof Error && error.name === 'AbortError') {
-          console.log('Instagram fetch timed out');
+          console.log('Instagram fetch timed out after 10 seconds');
         } else {
-          console.log('Instagram fetch failed:', error);
+          console.error('Instagram fetch failed:', error);
         }
-      } finally {
         setIsInstagramLoading(false);
       }
     };

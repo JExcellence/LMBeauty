@@ -3,6 +3,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Build arguments for Next.js environment variables
+# These can be overridden in Coolify build settings
 ARG NEXT_PUBLIC_API_URL=https://api.lmbeauty.de/api
 ARG NEXT_PUBLIC_BACKEND_URL=https://api.lmbeauty.de
 
@@ -17,7 +18,7 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application with environment variables
 RUN npm run build
 
 # ---- Runner ----

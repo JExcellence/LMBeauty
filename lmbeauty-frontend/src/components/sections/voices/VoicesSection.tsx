@@ -31,7 +31,8 @@ export const VoicesSection: React.FC = () => {
     useEffect(() => {
         const fetchGoogleReviews = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/frontend/reviews');
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+                const response = await fetch(`${apiUrl}/frontend/reviews`);
                 const result = await response.json();
 
                 if (result.success && result.data.reviews && result.data.reviews.length > 0) {

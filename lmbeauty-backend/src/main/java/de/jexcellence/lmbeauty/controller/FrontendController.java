@@ -306,4 +306,53 @@ public class FrontendController {
                     .body(ApiResponse.error("Error retrieving mock Instagram posts"));
         }
     }
+
+    /**
+     * Get Google reviews for testimonials section.
+     * Returns mock data for now - integrate with Google Places API later.
+     */
+    @GetMapping("/reviews")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getReviews() {
+        log.debug("Getting reviews for frontend");
+        
+        try {
+            // Mock review data - replace with actual Google Places API integration
+            Map<String, Object> reviewData = new java.util.HashMap<>();
+            
+            List<Map<String, Object>> reviews = List.of(
+                Map.of(
+                    "author_name", "Sarah M.",
+                    "rating", 5,
+                    "text", "Lisa ist einfach die Beste! Meine Wimpern sehen so natürlich und wunderschön aus. Ich komme immer wieder gerne.",
+                    "time", System.currentTimeMillis() / 1000 - 86400 * 7,
+                    "relative_time_description", "vor einer Woche"
+                ),
+                Map.of(
+                    "author_name", "Julia K.",
+                    "rating", 5,
+                    "text", "Absolut professionell und das Ergebnis ist perfekt. Das Studio ist super gemütlich und Lisa nimmt sich viel Zeit.",
+                    "time", System.currentTimeMillis() / 1000 - 86400 * 14,
+                    "relative_time_description", "vor 2 Wochen"
+                ),
+                Map.of(
+                    "author_name", "Anna L.",
+                    "rating", 5,
+                    "text", "Ich bin so happy mit meinen neuen Wimpern! Lisa berät super und das Ergebnis hält ewig. Absolute Empfehlung!",
+                    "time", System.currentTimeMillis() / 1000 - 86400 * 21,
+                    "relative_time_description", "vor 3 Wochen"
+                )
+            );
+            
+            reviewData.put("reviews", reviews);
+            reviewData.put("rating", 5.0);
+            reviewData.put("user_ratings_total", 47);
+            
+            return ResponseEntity.ok(ApiResponse.success(reviewData));
+            
+        } catch (Exception e) {
+            log.error("Error getting reviews", e);
+            return ResponseEntity.internalServerError()
+                    .body(ApiResponse.error("Error retrieving reviews"));
+        }
+    }
 }

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Column } from "@once-ui-system/core";
 import { Footer } from "@/components/footer/Footer";
+import { FloatingContactButton } from "@/components/FloatingContactButton";
 import styles from './layout.module.scss';
 
 export default function MainLayout({
@@ -18,11 +19,6 @@ export default function MainLayout({
 
   return (
     <Column fillWidth style={{ minHeight: "100vh", overflowX: "hidden" }}>
-      {/*<Sidebar
-        isCollapsed={isSidebarCollapsed} 
-        onToggleCollapse={handleToggleSidebar}
-      />*/}
-
       <Column 
         fillWidth 
         className={`${styles.mainContent} ${isSidebarCollapsed ? styles.sidebarCollapsed : ''}`}
@@ -35,6 +31,8 @@ export default function MainLayout({
               <Footer />
           </Column>
       </Column>
+      
+      <FloatingContactButton />
     </Column>
   );
 }

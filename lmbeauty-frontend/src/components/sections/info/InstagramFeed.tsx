@@ -30,7 +30,8 @@ export const InstagramFeed: React.FC<InstagramFeedProps> = ({
     const fetchPosts = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('http://localhost:5000/api/frontend/instagram/posts');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const response = await fetch(`${apiUrl}/frontend/instagram/posts`);
         const result = await response.json();
         
         if (result.success && result.data && Object.keys(result.data).length > 0) {

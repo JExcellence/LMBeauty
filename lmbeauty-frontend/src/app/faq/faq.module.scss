@@ -169,6 +169,23 @@ $bg-white: #FFFFFF;
   }
 }
 
+.headlineUnderline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    $pink-dark 0%,
+    $pink-medium 100%
+  );
+  border-radius: 2px;
+  margin: 0 auto 16px;
+  
+  @media (max-width: 639px) {
+    width: 60px;
+    height: 2px;
+  }
+}
+
 .heroSubtitle {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 20px;

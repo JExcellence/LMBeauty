@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Column, Row, Text, Icon } from '@once-ui-system/core';
+import { Column, Row, Text, Icon, Background, Flex, Heading, RevealFx, SmartLink } from '@once-ui-system/core';
 import styles from './faq.module.scss';
 
 interface FAQItem {
@@ -160,19 +160,46 @@ export default function FAQPage() {
 
   return (
     <Column fillWidth className={styles.faqPage}>
-      <main className={styles.main}>
+      <Background
+        position="absolute"
+        fill
+        gradient={{
+          display: true,
+          opacity: 100,
+          x: 50,
+          y: 50,
+          colorStart: "brand-background-weak",
+          colorEnd: "accent-background-weak"
+        }}
+        mask={{
+          x: 50,
+          y: 50,
+          radius: 120
+        }}
+        zIndex={0}
+      />
+      <main className={styles.main} style={{ position: 'relative', zIndex: 1 }}>
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <Column gap="16" center className={styles.heroContent}>
-            <div className={styles.heroIcon}>
-              <Icon name="helpCircle" size="l" />
-            </div>
-            <h1 className={styles.heroTitle}>
-              Häufige <span>Fragen</span>
-            </h1>
-            <p className={styles.heroSubtitle}>
-              Alles, was du über Wimpernverlängerungen wissen möchtest — ehrlich und verständlich erklärt.
-            </p>
+            <RevealFx delay={0.1} translateY={20}>
+              <div className={styles.heroIcon}>
+                <Icon name="helpCircle" size="l" />
+              </div>
+            </RevealFx>
+            <RevealFx delay={0.2} translateY={20}>
+              <Column gap="s" center>
+                <h1 className={styles.heroTitle}>
+                  Häufige <span>Fragen</span>
+                </h1>
+                <div className={styles.headlineUnderline} />
+              </Column>
+            </RevealFx>
+            <RevealFx delay={0.3} translateY={20}>
+              <p className={styles.heroSubtitle}>
+                Alles, was du über Wimpernverlängerungen wissen möchtest — ehrlich und verständlich erklärt.
+              </p>
+            </RevealFx>
           </Column>
         </section>
 
@@ -257,30 +284,35 @@ export default function FAQPage() {
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.ctaContent}>
-            <div className={styles.ctaCard}>
-              <div className={styles.ctaIcon}>
-                <Icon name="messageCircle" size="l" />
+            <RevealFx delay={0.4} translateY={20}>
+              <div className={styles.ctaCard}>
+                <div className={styles.ctaIcon}>
+                  <Icon name="messageCircle" size="l" />
+                </div>
+                <h2 className={styles.ctaTitle}>
+                  Noch Fragen?
+                </h2>
+                <p className={styles.ctaText}>
+                  Schreib mir einfach — ich antworte dir persönlich und helfe dir gerne weiter.
+                </p>
+                <div className={styles.ctaButtons}>
+                  <SmartLink href="/online-booking" className={styles.ctaButtonPrimary}>
+                    Termin buchen
+                  </SmartLink>
+                  <SmartLink 
+                    href="https://instagram.com/_l.m_beauty_" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.ctaButtonSecondary}
+                  >
+                    Instagram
+                  </SmartLink>
+                  <SmartLink href="/" className={styles.ctaButtonSecondary}>
+                    ← Zurück zur Startseite
+                  </SmartLink>
+                </div>
               </div>
-              <h2 className={styles.ctaTitle}>
-                Noch Fragen?
-              </h2>
-              <p className={styles.ctaText}>
-                Schreib mir einfach — ich antworte dir persönlich und helfe dir gerne weiter.
-              </p>
-              <div className={styles.ctaButtons}>
-                <a href="/online-booking" className={styles.ctaButtonPrimary}>
-                  Termin buchen
-                </a>
-                <a 
-                  href="https://instagram.com/lm.beauty" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={styles.ctaButtonSecondary}
-                >
-                  Instagram
-                </a>
-              </div>
-            </div>
+            </RevealFx>
           </div>
         </section>
       </main>
