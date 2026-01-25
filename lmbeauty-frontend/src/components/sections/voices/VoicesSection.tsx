@@ -31,8 +31,9 @@ export const VoicesSection: React.FC = () => {
     useEffect(() => {
         const fetchGoogleReviews = async () => {
             try {
-                // Use relative URL to call Next.js API route (no CORS issues)
-                const response = await fetch('/api/frontend/reviews');
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 
+                              (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
+                const response = await fetch(`${apiUrl}/frontend/reviews`);
                 const result = await response.json();
 
                 if (result.success && result.data.reviews && result.data.reviews.length > 0) {
