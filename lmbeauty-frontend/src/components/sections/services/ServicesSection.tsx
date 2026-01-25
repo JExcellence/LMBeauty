@@ -444,8 +444,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       
       try {
         setIsLoading(true);
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-        const response = await fetch(`${apiUrl}/frontend/services/enhanced`);
+        // Use relative URL to call Next.js API route (no CORS issues)
+        const response = await fetch('/api/frontend/services/enhanced');
         const result = await response.json();
         
         if (result.success && Array.isArray(result.data) && result.data.length > 0) {
@@ -468,13 +468,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   useEffect(() => {
     const fetchInstagram = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-        console.log('Fetching Instagram posts from:', `${apiUrl}/frontend/instagram/posts`);
+        // Use relative URL to call Next.js API route (no CORS issues)
+        console.log('Fetching Instagram posts from: /api/frontend/instagram/posts');
         
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // Increased to 10 seconds
         
-        const response = await fetch(`${apiUrl}/frontend/instagram/posts`, {
+        const response = await fetch('/api/frontend/instagram/posts', {
           signal: controller.signal
         });
         clearTimeout(timeoutId);
