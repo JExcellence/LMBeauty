@@ -234,11 +234,60 @@ public class InstagramService {
             
             String caption = postNode.has("caption") ? postNode.get("caption").asText() : "";
             
-            return new InstagramPost(id, caption, mediaType, mediaUrl, permalink, timestamp);
+            // Handle CAROUSEL_ALBUM - fetch children images
+            List<String> carouselImages = new ArrayList<>();
+            if ("CAROUSEL_ALBUM".equals(mediaType)) {
+                carouselImages = fetchCarouselChildren(id);
+                logger.info("Carousel post {} has {} children images", id, carouselImages.size());
+            }
+            
+            return new InstagramPost(id, caption, mediaType, mediaUrl, permalink, timestamp, carouselImages);
         } catch (Exception e) {
             logger.warn("Failed to parse Instagram post: {}", e.getMessage());
             return null;
         }
+    }
+    
+    /**
+     * Fetch children images from a carousel post.
+     */
+    private List<String> fetchCarouselChildren(String carouselId) {
+        List<String> childrenUrls = new ArrayList<>();
+        
+        try {
+            String url = String.format(
+                "https://graph.instagram.com/%s/children?fields=id,media_type,media_url,thumbnail_url&access_token=%s",
+                carouselId,
+                accessToken
+            );
+            
+            logger.info("Fetching carousel children for post: {}", carouselId);
+            String response = restTemplate.getForObject(url, String.class);
+            JsonNode jsonNode = objectMapper.readTree(response);
+            
+            JsonNode dataNode = jsonNode.get("data");
+            if (dataNode != null && dataNode.isArray()) {
+                for (JsonNode childNode : dataNode) {
+                    String mediaType = childNode.get("media_type").asText();
+                    String mediaUrl;
+                    
+                    // Use thumbnail for videos, media_url for images
+                    if ("VIDEO".equals(mediaType) && childNode.has("thumbnail_url")) {
+                        mediaUrl = childNode.get("thumbnail_url").asText();
+                    } else {
+                        mediaUrl = childNode.get("media_url").asText();
+                    }
+                    
+                    childrenUrls.add(mediaUrl);
+                }
+            }
+            
+            logger.info("Successfully fetched {} children for carousel {}", childrenUrls.size(), carouselId);
+        } catch (Exception e) {
+            logger.error("Failed to fetch carousel children for {}: {}", carouselId, e.getMessage());
+        }
+        
+        return childrenUrls;
     }
     
     private Map<String, InstagramPost> categorizePosts(List<InstagramPost> posts) {
@@ -362,14 +411,20 @@ public class InstagramService {
         private final String mediaUrl;
         private final String permalink;
         private final String timestamp;
+        private final List<String> carouselImages; // For CAROUSEL_ALBUM posts
         
         public InstagramPost(String id, String caption, String mediaType, String mediaUrl, String permalink, String timestamp) {
+            this(id, caption, mediaType, mediaUrl, permalink, timestamp, new ArrayList<>());
+        }
+        
+        public InstagramPost(String id, String caption, String mediaType, String mediaUrl, String permalink, String timestamp, List<String> carouselImages) {
             this.id = id;
             this.caption = caption;
             this.mediaType = mediaType;
             this.mediaUrl = mediaUrl;
             this.permalink = permalink;
             this.timestamp = timestamp;
+            this.carouselImages = carouselImages;
         }
         
         public String getId() { return id; }
@@ -378,5 +433,7 @@ public class InstagramService {
         public String getMediaUrl() { return mediaUrl; }
         public String getPermalink() { return permalink; }
         public String getTimestamp() { return timestamp; }
+        public List<String> getCarouselImages() { return carouselImages; }
+        public boolean isCarousel() { return "CAROUSEL_ALBUM".equals(mediaType); }
     }
 }
