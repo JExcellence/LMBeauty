@@ -4,12 +4,15 @@ WORKDIR /app
 
 # Build arguments for Next.js environment variables
 # These can be overridden in Coolify build settings
-ARG NEXT_PUBLIC_API_URL=https://api.lmbeauty.de/api
+# Empty NEXT_PUBLIC_API_URL makes API calls relative (uses Next.js API routes)
+ARG NEXT_PUBLIC_API_URL=
 ARG NEXT_PUBLIC_BACKEND_URL=https://api.lmbeauty.de
+ARG BACKEND_URL=https://api.lmbeauty.de
 
 # Set environment variables for the build
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
+ENV BACKEND_URL=$BACKEND_URL
 
 # Copy package files
 COPY package*.json ./
