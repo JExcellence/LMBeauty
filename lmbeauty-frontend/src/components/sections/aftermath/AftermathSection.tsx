@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { Background, Column, Flex, Heading, RevealFx, Text, CompareImage } from '@once-ui-system/core';
+import React, { useState, useEffect } from 'react';
+import { Background, Column, Flex, Heading, RevealFx, Text, CompareImage, Spinner } from '@once-ui-system/core';
 import styles from './AftermathSection.module.scss';
 import { useScrollReveal } from '@/hooks';
 
@@ -23,8 +23,58 @@ const timeframes = [
     },
 ];
 
+interface BeforeAfterImages {
+    before: string;
+    after: string;
+}
+
 export const AftermathSection: React.FC = () => {
     const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 });
+    const [beforeAfterImages, setBeforeAfterImages] = useState<BeforeAfterImages | null>(null);
+    const [isLoadingImages, setIsLoadingImages] = useState(true);
+
+    useEffect(() => {
+        const fetchBeforeAfterImages = async () => {
+            try {
+                setIsLoadingImages(true);
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 
+                              (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
+                
+                const response = await fetch(`${apiUrl}/frontend/instagram/posts`);
+                const result = await response.json();
+                
+                if (result.success && result.data) {
+                    // Get all posts from all categories
+                    const allPosts = Object.values(result.data).flat() as any[];
+                    
+                    // Filter posts that have "Vorher" and "Nachher" in caption
+                    const beforeAfterPosts = allPosts.filter(post => 
+                        post.caption && 
+                        post.caption.toLowerCase().includes('vorher') && 
+                        post.caption.toLowerCase().includes('nachher')
+                    );
+                    
+                    // Use first two consecutive posts as before/after pair
+                    if (beforeAfterPosts.length >= 2) {
+                        setBeforeAfterImages({
+                            before: beforeAfterPosts[0].mediaUrl || beforeAfterPosts[0].media_url,
+                            after: beforeAfterPosts[1].mediaUrl || beforeAfterPosts[1].media_url
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to fetch before/after images:', error);
+            } finally {
+                setIsLoadingImages(false);
+            }
+        };
+        
+        fetchBeforeAfterImages();
+    }, []);
+
+    // Use Instagram images if available, otherwise fallback to static images
+    const leftImage = beforeAfterImages?.before || "/images/before-lashes.jpg";
+    const rightImage = beforeAfterImages?.after || "/images/after-lashes.jpg";
 
     return (
         <Column
@@ -119,23 +169,31 @@ export const AftermathSection: React.FC = () => {
                     <Column fillWidth paddingTop="128" m={{ paddingTop: 0}}>
                         <RevealFx delay={0.4} translateY={20}>
                             <Column fillWidth gap="s">
-                                <CompareImage
-                                    radius="l"
-                                    border="brand-alpha-medium"
-                                    overflow="hidden"
-                                    aspectRatio="4 / 3"
-                                    leftContent={{ 
-                                        src: "/images/before-lashes.jpg", 
-                                        alt: ""
-                                    }}
-                                    rightContent={{ 
-                                        src: "/images/after-lashes.jpg", 
-                                        alt: ""
-                                    }}
-                                />
-                                <Text variant="body-default-xs" onBackground="brand-medium" align="center" style={{ fontStyle: 'italic' }}>
-                                    Ziehe den Regler, um den Unterschied zu sehen
-                                </Text>
+                                {isLoadingImages ? (
+                                    <Column center padding="xl" aspectRatio="4 / 3" background="neutral-alpha-weak" radius="l">
+                                        <Spinner size="m" />
+                                    </Column>
+                                ) : (
+                                    <>
+                                        <CompareImage
+                                            radius="l"
+                                            border="brand-alpha-medium"
+                                            overflow="hidden"
+                                            aspectRatio="4 / 3"
+                                            leftContent={{ 
+                                                src: leftImage, 
+                                                alt: "Vorher"
+                                            }}
+                                            rightContent={{ 
+                                                src: rightImage, 
+                                                alt: "Nachher"
+                                            }}
+                                        />
+                                        <Text variant="body-default-xs" onBackground="brand-medium" align="center" style={{ fontStyle: 'italic' }}>
+                                            Ziehe den Regler, um den Unterschied zu sehen
+                                        </Text>
+                                    </>
+                                )}
                             </Column>
                         </RevealFx>
                     </Column>
