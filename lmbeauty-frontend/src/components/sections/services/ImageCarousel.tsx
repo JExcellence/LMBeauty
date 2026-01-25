@@ -60,7 +60,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   return (
     <Column
         fillWidth
-        aspectRatio="3 / 4"
+        aspectRatio="4 / 3"
         background="surface"
         overflow="hidden"
         topRadius="l"

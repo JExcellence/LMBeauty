@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Background, Column, Flex, Heading, RevealFx, Text, CompareImage, Spinner } from '@once-ui-system/core';
+import React, {useEffect, useState} from 'react';
+import {Background, Column, CompareImage, Flex, Heading, RevealFx, Spinner, Text} from '@once-ui-system/core';
 import styles from './AftermathSection.module.scss';
-import { useScrollReveal } from '@/hooks';
+import {useScrollReveal} from '@/hooks';
 
 const timeframes = [
     {
@@ -29,7 +29,7 @@ interface BeforeAfterImages {
 }
 
 export const AftermathSection: React.FC = () => {
-    const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 });
+    const {ref: sectionRef, isVisible} = useScrollReveal({threshold: 0.15});
     const [beforeAfterImages, setBeforeAfterImages] = useState<BeforeAfterImages | null>(null);
     const [isLoadingImages, setIsLoadingImages] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -40,28 +40,30 @@ export const AftermathSection: React.FC = () => {
 
     useEffect(() => {
         if (!isMounted) return;
-        
+
         const fetchBeforeAfterImages = async () => {
             try {
                 setIsLoadingImages(true);
-                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 
-                              (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
-                
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL ||
+                    (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
+
                 const response = await fetch(`${apiUrl}/frontend/instagram/posts`);
                 const result = await response.json();
-                
+
                 if (result.success && result.data) {
                     // Get all posts from all categories
                     const allPosts = Object.values(result.data).flat() as any[];
-                    
+
                     // Filter posts that have "Vorher" and "Nachher" in caption
-                    const beforeAfterPosts = allPosts.filter(post => 
-                        post.caption && 
-                        post.caption.toLowerCase().includes('vorher') && 
+                    const beforeAfterPosts = allPosts.filter(post =>
+                        post.caption &&
+                        post.caption.toLowerCase().includes('vorher') &&
                         post.caption.toLowerCase().includes('nachher')
                     );
-                    
-                    // Check if any post is a carousel with multiple images
+
+                    console.log('Found posts with Vorher/Nachher:', beforeAfterPosts.length);
+
+                    // Check if any post is a carousel with at least 2 images
                     for (const post of beforeAfterPosts) {
                         if (post.carouselImages && post.carouselImages.length >= 2) {
                             // Use first two images from carousel as before/after
@@ -69,18 +71,29 @@ export const AftermathSection: React.FC = () => {
                                 before: post.carouselImages[0],
                                 after: post.carouselImages[1]
                             });
-                            console.log('Found carousel post with before/after images');
-                            return;
+                            console.log('✅ Using carousel with', post.carouselImages.length, 'images');
+                            return; // Exit early - we found what we need
+                        } else if (post.carouselImages) {
+                            console.log('⚠️ Carousel found but only has', post.carouselImages.length, 'image(s)');
                         }
                     }
-                    
-                    // Fallback: Use first two consecutive posts as before/after pair
-                    if (beforeAfterPosts.length >= 2) {
+
+                    // Only use separate posts if NO valid carousel was found
+                    console.log('No valid carousel found, checking for separate posts...');
+
+                    // Filter out carousel posts - only use regular IMAGE posts
+                    const regularPosts = beforeAfterPosts.filter(post =>
+                        !post.carouselImages || post.carouselImages.length === 0
+                    );
+
+                    if (regularPosts.length >= 2) {
                         setBeforeAfterImages({
-                            before: beforeAfterPosts[0].mediaUrl || beforeAfterPosts[0].media_url,
-                            after: beforeAfterPosts[1].mediaUrl || beforeAfterPosts[1].media_url
+                            before: regularPosts[0].mediaUrl || regularPosts[0].media_url,
+                            after: regularPosts[1].mediaUrl || regularPosts[1].media_url
                         });
-                        console.log('Using two separate posts as before/after');
+                        console.log('✅ Using two separate posts');
+                    } else {
+                        console.log('❌ Not enough images found for before/after');
                     }
                 }
             } catch (error) {
@@ -89,7 +102,7 @@ export const AftermathSection: React.FC = () => {
                 setIsLoadingImages(false);
             }
         };
-        
+
         fetchBeforeAfterImages();
     }, [isMounted]);
 
@@ -127,18 +140,18 @@ export const AftermathSection: React.FC = () => {
                 zIndex={0}
             />
 
-            <Column fillWidth maxWidth={80} s={{ maxWidth: 100 }}>
-                <Flex 
-                    fillWidth 
-                    gap="xl" 
+            <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
+                <Flex
+                    fillWidth
+                    gap="xl"
                     direction="row"
                     horizontal="start"
                     vertical="start"
-                    m={{ direction: "column", gap: "xs" }}
+                    m={{direction: "column", gap: "xs"}}
                     className={styles.contentWrapper}
                 >
                     <Column fillWidth>
-                        <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m" s={{ paddingBottom: "xs"}}>
+                        <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m" s={{paddingBottom: "xs"}}>
                             <Column gap="2" fitWidth>
                                 <RevealFx delay={0.2} translateY={20}>
                                     <Heading
@@ -151,7 +164,7 @@ export const AftermathSection: React.FC = () => {
                                     </Heading>
                                 </RevealFx>
                                 <RevealFx delay={0.25} translateY={20}>
-                                    <Flex className={styles.headlineUnderline} />
+                                    <Flex className={styles.headlineUnderline}/>
                                 </RevealFx>
                             </Column>
                         </Column>
@@ -179,20 +192,23 @@ export const AftermathSection: React.FC = () => {
                         </Column>
 
                         <RevealFx delay={0.7} translateY={20}>
-                            <Column horizontal="center" paddingTop="m" s={{ paddingTop: "xs" }} className={styles.closingText}>
-                                <Text variant="body-default-m" onBackground="brand-weak" align="center" style={{ fontStyle: 'italic' }}>
+                            <Column horizontal="center" paddingTop="m" s={{paddingTop: "xs"}}
+                                    className={styles.closingText}>
+                                <Text variant="body-default-m" onBackground="brand-weak" align="center"
+                                      style={{fontStyle: 'italic'}}>
                                     Keine große Veränderung. Nur du — ein bisschen mehr du.
                                 </Text>
                             </Column>
                         </RevealFx>
                     </Column>
 
-                    <Column fillWidth paddingTop="128" m={{ paddingTop: 0}}>
+                    <Column fillWidth paddingTop="128" m={{paddingTop: 0}}>
                         <RevealFx delay={0.4} translateY={20}>
                             <Column fillWidth gap="s">
                                 {!isMounted || isLoadingImages ? (
-                                    <Column center padding="xl" aspectRatio="4 / 3" background="neutral-alpha-weak" radius="l">
-                                        {isMounted && <Spinner size="m" />}
+                                    <Column center padding="xl" aspectRatio="4 / 3" background="neutral-alpha-weak"
+                                            radius="l">
+                                        {isMounted && <Spinner size="m"/>}
                                     </Column>
                                 ) : (
                                     <>
@@ -201,16 +217,17 @@ export const AftermathSection: React.FC = () => {
                                             border="brand-alpha-medium"
                                             overflow="hidden"
                                             aspectRatio="4 / 3"
-                                            leftContent={{ 
-                                                src: leftImage, 
-                                                alt: "Vorher"
-                                            }}
-                                            rightContent={{ 
-                                                src: rightImage, 
+                                            leftContent={{
+                                                src: rightImage,
                                                 alt: "Nachher"
                                             }}
+                                            rightContent={{
+                                                src: leftImage,
+                                                alt: "Vorher"
+                                            }}
                                         />
-                                        <Text variant="body-default-xs" onBackground="brand-medium" align="center" style={{ fontStyle: 'italic' }}>
+                                        <Text variant="body-default-xs" onBackground="brand-medium" align="center"
+                                              style={{fontStyle: 'italic'}}>
                                             Ziehe den Regler, um den Unterschied zu sehen
                                         </Text>
                                     </>

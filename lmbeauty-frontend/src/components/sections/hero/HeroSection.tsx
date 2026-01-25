@@ -21,12 +21,19 @@ export function Hero() {
                 position="absolute"
                 fill
                 zIndex={0}
+                style={{
+                    minHeight: "100vh",
+                    overflow: "hidden"
+                }}
             >
                 <Media
                     src="/videos/lmbeauty_store_full_hd.mp4"
                     fill
+                    objectFit="cover"
                     style={{
                         minHeight: "100vh",
+                        width: "100%",
+                        height: "100%"
                     }}
                 />
             </Column>
