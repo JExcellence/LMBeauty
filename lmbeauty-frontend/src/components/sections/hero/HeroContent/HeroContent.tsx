@@ -24,7 +24,7 @@ export const HeroContent: React.FC = () => {
             <RevealFx delay={0.15} translateY={30} fillWidth marginTop="m" horizontal="start"
                       m={{horizontal: "center"}}>
                 <Heading as="h1" id="hero-headline" onBackground="info-strong" align="center">
-                    Dein <Text className={styles.accentWord}>Traumblick</Text> wartet auf dich.
+                    Wimpernverlängerung & <Text className={styles.accentWord}>Wimpernlifting</Text> in Oldenburg
                 </Heading>
             </RevealFx>
 
@@ -32,8 +32,8 @@ export const HeroContent: React.FC = () => {
                       m={{horizontal: "center", align: "center"}}>
                 <Text as="p" onBackground="info-strong" wrap="balance" align="inherit"
                       className={styles.heroDescription}>
-                    Wimpernverlängerung, die zu dir passt – natürlich, glamourös oder irgendwo dazwischen.
-                    Entspann dich, ich mach den Rest.
+                    Professionelle Wimpernverlängerung & Wimpernlifting bei LM Beauty Oldenburg. 
+                    Einzeltechnik, Hybrid & Volumen – natürlich schön oder glamourös. Jetzt Termin buchen!
                 </Text>
             </RevealFx>
 

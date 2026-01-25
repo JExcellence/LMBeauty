@@ -5,7 +5,7 @@ import {
     FitCheckSection,
     InfoSection,
     ServicesSection, StandardsSection,
-    VoicesSection
+    VoicesSection, SeoContentSection
 } from "@/components/sections";
 import {baseURL, meta} from "@/resources";
 import {Hero} from "@/components/sections/hero/HeroSection";
@@ -39,6 +39,7 @@ export default function Home() {
               zIndex={0}
           />
           <Hero />
+          <SeoContentSection />
           <AboutSection />
           <ServicesSection />
           <FitCheckSection />

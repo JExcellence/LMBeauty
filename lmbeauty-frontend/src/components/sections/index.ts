@@ -10,3 +10,4 @@ export * from './aftermath';
 export * from './standards';
 export * from './closure';
 export * from './contact';
+export * from './seo';
