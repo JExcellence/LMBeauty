@@ -30,9 +30,9 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy package files and install production dependencies only
+# Copy package files and node_modules from builder
 COPY --from=builder /app/package*.json ./
-RUN npm ci --only=production
+COPY --from=builder /app/node_modules ./node_modules
 
 # Copy built application and necessary files
 COPY --from=builder /app/.next ./.next
