@@ -21,12 +21,13 @@ export function Hero() {
                 position="absolute"
                 fill
                 zIndex={0}
-                aspectRatio="16 / 9"
             >
                 <Media
                     src="/videos/lmbeauty_store_full_hd.mp4"
                     fill
-                    objectFit="cover"
+                    style={{
+                        minHeight: "100vh",
+                    }}
                 />
             </Column>
 
