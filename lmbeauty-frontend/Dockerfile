@@ -30,8 +30,19 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy everything from builder
-COPY --from=builder /app ./
+# Copy package files and node_modules
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+
+# Copy Next.js build output
+COPY --from=builder /app/.next ./.next
+
+# Copy public folder (important for static assets like favicon)
+COPY --from=builder /app/public ./public
+
+# Copy next.config and other necessary files
+COPY --from=builder /app/next.config.* ./
+COPY --from=builder /app/next-sitemap.config.js ./
 
 EXPOSE 3000
 
