@@ -30,7 +30,8 @@ export const InstagramFeed: React.FC<InstagramFeedProps> = ({
     const fetchPosts = async () => {
       try {
         setIsLoading(true);
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 
+                      (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
         const response = await fetch(`${apiUrl}/frontend/instagram/posts`);
         const result = await response.json();
         
