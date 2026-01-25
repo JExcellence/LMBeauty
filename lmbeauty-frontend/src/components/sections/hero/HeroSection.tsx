@@ -25,6 +25,8 @@ export function Hero() {
                     minHeight: "100vh",
                     overflow: "hidden"
                 }}
+                background="surface"
+                opacity={20}
             >
                 <Media
                     src="/videos/lmbeauty_store_full_hd.mp4"
