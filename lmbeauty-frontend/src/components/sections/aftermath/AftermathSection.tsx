@@ -31,9 +31,16 @@ interface BeforeAfterImages {
 export const AftermathSection: React.FC = () => {
     const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 });
     const [beforeAfterImages, setBeforeAfterImages] = useState<BeforeAfterImages | null>(null);
-    const [isLoadingImages, setIsLoadingImages] = useState(true);
+    const [isLoadingImages, setIsLoadingImages] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isMounted) return;
+        
         const fetchBeforeAfterImages = async () => {
             try {
                 setIsLoadingImages(true);
@@ -70,7 +77,7 @@ export const AftermathSection: React.FC = () => {
         };
         
         fetchBeforeAfterImages();
-    }, []);
+    }, [isMounted]);
 
     // Use Instagram images if available, otherwise fallback to static images
     const leftImage = beforeAfterImages?.before || "/images/before-lashes.jpg";
@@ -169,9 +176,9 @@ export const AftermathSection: React.FC = () => {
                     <Column fillWidth paddingTop="128" m={{ paddingTop: 0}}>
                         <RevealFx delay={0.4} translateY={20}>
                             <Column fillWidth gap="s">
-                                {isLoadingImages ? (
+                                {!isMounted || isLoadingImages ? (
                                     <Column center padding="xl" aspectRatio="4 / 3" background="neutral-alpha-weak" radius="l">
-                                        <Spinner size="m" />
+                                        {isMounted && <Spinner size="m" />}
                                     </Column>
                                 ) : (
                                     <>
