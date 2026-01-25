@@ -30,7 +30,12 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+# Copy package files and install production dependencies only
 COPY --from=builder /app/package*.json ./
+RUN npm ci --only=production
+
+# Copy built application and necessary files
+COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.* ./
 COPY --from=builder /app/next-sitemap.config.js ./
