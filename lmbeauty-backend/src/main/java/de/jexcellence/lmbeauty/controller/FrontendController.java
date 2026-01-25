@@ -237,16 +237,64 @@ public class FrontendController {
      */
     @GetMapping("/instagram/posts")
     public ResponseEntity<ApiResponse<Map<String, List<InstagramService.InstagramPost>>>> getInstagramPosts() {
-        log.debug("Getting categorized Instagram posts");
+        log.info("=== Getting categorized Instagram posts ===");
         
         try {
             Map<String, List<InstagramService.InstagramPost>> posts = instagramService.getCategorizedPosts();
+            
+            log.info("Instagram posts retrieved:");
+            posts.forEach((category, postList) -> {
+                log.info("  Category '{}': {} posts", category, postList.size());
+                if (!postList.isEmpty()) {
+                    log.info("    First post: {}", postList.get(0).getMediaUrl());
+                }
+            });
+            
+            if (posts.isEmpty() || posts.values().stream().allMatch(List::isEmpty)) {
+                log.warn("No Instagram posts available - check if token is valid and posts exist");
+            }
+            
             return ResponseEntity.ok(ApiResponse.success(posts));
             
         } catch (Exception e) {
             log.error("Error getting Instagram posts", e);
             return ResponseEntity.internalServerError()
                     .body(ApiResponse.error("Error retrieving Instagram posts"));
+        }
+    }
+
+    /**
+     * Test endpoint to check Instagram API directly.
+     */
+    @GetMapping("/instagram/test")
+    public ResponseEntity<ApiResponse<String>> testInstagram() {
+        log.info("=== TESTING INSTAGRAM API ===");
+        
+        try {
+            Map<String, List<InstagramService.InstagramPost>> posts = instagramService.getCategorizedPosts();
+            
+            int totalPosts = posts.values().stream().mapToInt(List::size).sum();
+            
+            StringBuilder result = new StringBuilder();
+            result.append("Total posts: ").append(totalPosts).append("\n\n");
+            
+            posts.forEach((category, postList) -> {
+                result.append("Category '").append(category).append("': ").append(postList.size()).append(" posts\n");
+                postList.forEach(post -> {
+                    result.append("  - ").append(post.getCaption().substring(0, Math.min(50, post.getCaption().length())))
+                          .append("...\n");
+                    result.append("    URL: ").append(post.getMediaUrl()).append("\n");
+                });
+            });
+            
+            log.info("Instagram test result:\n{}", result);
+            
+            return ResponseEntity.ok(ApiResponse.success(result.toString()));
+            
+        } catch (Exception e) {
+            log.error("Instagram test failed", e);
+            return ResponseEntity.internalServerError()
+                    .body(ApiResponse.error("Instagram test failed: " + e.getMessage()));
         }
     }
 
