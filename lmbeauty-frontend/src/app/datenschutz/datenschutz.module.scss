@@ -1,0 +1,80 @@
+.legalPage {
+  min-height: 100vh;
+}
+
+.contentWrapper {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pageHeader {
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--brand-alpha-weak);
+
+  @media (max-width: 768px) {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+}
+
+.link {
+  color: var(--brand-on-background-strong);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid var(--brand-alpha-medium);
+
+  &:hover {
+    color: var(--brand-background-strong);
+    border-bottom-color: var(--brand-background-strong);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-background-strong);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  color: var(--brand-on-background-medium);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: var(--brand-on-background-strong);
+    border-bottom-color: var(--brand-alpha-medium);
+    transform: translateX(-4px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-background-strong);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contentWrapper,
+  .link,
+  .backLink {
+    animation: none;
+    transition: none;
+  }
+}
