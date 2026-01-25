@@ -61,12 +61,26 @@ export const AftermathSection: React.FC = () => {
                         post.caption.toLowerCase().includes('nachher')
                     );
                     
-                    // Use first two consecutive posts as before/after pair
+                    // Check if any post is a carousel with multiple images
+                    for (const post of beforeAfterPosts) {
+                        if (post.carouselImages && post.carouselImages.length >= 2) {
+                            // Use first two images from carousel as before/after
+                            setBeforeAfterImages({
+                                before: post.carouselImages[0],
+                                after: post.carouselImages[1]
+                            });
+                            console.log('Found carousel post with before/after images');
+                            return;
+                        }
+                    }
+                    
+                    // Fallback: Use first two consecutive posts as before/after pair
                     if (beforeAfterPosts.length >= 2) {
                         setBeforeAfterImages({
                             before: beforeAfterPosts[0].mediaUrl || beforeAfterPosts[0].media_url,
                             after: beforeAfterPosts[1].mediaUrl || beforeAfterPosts[1].media_url
                         });
+                        console.log('Using two separate posts as before/after');
                     }
                 }
             } catch (error) {
