@@ -9,6 +9,7 @@ import classNames from "classnames";
 import {Background, Banner, Column, Flex, Icon} from "@once-ui-system/core";
 import React from "react";
 import {meta} from "@/resources";
+import { StructuredData } from '@/components/seo/StructuredData';
 
 const themeScript = `
   (function() {
@@ -53,8 +54,60 @@ const themeScript = `
 `;
 
 export const metadata: Metadata = {
-    title: meta.home.title,
+    metadataBase: new URL('https://lmbeauty.de'),
+    title: {
+        default: meta.home.title,
+        template: '%s | LM Beauty Oldenburg'
+    },
     description: meta.home.description,
+    keywords: meta.home.keywords,
+    authors: [{ name: 'LM Beauty', url: 'https://lmbeauty.de' }],
+    creator: 'LM Beauty',
+    publisher: 'LM Beauty',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        type: 'website',
+        locale: 'de_DE',
+        url: 'https://lmbeauty.de',
+        siteName: 'LM Beauty',
+        title: meta.home.title,
+        description: meta.home.description,
+        images: [
+            {
+                url: '/images/og/home.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'LM Beauty Oldenburg - Wimpernverlängerung & Beauty Studio',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: meta.home.title,
+        description: meta.home.description,
+        images: ['/images/og/home.jpg'],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    alternates: {
+        canonical: 'https://lmbeauty.de',
+    },
+    verification: {
+        google: 'your-google-verification-code',
+    },
 };
 
 export default function RootLayout({children}: Readonly<{
@@ -76,6 +129,13 @@ export default function RootLayout({children}: Readonly<{
         >
             <head title="">
                 <script dangerouslySetInnerHTML={{ __html: themeScript}}/>
+                <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+                <meta name="apple-mobile-web-app-title" content="LM Beauty" />
+                <link rel="manifest" href="/site.webmanifest" />
+                <StructuredData type="home" />
             </head>
             <Providers>
                 <Column
