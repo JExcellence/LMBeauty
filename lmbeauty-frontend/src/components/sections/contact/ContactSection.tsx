@@ -96,8 +96,11 @@ export const ContactSection: React.FC = () => {
                         </Column>
 
                         <Column>
-                            <Text variant="body-default-l" onBackground="brand-medium" marginBottom="l">
-                                Ob Fragen, Terminwünsche oder einfach nur Hallo sagen — ich bin für dich da.
+                            <Text as="p" variant="body-default-m" onBackground="brand-medium">
+                                Ob Fragen, Terminwünsche oder einfach nur Hallo sagen
+                            </Text>
+                            <Text as="p" variant="body-default-s" onBackground="brand-medium" marginBottom="l">
+                                — ich bin für dich da.
                             </Text>
                         </Column>
 
@@ -162,15 +165,18 @@ export const ContactSection: React.FC = () => {
 
                     <Column fillWidth maxWidth={48} horizontal="center" vertical="center" m={{maxWidth: 100}}>
                         <Column fillWidth horizontal="center" vertical="center">
-                            <Column className={styles.mapCard} radius="l" fillWidth border="brand-alpha-medium"
-                                    background="surface">
+                            <Column
+                                overflow="hidden"
+                                shadow="xl"
+                                radius="l" fillWidth border="brand-alpha-medium"
+                                background="surface">
                                 <Flex
                                     gap="m"
                                     paddingX="l"
                                     paddingY="l"
                                     horizontal="start"
                                     vertical="center"
-                                    className={styles.mapHeader}
+                                    borderBottom="brand-alpha-weak"
                                     fillWidth
                                 >
                                     <Icon name="mapPin" padding="xs" background="brand-alpha-weak"
@@ -185,7 +191,7 @@ export const ContactSection: React.FC = () => {
                                     </Column>
                                 </Flex>
 
-                                <Column horizontal="center" vertical="center" className={styles.mapWrapper}>
+                                <Column fill horizontal="center" vertical="center" className={styles.mapWrapper}>
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.5!2d8.2167!3d53.1489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6de6a8b8b8b8b%3A0x1234567890abcdef!2sBloherfelder%20Str.%2040%2C%2026129%20Oldenburg!5e0!3m2!1sde!2sde!4v1703000000000!5m2!1sde!2sde"
                                         width="100%"

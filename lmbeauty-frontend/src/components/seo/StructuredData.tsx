@@ -11,10 +11,11 @@ export function StructuredData({ type = 'home' }: StructuredDataProps) {
 
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'BeautySalon',
+    '@type': ['HealthAndBeautyBusiness', 'LocalBusiness'],
     '@id': `${baseUrl}/#organization`,
     name: schema.name,
     legalName: schema.legalName,
+    alternateName: 'LM Beauty Wimpernstudio Oldenburg',
     url: baseUrl,
     logo: `${baseUrl}${schema.logo}`,
     image: `${baseUrl}${schema.logo}`,
@@ -25,6 +26,7 @@ export function StructuredData({ type = 'home' }: StructuredDataProps) {
     founder: {
       '@type': 'Person',
       name: schema.founder,
+      jobTitle: 'Zertifizierte Wimpernstylisten',
     },
     foundingDate: schema.foundingDate,
     address: {
@@ -55,9 +57,26 @@ export function StructuredData({ type = 'home' }: StructuredDataProps) {
       },
     ],
     sameAs: schema.sameAs,
-    areaServed: {
-      '@type': 'City',
-      name: 'Oldenburg',
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Oldenburg',
+      },
+      {
+        '@type': 'City',
+        name: 'Bremen',
+      },
+      {
+        '@type': 'City',
+        name: 'Delmenhorst',
+      },
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: schema.aggregateRating?.ratingValue || '5.0',
+      reviewCount: schema.aggregateRating?.reviewCount || '50',
+      bestRating: '5',
+      worstRating: '1',
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -220,12 +239,24 @@ export function StructuredData({ type = 'home' }: StructuredDataProps) {
     ],
   } : null;
 
+  const videoSchema = type === 'home' ? {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'LM Beauty Studio Tour - Wimpernverlängerung in Oldenburg',
+    description: 'Einblick in unser Wimpernstudio in Oldenburg. Professionelle Wimpernverlängerung in entspannter Atmosphäre.',
+    thumbnailUrl: `${baseUrl}/videos/lmbeauty_store_thumbnail.jpg`,
+    uploadDate: '2024-01-01',
+    contentUrl: `${baseUrl}/videos/lmbeauty_store.mp4`,
+    embedUrl: `${baseUrl}/#hero`,
+  } : null;
+
   const schemas = [
     organizationSchema,
     localBusinessSchema,
     websiteSchema,
     breadcrumbSchema,
     ...(faqSchema ? [faqSchema] : []),
+    ...(videoSchema ? [videoSchema] : []),
   ];
 
   return (

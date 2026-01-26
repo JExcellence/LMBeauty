@@ -69,6 +69,17 @@ export const metadata: Metadata = {
         address: false,
         telephone: false,
     },
+    icons: {
+        icon: [
+            { url: '/favicon.ico', sizes: 'any' },
+            { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+            { url: '/favicon.svg', type: 'image/svg+xml' },
+        ],
+        apple: [
+            { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        ],
+    },
+    manifest: '/site.webmanifest',
     openGraph: {
         type: 'website',
         locale: 'de_DE',
@@ -129,12 +140,6 @@ export default function RootLayout({children}: Readonly<{
         >
             <head title="">
                 <script dangerouslySetInnerHTML={{ __html: themeScript}}/>
-                <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-                <link rel="shortcut icon" href="/favicon.ico" />
-                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-                <meta name="apple-mobile-web-app-title" content="LM Beauty" />
-                <link rel="manifest" href="/site.webmanifest" />
                 <link rel="preconnect" href="https://lmbeauty.de" />
                 <link rel="dns-prefetch" href="https://lmbeauty.de" />
                 <StructuredData type="home" />

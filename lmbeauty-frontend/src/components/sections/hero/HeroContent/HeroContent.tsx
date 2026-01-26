@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './HeroContent.module.scss';
-import {Badge, Column, Flex, Heading, IconButton, Pulse, RevealFx, Row, SmartLink, Text} from "@once-ui-system/core";
+import {Badge, Column, Flex, Heading, IconButton, Pulse, Row, SmartLink, Text} from "@once-ui-system/core";
 
 export const HeroContent: React.FC = () => {
     return (
@@ -13,32 +13,32 @@ export const HeroContent: React.FC = () => {
             horizontal="start"
             m={{horizontal: "center"}}
         >
-            <RevealFx delay={0} translateY={20} fillWidth horizontal="start" m={{horizontal: "center"}}>
+            <Column fillWidth horizontal="start" m={{horizontal: "center"}}>
                 <Badge arrow gap="xs" background="surface">
                     <Pulse/>
                     <Text as="span" variant="heading-default-xl" onBackground="brand-weak">Wimpern, die
                         begeistern</Text>
                 </Badge>
-            </RevealFx>
+            </Column>
 
-            <RevealFx delay={0.15} translateY={30} fillWidth marginTop="m" horizontal="start"
-                      m={{horizontal: "center"}}>
+            <Column fillWidth marginTop="m" horizontal="start"
+                    m={{horizontal: "center"}}>
                 <Heading as="h1" id="hero-headline" onBackground="info-strong" align="center">
                     Dein <Text className={styles.accentWord}>Traumblick</Text> wartet auf dich.
                 </Heading>
-            </RevealFx>
+            </Column>
 
-            <RevealFx delay={0.3} translateY={25} fillWidth paddingY="s" horizontal="start" maxWidth="xs"
-                      m={{horizontal: "center", align: "center"}}>
+            <Column fillWidth paddingY="s" horizontal="start" maxWidth="xs"
+                    m={{horizontal: "center", align: "center"}}>
                 <Text as="p" onBackground="info-strong" wrap="balance" align="inherit"
                       className={styles.heroDescription}>
                     Wimpernverlängerung, die zu dir passt – natürlich, glamourös oder irgendwo dazwischen.
                     Entspann dich, ich mach den Rest.
                 </Text>
-            </RevealFx>
+            </Column>
 
             <Flex className={styles.ctaGroup} aria-label="Hauptaktionen" vertical="center">
-                <RevealFx delay={0.45} translateY={20}>
+                <Column>
                     <SmartLink
                         href="#contact"
                         className={styles.primaryCta}
@@ -46,8 +46,8 @@ export const HeroContent: React.FC = () => {
                     >
                         Jetzt Termin sichern
                     </SmartLink>
-                </RevealFx>
-                <RevealFx delay={0.6} translateY={20}>
+                </Column>
+                <Column>
                     <SmartLink
                         href=""
                         className={styles.secondaryCta}
@@ -56,10 +56,10 @@ export const HeroContent: React.FC = () => {
                         <Text as="span" className={styles.secondaryCtaText}>Bald verfügbar →</Text>
                         {/*<Text as="span" className={styles.secondaryCtaText}>Ergebnisse ansehen →</Text>*/}
                     </SmartLink>
-                </RevealFx>
+                </Column>
             </Flex>
 
-            <RevealFx delay={0.75} translateY={20}>
+            <Column>
                 <Row
                     l={{horizontal: "start"}}
                     m={{horizontal: "center"}}
@@ -115,7 +115,7 @@ export const HeroContent: React.FC = () => {
                         />
                     </Row>
                 </Row>
-            </RevealFx>
+            </Column>
         </Column>
     );
 };

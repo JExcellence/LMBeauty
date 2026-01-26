@@ -2,9 +2,9 @@
   width: 80px;
   height: 3px;
   background: linear-gradient(
-    90deg,
-    var(--brand-background-strong) 0%,
-    var(--brand-background-medium) 100%
+                  90deg,
+                  var(--brand-background-strong) 0%,
+                  var(--brand-background-medium) 100%
   );
   border-radius: 2px;
 
@@ -31,7 +31,7 @@
 
     .contactIcon {
       background: var(--brand-background-strong);
-      
+
       svg {
         color: var(--static-white);
       }
@@ -49,17 +49,8 @@
   font-size: 16px;
   opacity: 0;
   transform: translateX(-4px);
-  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mapCard {
-  overflow: hidden;
-  box-shadow: 0 4px 24px var(--brand-alpha-medium);
-}
-
-.mapHeader {
-  border-bottom: 1px solid var(--brand-alpha-weak);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+  transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mapWrapper {
@@ -81,7 +72,7 @@
 
 .mapButton {
   border-top: 1px solid var(--brand-alpha-weak);
-  
+
   &:hover {
     background: var(--brand-alpha-weak) !important;
   }
