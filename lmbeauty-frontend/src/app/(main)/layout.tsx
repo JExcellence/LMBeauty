@@ -1,38 +1,33 @@
-"use client";
+import { Metadata } from 'next';
+import { meta } from '@/resources';
 
-import React, { useState } from 'react';
-import { Column } from "@once-ui-system/core";
-import { Footer } from "@/components/footer/Footer";
-import { FloatingContactButton } from "@/components/FloatingContactButton";
-import styles from './layout.module.scss';
+export const metadata: Metadata = {
+    title: meta.home.title,
+    description: meta.home.description,
+    keywords: meta.home.keywords,
+    openGraph: {
+        title: meta.home.title,
+        description: meta.home.description,
+        url: 'https://lmbeauty.de',
+        type: 'website',
+        images: [
+            {
+                url: meta.home.image,
+                width: 1200,
+                height: 630,
+                alt: 'LM Beauty Oldenburg - Wimpernverlängerung & Wimpernlifting Studio',
+            },
+        ],
+    },
+    alternates: {
+        canonical: 'https://lmbeauty.de',
+    },
+};
 
 export default function MainLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
-  const handleToggleSidebar = () => {
-    setIsSidebarCollapsed(!isSidebarCollapsed);
-  };
-
-  return (
-    <Column fillWidth style={{ minHeight: "100vh", overflowX: "hidden" }}>
-      <Column 
-        fillWidth 
-        className={`${styles.mainContent} ${isSidebarCollapsed ? styles.sidebarCollapsed : ''}`}
-      >
-        <Column fillWidth>
-          {children}
-        </Column>
-
-          <Column fillWidth>
-              <Footer />
-          </Column>
-      </Column>
-      
-      <FloatingContactButton />
-    </Column>
-  );
+    return children;
 }

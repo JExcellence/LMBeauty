@@ -125,14 +125,14 @@ const Footer: React.FC = () => {
                             </Column>
                             <Column gap="xs">
                                 <Column>
-                                    <SmartLink href="/#services" className={styles.link}>
+                                    <SmartLink href="/wimpernverlaengerung-oldenburg" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
                                             Wimpernverlängerung
                                         </Text>
                                     </SmartLink>
                                 </Column>
                                 <Column>
-                                    <SmartLink href="/#services" className={styles.link}>
+                                    <SmartLink href="/wimpernlifting-oldenburg" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
                                             Wimpernlifting
                                         </Text>
@@ -141,14 +141,14 @@ const Footer: React.FC = () => {
                                 <Column>
                                     <SmartLink href="/#services" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
-                                            Volume Technik
+                                            Alle Services
                                         </Text>
                                     </SmartLink>
                                 </Column>
                                 <Column>
-                                    <SmartLink href="/#services" className={styles.link}>
+                                    <SmartLink href="/faq" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
-                                            Nageldesign
+                                            Häufige Fragen
                                         </Text>
                                     </SmartLink>
                                 </Column>
@@ -186,6 +186,13 @@ const Footer: React.FC = () => {
                                     <SmartLink href="/online-booking" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
                                             Termin buchen
+                                        </Text>
+                                    </SmartLink>
+                                </Column>
+                                <Column>
+                                    <SmartLink href="/faq" className={styles.link}>
+                                        <Text variant="body-default-s" onBackground="brand-medium">
+                                            FAQ
                                         </Text>
                                     </SmartLink>
                                 </Column>

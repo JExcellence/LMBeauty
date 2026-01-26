@@ -1,16 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
-import {
-    Background,
-    Column, Flex,
-    Heading,
-    Row, SmartLink,
-    Text
-} from "@once-ui-system/core";
+import React, {useCallback, useEffect, useState} from 'react';
+import {Background, Column, Flex, Heading, Row, SmartLink, Text} from "@once-ui-system/core";
 import styles from './VoicesSection.module.scss';
-import { voices, Voice } from './data';
-import { useScrollReveal } from '@/hooks';
+import {Voice, voices} from './data';
+import {useScrollReveal} from '@/hooks';
 
 interface GoogleReview {
     author_name: string;
@@ -22,7 +16,7 @@ interface GoogleReview {
 }
 
 export const VoicesSection: React.FC = () => {
-    const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+    const {ref: sectionRef, isVisible} = useScrollReveal({threshold: 0.1});
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [displayVoices, setDisplayVoices] = useState<Voice[]>(voices);
@@ -31,8 +25,7 @@ export const VoicesSection: React.FC = () => {
     useEffect(() => {
         const fetchGoogleReviews = async () => {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 
-                              (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
                 const response = await fetch(`${apiUrl}/frontend/reviews`);
                 const result = await response.json();
 
@@ -112,7 +105,7 @@ export const VoicesSection: React.FC = () => {
                 }}
                 zIndex={0}
             />
-            <Column fillWidth maxWidth={80} s={{ maxWidth: 100 }}>
+            <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
                 <Column gap="l" paddingTop="l" paddingBottom="m">
                     <Column gap="2" fitWidth horizontal="start">
                         <Heading
@@ -123,7 +116,7 @@ export const VoicesSection: React.FC = () => {
                         >
                             Was Kundinnen sagen
                         </Heading>
-                        <Flex className={styles.headlineUnderline} />
+                        <Flex className={styles.headlineUnderline}/>
                     </Column>
 
                     <Column

@@ -590,7 +590,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         return categoryPosts.map(post => ({
             id: post.id,
             src: post.media_url,
-            alt: post.caption || `${serviceId} Ergebnis`,
+            alt: post.caption || `Wimpernverlängerung ${serviceId} Ergebnis bei LM Beauty Oldenburg - Vorher Nachher`,
             permalink: post.permalink,
         }));
     };

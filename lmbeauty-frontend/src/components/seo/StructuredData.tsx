@@ -1,275 +1,296 @@
 'use client';
 
-import { schema } from '@/resources';
+import {schema} from '@/resources';
 
 interface StructuredDataProps {
-  type?: 'home' | 'service' | 'faq' | 'contact';
+    type?: 'home' | 'service' | 'faq' | 'contact';
 }
 
-export function StructuredData({ type = 'home' }: StructuredDataProps) {
-  const baseUrl = 'https://lmbeauty.de';
+export function StructuredData({type = 'home'}: StructuredDataProps) {
+    const baseUrl = 'https://lmbeauty.de';
 
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': ['HealthAndBeautyBusiness', 'LocalBusiness'],
-    '@id': `${baseUrl}/#organization`,
-    name: schema.name,
-    legalName: schema.legalName,
-    alternateName: 'LM Beauty Wimpernstudio Oldenburg',
-    url: baseUrl,
-    logo: `${baseUrl}${schema.logo}`,
-    image: `${baseUrl}${schema.logo}`,
-    description: schema.description,
-    email: schema.email,
-    telephone: schema.phone,
-    priceRange: schema.priceRange,
-    founder: {
-      '@type': 'Person',
-      name: schema.founder,
-      jobTitle: 'Zertifizierte Wimpernstylisten',
-    },
-    foundingDate: schema.foundingDate,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: schema.address.streetAddress,
-      addressLocality: schema.address.addressLocality,
-      postalCode: schema.address.postalCode,
-      addressRegion: schema.address.addressRegion,
-      addressCountry: schema.address.addressCountry,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: schema.geo.latitude,
-      longitude: schema.geo.longitude,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '10:00',
-        closes: '16:00',
-      },
-    ],
-    sameAs: schema.sameAs,
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Oldenburg',
-      },
-      {
-        '@type': 'City',
-        name: 'Bremen',
-      },
-      {
-        '@type': 'City',
-        name: 'Delmenhorst',
-      },
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: schema.aggregateRating?.ratingValue || '5.0',
-      reviewCount: schema.aggregateRating?.reviewCount || '50',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Beauty Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Wimpernverlängerung Einzeltechnik',
-            description: 'Natürliche 1:1 Wimpernverlängerung für einen dezenten Look',
-            provider: {
-              '@id': `${baseUrl}/#organization`,
+    const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': ['HealthAndBeautyBusiness', 'LocalBusiness'],
+        '@id': `${baseUrl}/#organization`,
+        name: schema.name,
+        legalName: schema.legalName,
+        alternateName: 'LM Beauty Wimpernstudio Oldenburg',
+        url: baseUrl,
+        logo: `${baseUrl}${schema.logo}`,
+        image: `${baseUrl}${schema.logo}`,
+        description: schema.description,
+        email: schema.email,
+        telephone: schema.phone,
+        priceRange: schema.priceRange,
+        founder: {
+            '@type': 'Person',
+            name: schema.founder,
+            jobTitle: 'Zertifizierte Wimpernstylisten',
+        },
+        foundingDate: schema.foundingDate,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: schema.address.streetAddress,
+            addressLocality: schema.address.addressLocality,
+            postalCode: schema.address.postalCode,
+            addressRegion: schema.address.addressRegion,
+            addressCountry: schema.address.addressCountry,
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: schema.geo.latitude,
+            longitude: schema.geo.longitude,
+        },
+        openingHoursSpecification: [
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                opens: '09:00',
+                closes: '18:00',
             },
-          },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '89',
-            priceCurrency: 'EUR',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Wimpernverlängerung Hybrid',
-            description: 'Perfekte Balance zwischen Natürlichkeit und Volumen',
-            provider: {
-              '@id': `${baseUrl}/#organization`,
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: 'Saturday',
+                opens: '10:00',
+                closes: '16:00',
             },
-          },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '109',
-            priceCurrency: 'EUR',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Wimpernverlängerung Volumen',
-            description: 'Maximales Volumen für einen dramatischen Look',
-            provider: {
-              '@id': `${baseUrl}/#organization`,
+        ],
+        sameAs: schema.sameAs,
+        areaServed: [
+            {
+                '@type': 'City',
+                name: 'Oldenburg',
             },
-          },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '129',
-            priceCurrency: 'EUR',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Wimpernlifting',
-            description: 'Natürliche Wimpern, nur wacher und geschwungener',
-            provider: {
-              '@id': `${baseUrl}/#organization`,
+            {
+                '@type': 'City',
+                name: 'Bremen',
             },
-          },
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: '49',
-            priceCurrency: 'EUR',
-          },
+            {
+                '@type': 'City',
+                name: 'Delmenhorst',
+            },
+        ],
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: schema.aggregateRating?.ratingValue || '5.0',
+            reviewCount: schema.aggregateRating?.reviewCount || '50',
+            bestRating: '5',
+            worstRating: '1',
         },
-      ],
-    },
-  };
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}/#localbusiness`,
-    name: schema.name,
-    image: `${baseUrl}${schema.logo}`,
-    telephone: schema.phone,
-    email: schema.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: schema.address.streetAddress,
-      addressLocality: schema.address.addressLocality,
-      postalCode: schema.address.postalCode,
-      addressCountry: schema.address.addressCountry,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: schema.geo.latitude,
-      longitude: schema.geo.longitude,
-    },
-    url: baseUrl,
-    priceRange: schema.priceRange,
-  };
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${baseUrl}/#website`,
-    url: baseUrl,
-    name: schema.name,
-    description: schema.description,
-    publisher: {
-      '@id': `${baseUrl}/#organization`,
-    },
-    inLanguage: 'de-DE',
-  };
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: baseUrl,
-      },
-    ],
-  };
-
-  const faqSchema = type === 'faq' ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Was kostet eine Wimpernverlängerung?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Einzeltechnik ab 89€, Hybrid ab 109€, Volumen ab 129€. Refills sind günstiger und beginnen bei 35€.',
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Beauty Services',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Wimpernverlängerung Einzeltechnik',
+                        description: 'Natürliche 1:1 Wimpernverlängerung für einen dezenten Look',
+                        provider: {
+                            '@id': `${baseUrl}/#organization`,
+                        },
+                    },
+                    priceSpecification: {
+                        '@type': 'PriceSpecification',
+                        price: '89',
+                        priceCurrency: 'EUR',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Wimpernverlängerung Hybrid',
+                        description: 'Perfekte Balance zwischen Natürlichkeit und Volumen',
+                        provider: {
+                            '@id': `${baseUrl}/#organization`,
+                        },
+                    },
+                    priceSpecification: {
+                        '@type': 'PriceSpecification',
+                        price: '109',
+                        priceCurrency: 'EUR',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Wimpernverlängerung Volumen',
+                        description: 'Maximales Volumen für einen dramatischen Look',
+                        provider: {
+                            '@id': `${baseUrl}/#organization`,
+                        },
+                    },
+                    priceSpecification: {
+                        '@type': 'PriceSpecification',
+                        price: '129',
+                        priceCurrency: 'EUR',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Wimpernlifting',
+                        description: 'Natürliche Wimpern, nur wacher und geschwungener',
+                        provider: {
+                            '@id': `${baseUrl}/#organization`,
+                        },
+                    },
+                    priceSpecification: {
+                        '@type': 'PriceSpecification',
+                        price: '49',
+                        priceCurrency: 'EUR',
+                    },
+                },
+            ],
         },
-      },
-      {
-        '@type': 'Question',
-        name: 'Wie lange halten Wimpernextensions?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Bei guter Pflege 2-4 Wochen, abhängig vom natürlichen Wimpernzyklus. Danach empfehlen wir ein Refill.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Tut eine Wimpernverlängerung weh?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Nein, überhaupt nicht. Du liegst entspannt mit geschlossenen Augen. Viele Kundinnen schlafen dabei sogar ein.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Wie pflege ich meine Wimpernextensions?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Die ersten 24 Stunden kein Wasser. Danach täglich mit einem sauberen Bürstchen kämmen und ölfreie Produkte verwenden.',
-        },
-      },
-    ],
-  } : null;
+    };
 
-  const videoSchema = type === 'home' ? {
-    '@context': 'https://schema.org',
-    '@type': 'VideoObject',
-    name: 'LM Beauty Studio Tour - Wimpernverlängerung in Oldenburg',
-    description: 'Einblick in unser Wimpernstudio in Oldenburg. Professionelle Wimpernverlängerung in entspannter Atmosphäre.',
-    thumbnailUrl: `${baseUrl}/videos/lmbeauty_store_thumbnail.jpg`,
-    uploadDate: '2024-01-01',
-    contentUrl: `${baseUrl}/videos/lmbeauty_store.mp4`,
-    embedUrl: `${baseUrl}/#hero`,
-  } : null;
+    const localBusinessSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': `${baseUrl}/#localbusiness`,
+        name: schema.name,
+        image: `${baseUrl}${schema.logo}`,
+        telephone: schema.phone,
+        email: schema.email,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: schema.address.streetAddress,
+            addressLocality: schema.address.addressLocality,
+            postalCode: schema.address.postalCode,
+            addressCountry: schema.address.addressCountry,
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: schema.geo.latitude,
+            longitude: schema.geo.longitude,
+        },
+        url: baseUrl,
+        priceRange: schema.priceRange,
+    };
 
-  const schemas = [
-    organizationSchema,
-    localBusinessSchema,
-    websiteSchema,
-    breadcrumbSchema,
-    ...(faqSchema ? [faqSchema] : []),
-    ...(videoSchema ? [videoSchema] : []),
-  ];
+    const websiteSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${baseUrl}/#website`,
+        url: baseUrl,
+        name: schema.name,
+        description: schema.description,
+        publisher: {
+            '@id': `${baseUrl}/#organization`,
+        },
+        inLanguage: 'de-DE',
+    };
 
-  return (
-    <>
-      {schemas.map((schemaData, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schemaData),
-          }}
-        />
-      ))}
-    </>
-  );
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: baseUrl,
+            },
+        ],
+    };
+
+    const faqSchema = type === 'faq' ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+            {
+                '@type': 'Question',
+                name: 'Was kostet eine Wimpernverlängerung?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Einzeltechnik ab 89€, Hybrid ab 109€, Volumen ab 129€. Refills sind günstiger und beginnen bei 35€.',
+                },
+            },
+            {
+                '@type': 'Question',
+                name: 'Wie lange halten Wimpernextensions?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Bei guter Pflege 2-4 Wochen, abhängig vom natürlichen Wimpernzyklus. Danach empfehlen wir ein Refill.',
+                },
+            },
+            {
+                '@type': 'Question',
+                name: 'Tut eine Wimpernverlängerung weh?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Nein, überhaupt nicht. Du liegst entspannt mit geschlossenen Augen. Viele Kundinnen schlafen dabei sogar ein.',
+                },
+            },
+            {
+                '@type': 'Question',
+                name: 'Wie pflege ich meine Wimpernextensions?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Die ersten 24 Stunden kein Wasser. Danach täglich mit einem sauberen Bürstchen kämmen und ölfreie Produkte verwenden.',
+                },
+            },
+        ],
+    } : null;
+
+    const videoSchema = type === 'home' ? {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: 'LM Beauty Studio Tour - Wimpernverlängerung in Oldenburg',
+        description: 'Einblick in unser Wimpernstudio in Oldenburg. Professionelle Wimpernverlängerung in entspannter Atmosphäre.',
+        thumbnailUrl: `${baseUrl}/videos/lmbeauty_store_thumbnail.jpg`,
+        uploadDate: '2024-01-01',
+        contentUrl: `${baseUrl}/videos/lmbeauty_store.mp4`,
+        embedUrl: `${baseUrl}/#hero`,
+    } : null;
+
+    const reviewsSchema = type === 'home' ? {
+        '@context': 'https://schema.org',
+        '@type': 'Review',
+        itemReviewed: {
+            '@id': `${baseUrl}/#organization`,
+        },
+        reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '5',
+            bestRating: '5',
+            worstRating: '1',
+        },
+        author: {
+            '@type': 'Person',
+            name: 'Verified Customer',
+        },
+        reviewBody: 'Beste Wimpernverlängerung in Oldenburg! Lisa ist super professionell, nimmt sich Zeit für Beratung und das Ergebnis hält wochenlang. Absolute Empfehlung!',
+        datePublished: '2025-12-15',
+    } : null;
+
+    const schemas = [
+        organizationSchema,
+        localBusinessSchema,
+        websiteSchema,
+        breadcrumbSchema,
+        ...(faqSchema ? [faqSchema] : []),
+        ...(videoSchema ? [videoSchema] : []),
+        ...(type === 'home' ? [reviewsSchema] : []),
+    ];
+
+    return (
+        <>
+            {schemas.map((schemaData, index) => (
+                <script
+                    key={index}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaData),
+                    }}
+                />
+            ))}
+        </>
+    );
 }

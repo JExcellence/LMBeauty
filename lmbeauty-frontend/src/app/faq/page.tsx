@@ -31,6 +31,10 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Kann ich meinen Termin verschieben?',
                 answer: 'Ja, bis 24 Stunden vor dem Termin kannst du kostenlos verschieben oder absagen.'
+            },
+            {
+                question: 'Wie lange vorher sollte ich buchen?',
+                answer: 'Am besten 1-2 Wochen im Voraus, besonders für Wochenendtermine. Kurzfristige Termine sind manchmal auch möglich.'
             }
         ]
     },
@@ -49,6 +53,10 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Kann ich während der Behandlung mein Handy benutzen?',
                 answer: 'Deine Augen müssen geschlossen bleiben. Aber du kannst gerne Musik oder Podcasts über Kopfhörer hören.'
+            },
+            {
+                question: 'Kann ich zwischendurch eine Pause machen?',
+                answer: 'Natürlich! Sag einfach Bescheid, wenn du eine kurze Pause brauchst. Dein Komfort ist wichtig.'
             }
         ]
     },
@@ -71,6 +79,14 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Wann sollte ich zum Refill kommen?',
                 answer: 'Idealerweise alle 2-3 Wochen. Wenn mehr als 50% ausgefallen sind, ist ein Neuaufbau nötig.'
+            },
+            {
+                question: 'Kann ich Make-up tragen?',
+                answer: 'Ja, aber verwende ölfreie Produkte. Wasserfeste Mascara solltest du vermeiden, da sie schwer zu entfernen ist.'
+            },
+            {
+                question: 'Was mache ich, wenn eine Wimper abfällt?',
+                answer: 'Das ist normal! Deine Naturwimpern haben einen Zyklus. Nicht ziehen oder zupfen, einfach ausfallen lassen.'
             }
         ]
     },
@@ -85,6 +101,14 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Wie kann ich bezahlen?',
                 answer: 'Bar, EC-Karte oder PayPal — ganz wie du möchtest. Die Zahlung erfolgt nach der Behandlung.'
+            },
+            {
+                question: 'Gibt es Rabatte oder Pakete?',
+                answer: 'Ja! Mit der Stempelkarte bekommst du nach 10 Behandlungen eine gratis. Frag mich nach aktuellen Angeboten.'
+            },
+            {
+                question: 'Was kostet ein Refill?',
+                answer: 'Je nach Zeitabstand: 2 Wochen ab 35€, 3 Wochen ab 45€, 4 Wochen ab 55€. Abhängig vom Zustand.'
             }
         ]
     },
@@ -103,6 +127,14 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Ich habe empfindliche Augen — ist das ein Problem?',
                 answer: 'Nicht unbedingt. Sag mir vorher Bescheid, dann verwende ich besonders sanfte Produkte.'
+            },
+            {
+                question: 'Welche Produkte verwendest du?',
+                answer: 'Ich arbeite nur mit hochwertigen, geprüften Produkten. Alle Materialien sind hypoallergen und dermatologisch getestet.'
+            },
+            {
+                question: 'Wie hygienisch ist die Behandlung?',
+                answer: 'Hygiene hat oberste Priorität. Ich arbeite nach §43 IfSG mit sterilen Einwegmaterialien und desinfiziere alle Werkzeuge.'
             }
         ]
     }
