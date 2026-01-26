@@ -2,15 +2,24 @@
 
 import {
     BorderStyle,
-    IconProvider, LayoutProvider, NeutralColor, ScalingSize, Schemes, SolidStyle, SolidType, SurfaceStyle,
+    IconProvider,
+    LayoutProvider,
+    NeutralColor,
+    ScalingSize,
+    Schemes,
+    SolidStyle,
+    SolidType,
+    SurfaceStyle,
     ThemeProvider,
-    ToastProvider, TransitionStyle,
+    ToastProvider,
+    TransitionStyle,
 } from '@once-ui-system/core';
 import {style} from '@/resources/once-ui.config';
-import { iconLibrary } from '@/resources/icons';
-import { AuthProvider } from '@/contexts/AuthContext';
+import {iconLibrary} from '@/resources/icons';
+import {AuthProvider} from '@/contexts/AuthContext';
+import React from "react";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({children}: { children: React.ReactNode }) {
     return (
         <LayoutProvider>
             <ThemeProvider

@@ -1,25 +1,18 @@
-/*
 'use client';
 
-import { useEffect, useState } from 'react';
+export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default function GoogleCallbackPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Don't render anything until mounted on client
-  if (typeof window === 'undefined' || !mounted) {
-    return null;
-  }
-
-  return <div style={{ padding: '20px' }}>Google Callback - Client Only</div>;
-}
-*/
-
-
-export default function GoogleCallbackPage() {
-    return (<div/>)
+    return (
+        <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            minHeight: '100vh',
+            padding: '20px'
+        }}>
+            <div>Google Authentication Callback</div>
+        </div>
+    );
 }

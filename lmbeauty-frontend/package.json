@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
-    "test:seo": "node scripts/test-seo.js"
+    "start": "next start"
   },
   "dependencies": {
     "@once-ui-system/core": "^1.5.11",

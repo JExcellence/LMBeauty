@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Column, Heading, Text, RevealFx } from "@once-ui-system/core";
+import { Column, Heading, Text } from "@once-ui-system/core";
 import styles from './SeoContentSection.module.scss';
 
 export const SeoContentSection: React.FC = () => {
@@ -16,7 +16,7 @@ export const SeoContentSection: React.FC = () => {
             as="section"
             aria-labelledby="seo-content-headline"
         >
-            <RevealFx translateY={20}>
+            <Column>
                 <Heading 
                     as="h2" 
                     id="seo-content-headline"
@@ -26,9 +26,9 @@ export const SeoContentSection: React.FC = () => {
                 >
                     Wimpernverlängerung & Wimpernlifting in Oldenburg
                 </Heading>
-            </RevealFx>
+            </Column>
 
-            <RevealFx translateY={20} delay={0.1}>
+            <Column>
                 <Column gap="m">
                     <Text 
                         as="p" 
@@ -64,7 +64,7 @@ export const SeoContentSection: React.FC = () => {
                         Kein Kleben, kein Auffüllen, nur natürliche Schönheit.
                     </Text>
                 </Column>
-            </RevealFx>
+            </Column>
         </Column>
     );
 };

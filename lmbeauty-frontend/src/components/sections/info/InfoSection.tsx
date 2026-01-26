@@ -9,13 +9,11 @@ import {
     Flex,
     Heading,
     Line,
-    RevealFx,
     SmartLink,
     Text
 } from '@once-ui-system/core';
 import styles from './InfoSection.module.scss';
 import { InstagramFeed } from './InstagramFeed';
-import { useScrollReveal } from '@/hooks';
 
 interface InfoSectionProps {
   instagramHandle?: string;
@@ -39,7 +37,6 @@ const faqItems = [
 export const InfoSection: React.FC<InfoSectionProps> = ({
   instagramHandle = '_l.m_beauty_'
 }) => {
-  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
 
   const toggleFAQ = useCallback((index: number) => {
@@ -49,7 +46,6 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
   return (
     <Flex
       as="section"
-      ref={sectionRef}
       id="info"
       aria-labelledby="info-headline"
       fillWidth
@@ -57,7 +53,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
       paddingX="l"
       direction="column"
       horizontal="center"
-      className={`${styles.infoSection} ${isVisible ? styles.visible : ''}`}
+      className={styles.infoSection}
     >
         <Background
             position="absolute"
@@ -156,7 +152,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
         >
           <Flex fillWidth direction="column" center maxWidth={40}>
             <Column maxWidth="l" align="center" fillWidth>
-              <RevealFx delay={0.4} translateY={20}>
+              <Column>
                 <Heading
                   as="h3"
                   variant="heading-strong-xl"
@@ -166,9 +162,9 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                 >
                   Häufige Fragen
                 </Heading>
-              </RevealFx>
+              </Column>
 
-              <RevealFx delay={0.45} translateY={20}>
+              <Column>
                 <Text
                   align="center"
                   variant="body-default-l"
@@ -177,7 +173,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                 >
                   Alles, was du vor deinem ersten Termin wissen solltest
                 </Text>
-              </RevealFx>
+              </Column>
 
               <Column
                 radius="l"
@@ -189,7 +185,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
               >
                 {faqItems.map(({ title, content }, index) => (
                   <React.Fragment key={index}>
-                    <RevealFx delay={0.5 + (index * 0.08)} translateY={12}>
+                    <Column>
                       <Accordion
                         open={activeFAQ === index}
                         onToggle={() => toggleFAQ(index)}
@@ -208,13 +204,13 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                           {content}
                         </Text>
                       </Accordion>
-                    </RevealFx>
+                    </Column>
                     {index !== faqItems.length - 1 && <Line />}
                   </React.Fragment>
                 ))}
               </Column>
 
-              <RevealFx delay={0.75} translateY={12}>
+              <Column>
                 <Text
                   align="center"
                   wrap="balance"
@@ -227,7 +223,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                     Alle Antworten ansehen
                   </SmartLink>
                 </Text>
-              </RevealFx>
+              </Column>
             </Column>
           </Flex>
 
@@ -236,9 +232,9 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
             gap="m"
             className={styles.instagramColumn}
           >
-            <RevealFx delay={0.5} translateY={20}>
+            <Column>
               <InstagramFeed handle={instagramHandle} maxPosts={6} />
-            </RevealFx>
+            </Column>
           </Column>
         </Flex>
       </Column>

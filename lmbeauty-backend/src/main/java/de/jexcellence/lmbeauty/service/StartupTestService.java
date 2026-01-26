@@ -19,21 +19,21 @@ public class StartupTestService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void testApiOnStartup() {
-        log.info("=== TESTING FRONTEND API ON STARTUP ===");
-        
+        log.debug("=== TESTING FRONTEND API ON STARTUP ===");
+
         try {
             // Test the services endpoint
             var response = frontendController.getServices();
-            log.info("Services endpoint response status: {}", response.getStatusCode());
-            
+            log.debug("Services endpoint response status: {}", response.getStatusCode());
+
             if (response.getBody() != null && response.getBody().getData() != null) {
-                log.info("Services returned: {} items", response.getBody().getData().size());
+                log.debug("Services returned: {} items", response.getBody().getData().size());
             }
-            
+
         } catch (Exception e) {
             log.error("Error testing API on startup", e);
         }
-        
-        log.info("=== STARTUP API TEST COMPLETE ===");
+
+        log.debug("=== STARTUP API TEST COMPLETE ===");
     }
 }

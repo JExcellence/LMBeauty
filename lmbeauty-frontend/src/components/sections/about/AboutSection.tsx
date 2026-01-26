@@ -10,10 +10,8 @@ import {
     Heading,
     Line,
     Media,
-    RevealFx,
     Text
 } from '@once-ui-system/core';
-import {useScrollReveal} from '@/hooks';
 import {aboutData} from './data';
 import React from "react";
 import styles from './AboutSection.module.scss';
@@ -27,23 +25,15 @@ const trustMarkers = [
 ];
 
 export const AboutSection: React.FC = () => {
-    const {ref: sectionRef, isVisible} = useScrollReveal({threshold: 0.1});
-
     return (
         <Flex
             as="section"
-            ref={sectionRef}
             id="about"
             aria-labelledby="about-headline"
             fillWidth
             paddingY="xl"
             direction="column"
             horizontal="center"
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
         >
             <Flex
                 fillWidth
@@ -56,12 +46,10 @@ export const AboutSection: React.FC = () => {
                 m={{direction: "column", gap: "l"}}
                 s={{maxWidth: 100}}
             >
-                {/* Content Column */}
                 <Column fillWidth maxWidth={40} gap="m">
-                    {/* Headline with Underline */}
                     <Column gap="l" horizontal="start" paddingBottom="m">
                         <Column gap="2" fitWidth>
-                            <RevealFx delay={0.2} translateY={20}>
+                            <Column>
                                 <Heading
                                     as="h2"
                                     id="about-headline"
@@ -70,53 +58,62 @@ export const AboutSection: React.FC = () => {
                                 >
                                     Über <Text as="span" onBackground="brand-weak">mich</Text>
                                 </Heading>
-                            </RevealFx>
-                            <RevealFx delay={0.25} translateY={20}>
+                            </Column>
+                            <Column>
                                 <Flex className={styles.headlineUnderline}/>
-                            </RevealFx>
+                            </Column>
                         </Column>
                     </Column>
 
-                    {/* Story */}
                     <Column gap="m">
-                        <RevealFx delay={0.3} translateY={20}>
+                        <Column>
                             <Text
                                 as="p"
                                 variant="body-default-l"
                                 onBackground="brand-medium"
                             >
-                                Ich bin Lisa, und seit über fünf Jahren bin ich als Kosmetikerin in Oldenburg tätig,
-                                seit 2023 leite ich LM Beauty wo Schönheit und Ruhe zusammenkommen.
-                                Hier geht es nicht um Hektik oder Zeitdruck –
-                                sondern um dich, deine Wünsche und das gute Gefühl danach.
+                                Ich bin Lisa, und seit über fünf Jahren bin ich als Kosmetikerin in Oldenburg tätig.
+                                Seit 2023 leite ich <strong>LM Beauty</strong> – dein Studio für <strong>Wimpernverlängerung</strong> und <strong>Wimpernlifting in Oldenburg</strong>.
                             </Text>
-                        </RevealFx>
+                        </Column>
 
-                        <RevealFx delay={0.35} translateY={20}>
+                        <Column>
                             <Text
                                 as="p"
                                 variant="body-default-l"
                                 onBackground="brand-medium"
                             >
-                                Jede Behandlung ist individuell. Ob Wimpernverlängerung oder Nageldesign –
-                                ich nehme mir die Zeit, die es braucht, um ein Ergebnis zu schaffen,
-                                das zu dir passt. Natürlich, elegant oder auffällig: Du entscheidest.
+                                Hier geht es nicht um Hektik oder Zeitdruck, sondern um dich, deine Wünsche und das gute Gefühl danach.
+                                Ob natürlich mit der Einzeltechnik, voluminös mit der Volumen-Technik oder der perfekte Mix mit Hybrid – 
+                                ich finde den Look, der zu dir passt.
                             </Text>
-                        </RevealFx>
+                        </Column>
 
-                        <RevealFx delay={0.4} translateY={20}>
+                        <Column>
                             <Text
                                 as="p"
                                 variant="body-default-l"
                                 onBackground="brand-medium"
                             >
-                                Ich arbeite mit hochwertigen Produkten, bilde mich regelmäßig weiter und
-                                liebe, was ich tue. Denn am Ende zählt nur eins: dass du dich wohlfühlst.
+                                Mein <strong>Wimpernstudio in Oldenburg</strong> in der Bloherfelderstraße 40 ist dein Ort für entspannte Beauty-Treatments.
+                                Mit hochwertigen Produkten, hygienischen Standards und viel Liebe zum Detail sorge ich dafür, 
+                                dass du dich rundum wohlfühlst.
                             </Text>
-                        </RevealFx>
+                        </Column>
+
+                        <Column>
+                            <Text
+                                as="p"
+                                variant="body-default-l"
+                                onBackground="brand-medium"
+                            >
+                                <strong>Wimpernlifting</strong> ist die perfekte Alternative zur Verlängerung – 
+                                deine eigenen Wimpern werden geschwungen, gefärbt und sehen sofort länger aus. 
+                                Kein Kleben, kein Auffüllen, nur natürliche Schönheit.
+                            </Text>
+                        </Column>
                     </Column>
 
-                    {/* Trust Markers */}
                     <Column fillWidth>
                         <AutoScroll speed="slow" paddingY="s">
                             {trustMarkers.map((marker, index) => (
@@ -140,7 +137,6 @@ export const AboutSection: React.FC = () => {
                         </AutoScroll>
                     </Column>
 
-                    {/* Signature */}
                     <Column gap="s" paddingTop="m">
                         <Line background="brand-alpha-weak" fillWidth/>
                         <Text
@@ -157,7 +153,6 @@ export const AboutSection: React.FC = () => {
                     </Column>
                 </Column>
 
-                {/* Image Column */}
                 <Column fillWidth maxWidth={30} s={{maxWidth: "70%"}} className={styles.imageColumn}>
                     <Card
                         fillWidth
@@ -180,7 +175,6 @@ export const AboutSection: React.FC = () => {
                             objectFit="cover"
                         />
 
-                        {/* Overlay gradient */}
                         <Background
                             position="absolute"
                             fill

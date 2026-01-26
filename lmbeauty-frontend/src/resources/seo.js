@@ -6,7 +6,7 @@ const schema = {
     title: "Wimpernverlängerung Oldenburg | LM Beauty - Lash Extensions & Wimpernlifting",
     description:
         "Professionelle Wimpernverlängerung & Wimpernlifting in Oldenburg ✓ Einzeltechnik ✓ Hybrid ✓ Volumen ✓ Natürlich schön oder glamourös ✓ Jetzt Termin bei LM Beauty buchen!",
-    email: "info@lmbeauty.de",
+    email: "lisa.pinske@lmbeauty.de",
     phone: "+4915259675346",
     locale: "de_DE",
     address: {
@@ -26,7 +26,7 @@ const schema = {
     ],
     priceRange: "€€",
     founder: "Lisa Marie Pinske",
-    foundingDate: "2024",
+    foundingDate: "2023",
     sameAs: [
         "https://instagram.com/_l.m_beauty_",
         "https://www.facebook.com/lmbeauty"
@@ -82,4 +82,4 @@ const meta = {
     }
 };
 
-export { meta, schema };
+export {meta, schema};

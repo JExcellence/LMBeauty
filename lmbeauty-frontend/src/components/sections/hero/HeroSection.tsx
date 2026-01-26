@@ -2,7 +2,7 @@
 
 import {HeroContent} from './HeroContent';
 import {ScrollIndicator} from './ScrollIndicator';
-import {Background, Column, Fade, Flex, Media} from "@once-ui-system/core";
+import {Background, Column, Fade, Flex} from "@once-ui-system/core";
 
 export function Hero() {
     return (
@@ -28,16 +28,24 @@ export function Hero() {
                 background="surface"
                 opacity={20}
             >
-                <Media
-                    src="/videos/lmbeauty_store_full_hd.mp4"
-                    fill
-                    objectFit="cover"
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
                     style={{
                         minHeight: "100vh",
                         width: "100%",
-                        height: "100%"
+                        height: "100%",
+                        objectFit: "cover",
+                        position: "absolute",
+                        top: 0,
+                        left: 0
                     }}
-                />
+                >
+                    <source src="/videos/lmbeauty_store.mp4" type="video/mp4" />
+                </video>
             </Column>
 
             <Background
@@ -72,7 +80,6 @@ export function Hero() {
                 fillWidth
                 maxWidth={48}
                 gap="xl"
-                horizontal="center"
                 paddingX="l"
                 m={{maxWidth: 100, paddingX: "m"}}
                 s={{paddingX: "s"}}

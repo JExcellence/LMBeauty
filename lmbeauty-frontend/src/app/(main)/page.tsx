@@ -1,14 +1,28 @@
 import React from 'react';
 import {Background, Column, Schema} from "@once-ui-system/core";
+import dynamic from 'next/dynamic';
 import {
-    AboutSection, AftermathSection, ContactSection,
+    AboutSection,
+    ContactSection,
     FitCheckSection,
     InfoSection,
-    ServicesSection, StandardsSection,
-    VoicesSection, SeoContentSection
+    ServicesSection
 } from "@/components/sections";
 import {baseURL, meta} from "@/resources";
 import {Hero} from "@/components/sections/hero/HeroSection";
+
+// Lazy load below-the-fold sections
+const AftermathSection = dynamic(() => import("@/components/sections/aftermath/AftermathSection").then(mod => ({ default: mod.AftermathSection })), {
+    ssr: true,
+});
+
+const StandardsSection = dynamic(() => import("@/components/sections").then(mod => ({ default: mod.StandardsSection })), {
+    ssr: true,
+});
+
+const VoicesSection = dynamic(() => import("@/components/sections").then(mod => ({ default: mod.VoicesSection })), {
+    ssr: true,
+});
 
 export default function Home() {
   return (
@@ -37,9 +51,12 @@ export default function Home() {
                   radius: 250
               }}
               zIndex={0}
+              style={{
+                  willChange: 'auto',
+                  contain: 'layout style paint'
+              }}
           />
           <Hero />
-          <SeoContentSection />
           <AboutSection />
           <ServicesSection />
           <FitCheckSection />

@@ -1,9 +1,8 @@
 "use client";
 
 import React from 'react';
-import {Background, Column, Flex, Heading, Icon, RevealFx, SmartLink, Text} from '@once-ui-system/core';
+import {Background, Column, Flex, Heading, Icon, SmartLink, Text} from '@once-ui-system/core';
 import styles from './StandardsSection.module.scss';
-import {useScrollReveal} from '@/hooks';
 
 const standards = [
     {
@@ -47,12 +46,9 @@ const certifications = [
 ];
 
 export const StandardsSection: React.FC = () => {
-    const {ref: sectionRef, isVisible} = useScrollReveal({threshold: 0.1});
-
     return (
         <Column
             as="section"
-            ref={sectionRef}
             id="standards"
             aria-labelledby="standards-headline"
             fillWidth
@@ -91,7 +87,7 @@ export const StandardsSection: React.FC = () => {
                     <Column fillWidth gap="m">
                         <Column gap="l" horizontal="start">
                             <Column gap="2" fitWidth>
-                                <RevealFx delay={0.2} translateY={20}>
+                                <Column>
                                     <Heading
                                         as="h2"
                                         id="standards-headline"
@@ -100,27 +96,24 @@ export const StandardsSection: React.FC = () => {
                                     >
                                         Qualität & <Text as="span" onBackground="brand-weak">Hygiene</Text>
                                     </Heading>
-                                </RevealFx>
-                                <RevealFx delay={0.25} translateY={20}>
+                                </Column>
+                                <Column>
                                     <Flex className={styles.headlineUnderline}/>
-                                </RevealFx>
+                                </Column>
                             </Column>
                         </Column>
 
-                        <RevealFx delay={0.3} translateY={20}>
+                        <Column>
                             <Text variant="body-default-m" onBackground="brand-medium">
                                 Weil deine Augen mir wichtig sind — hier erfährst du, wie ich dich schütze.
                             </Text>
-                        </RevealFx>
+                        </Column>
 
                         <Column gap="l" paddingTop="m" maxWidth={30} fillWidth>
                             {standards.map((item, index) => (
-                                <RevealFx
+                                <Column
                                     key={item.title}
-                                    delay={0.4 + (index * 0.08)}
                                     className={styles.standardItem}
-                                    translateY={20}
-                                    direction="column"
                                 >
                                     <Flex
                                         gap="m"
@@ -142,13 +135,13 @@ export const StandardsSection: React.FC = () => {
                                             </Text>
                                         </Column>
                                     </Flex>
-                                </RevealFx>
+                                </Column>
                             ))}
                         </Column>
                     </Column>
 
                     <Column fillWidth gap="m" paddingTop="160" m={{maxWidth: 100}}>
-                        <RevealFx delay={0.5} translateY={20}>
+                        <Column>
                             <Column
                                 gap="m"
                                 padding="m"
@@ -204,9 +197,9 @@ export const StandardsSection: React.FC = () => {
                                     ))}
                                 </Column>
                             </Column>
-                        </RevealFx>
+                        </Column>
 
-                        <RevealFx delay={0.6} translateY={20}>
+                        <Column>
                             <Column
                                 gap="m"
                                 padding="l"
@@ -236,14 +229,14 @@ export const StandardsSection: React.FC = () => {
                                         zum Download bereit...</Text>
                                 </SmartLink>
                             </Column>
-                        </RevealFx>
+                        </Column>
 
-                        <RevealFx delay={0.7} translateY={20} center>
+                        <Column center>
                             <Text variant="body-default-s" onBackground="brand-medium" align="center"
                                   style={{fontStyle: 'italic'}}>
                                 Bei Fragen zu meinen Hygienemaßnahmen bin ich jederzeit für dich da.
                             </Text>
-                        </RevealFx>
+                        </Column>
                     </Column>
                 </Flex>
             </Column>

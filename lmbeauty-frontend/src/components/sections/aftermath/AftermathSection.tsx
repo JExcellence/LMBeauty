@@ -1,9 +1,8 @@
 "use client";
 
 import React, {useEffect, useState} from 'react';
-import {Background, Column, CompareImage, Flex, Heading, RevealFx, Spinner, Text} from '@once-ui-system/core';
+import {Background, Column, CompareImage, Flex, Heading, Spinner, Text} from '@once-ui-system/core';
 import styles from './AftermathSection.module.scss';
-import {useScrollReveal} from '@/hooks';
 
 const timeframes = [
     {
@@ -29,7 +28,6 @@ interface BeforeAfterImages {
 }
 
 export const AftermathSection: React.FC = () => {
-    const {ref: sectionRef, isVisible} = useScrollReveal({threshold: 0.15});
     const [beforeAfterImages, setBeforeAfterImages] = useState<BeforeAfterImages | null>(null);
     const [isLoadingImages, setIsLoadingImages] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -113,7 +111,6 @@ export const AftermathSection: React.FC = () => {
     return (
         <Column
             as="section"
-            ref={sectionRef}
             id="aftermath"
             aria-labelledby="aftermath-headline"
             fillWidth
@@ -138,6 +135,10 @@ export const AftermathSection: React.FC = () => {
                     radius: 100
                 }}
                 zIndex={0}
+                style={{
+                    willChange: 'auto',
+                    contain: 'layout style paint'
+                }}
             />
 
             <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
@@ -153,7 +154,7 @@ export const AftermathSection: React.FC = () => {
                     <Column fillWidth>
                         <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m" s={{paddingBottom: "xs"}}>
                             <Column gap="2" fitWidth>
-                                <RevealFx delay={0.2} translateY={20}>
+                                <Column>
                                     <Heading
                                         as="h2"
                                         id="aftermath-headline"
@@ -162,16 +163,16 @@ export const AftermathSection: React.FC = () => {
                                     >
                                         Das ändert sich <Text as="span" onBackground="brand-weak">nachher</Text>
                                     </Heading>
-                                </RevealFx>
-                                <RevealFx delay={0.25} translateY={20}>
+                                </Column>
+                                <Column>
                                     <Flex className={styles.headlineUnderline}/>
-                                </RevealFx>
+                                </Column>
                             </Column>
                         </Column>
 
                         <Column gap="l" fillWidth paddingY="m">
                             {timeframes.map((item, index) => (
-                                <RevealFx key={item.time} delay={0.3 + (index * 0.1)} translateY={20}>
+                                <Column key={item.time}>
                                     <Column
                                         gap="s"
                                         paddingLeft="m"
@@ -187,11 +188,11 @@ export const AftermathSection: React.FC = () => {
                                             {item.detail}
                                         </Text>
                                     </Column>
-                                </RevealFx>
+                                </Column>
                             ))}
                         </Column>
 
-                        <RevealFx delay={0.7} translateY={20}>
+                        <Column>
                             <Column horizontal="center" paddingTop="m" s={{paddingTop: "xs"}}
                                     className={styles.closingText}>
                                 <Text variant="body-default-m" onBackground="brand-weak" align="center"
@@ -199,15 +200,15 @@ export const AftermathSection: React.FC = () => {
                                     Keine große Veränderung. Nur du — ein bisschen mehr du.
                                 </Text>
                             </Column>
-                        </RevealFx>
+                        </Column>
                     </Column>
 
                     <Column fillWidth paddingTop="128" m={{paddingTop: 0}}>
-                        <RevealFx delay={0.4} translateY={20}>
+                        <Column>
                             <Column fillWidth gap="s">
                                 {!isMounted || isLoadingImages ? (
                                     <Column center padding="xl" aspectRatio="4 / 3" background="neutral-alpha-weak"
-                                            radius="l">
+                                            radius="l" style={{ minHeight: '400px' }}>
                                         {isMounted && <Spinner size="m"/>}
                                     </Column>
                                 ) : (
@@ -217,6 +218,7 @@ export const AftermathSection: React.FC = () => {
                                             border="brand-alpha-medium"
                                             overflow="hidden"
                                             aspectRatio="4 / 3"
+                                            style={{ minHeight: '400px' }}
                                             leftContent={{
                                                 src: rightImage,
                                                 alt: "Nachher"
@@ -233,7 +235,7 @@ export const AftermathSection: React.FC = () => {
                                     </>
                                 )}
                             </Column>
-                        </RevealFx>
+                        </Column>
                     </Column>
                 </Flex>
             </Column>

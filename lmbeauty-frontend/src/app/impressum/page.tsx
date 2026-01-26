@@ -1,6 +1,6 @@
 'use client';
 
-import { Column, Flex, Heading, Text, SmartLink, Row, Background } from "@once-ui-system/core";
+import {Background, Column, Flex, Heading, Row, SmartLink, Text} from "@once-ui-system/core";
 import styles from './impressum.module.scss';
 
 export default function ImpressumPage() {
@@ -24,8 +24,8 @@ export default function ImpressumPage() {
                 }}
                 zIndex={0}
             />
-            
-            <Flex 
+
+            <Flex
                 as="main"
                 flex={1}
                 direction="column"
@@ -33,9 +33,9 @@ export default function ImpressumPage() {
                 paddingTop="xl"
                 paddingBottom="xl"
                 paddingX="l"
-                style={{ position: 'relative', zIndex: 1 }}
+                style={{position: 'relative', zIndex: 1}}
             >
-                <Column 
+                <Column
                     maxWidth={48}
                     gap="l"
                     fillWidth
@@ -45,7 +45,7 @@ export default function ImpressumPage() {
                         <Heading as="h1" variant="display-strong-l" onBackground="brand-strong">
                             Impressum
                         </Heading>
-                        <Text variant="body-default-s" onBackground="brand-medium" style={{ fontStyle: 'italic' }}>
+                        <Text variant="body-default-s" onBackground="brand-medium" style={{fontStyle: 'italic'}}>
                             Angaben gemäß § 5 DDG
                         </Text>
                     </Column>
@@ -55,7 +55,7 @@ export default function ImpressumPage() {
                             Angaben zum Unternehmen
                         </Heading>
                         <Column gap="4">
-                            <Text variant="body-default-m" onBackground="brand-medium" style={{ fontWeight: 600 }}>
+                            <Text variant="body-default-m" onBackground="brand-medium" style={{fontWeight: 600}}>
                                 LM Beauty
                             </Text>
                             <Text variant="body-default-m" onBackground="brand-medium">
@@ -85,13 +85,16 @@ export default function ImpressumPage() {
                         </Heading>
                         <Column gap="4">
                             <Text variant="body-default-m" onBackground="brand-medium">
-                                Telefon: <SmartLink href="tel:+4915259675346" className={styles.link}>+49 152 59675346</SmartLink>
+                                Telefon: <SmartLink href="tel:+4915259675346" className={styles.link}>+49 152
+                                59675346</SmartLink>
                             </Text>
                             <Text variant="body-default-m" onBackground="brand-medium">
-                                E-Mail: <SmartLink href="mailto:info@lmbeauty.de" className={styles.link}>info@lmbeauty.de</SmartLink>
+                                E-Mail: <SmartLink href="mailto:lisa.pinske@lmbeauty.de"
+                                                   className={styles.link}>lisa.pinske@lmbeauty.de</SmartLink>
                             </Text>
                             <Text variant="body-default-m" onBackground="brand-medium">
-                                WhatsApp: <SmartLink href="https://wa.me/+4915259675346" target="_blank" className={styles.link}>+49 152 59675346</SmartLink>
+                                WhatsApp: <SmartLink href="https://wa.me/+4915259675346" target="_blank"
+                                                     className={styles.link}>+49 152 59675346</SmartLink>
                             </Text>
                         </Column>
                     </Column>
@@ -101,7 +104,8 @@ export default function ImpressumPage() {
                             Umsatzsteuer-ID
                         </Heading>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: Beantragung läuft aktuell noch.
+                            Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: Beantragung läuft aktuell
+                            noch.
                         </Text>
                     </Column>
 
@@ -127,10 +131,14 @@ export default function ImpressumPage() {
                             Streitschlichtung
                         </Heading>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <SmartLink href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className={styles.link}>https://ec.europa.eu/consumers/odr/</SmartLink>
+                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
+                            bereit: <SmartLink href="https://ec.europa.eu/consumers/odr/" target="_blank"
+                                               rel="noopener noreferrer"
+                                               className={styles.link}>https://ec.europa.eu/consumers/odr/</SmartLink>
                         </Text>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                            Verbraucherschlichtungsstelle teilzunehmen.
                         </Text>
                     </Column>
 
@@ -139,7 +147,10 @@ export default function ImpressumPage() {
                             Haftung für Inhalte
                         </Heading>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                            Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach
+                            den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter
+                            jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+                            oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
                         </Text>
                     </Column>
 
@@ -148,7 +159,10 @@ export default function ImpressumPage() {
                             Haftung für Links
                         </Heading>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+                            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+                            Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+                            Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+                            Seiten verantwortlich.
                         </Text>
                     </Column>
 
@@ -157,7 +171,10 @@ export default function ImpressumPage() {
                             Urheberrecht
                         </Heading>
                         <Text variant="body-default-m" onBackground="brand-medium">
-                            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
+                            deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+                            Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung
+                            des jeweiligen Autors bzw. Erstellers.
                         </Text>
                     </Column>
 

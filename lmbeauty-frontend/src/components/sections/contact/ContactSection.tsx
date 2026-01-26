@@ -1,9 +1,8 @@
 "use client";
 
 import React from 'react';
-import {Flex, Column, Text, Heading, Icon, Button, Background, SmartLink, RevealFx, Line} from '@once-ui-system/core';
+import {Background, Button, Column, Flex, Heading, Icon, Line, SmartLink, Text} from '@once-ui-system/core';
 import styles from './ContactSection.module.scss';
-import { useScrollReveal } from '@/hooks';
 
 const contactOptions = [
     {
@@ -23,8 +22,8 @@ const contactOptions = [
     {
         icon: "email" as const,
         title: "E-Mail",
-        value: "info@lmbeauty.de",
-        href: "mailto:info@lmbeauty.de",
+        value: "lisa.pinske@lmbeauty.de",
+        href: "mailto:lisa.pinske@lmbeauty.de",
         external: false,
     },
     {
@@ -37,12 +36,9 @@ const contactOptions = [
 ];
 
 export const ContactSection: React.FC = () => {
-    const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
-
     return (
         <Flex
             as="section"
-            ref={sectionRef}
             id="contact"
             aria-labelledby="contact-headline"
             fillWidth
@@ -70,18 +66,18 @@ export const ContactSection: React.FC = () => {
                 zIndex={0}
             />
 
-            <Column fillWidth maxWidth={80} s={{ maxWidth: 100 }}>
+            <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
                 <Flex
                     fillWidth
                     gap="xl"
                     direction="row"
                     center
-                    m={{ direction: "column", gap: "l" }}
+                    m={{direction: "column", gap: "l"}}
                 >
-                    <Column fillWidth maxWidth={48} m={{ maxWidth: 100 }}>
+                    <Column fillWidth maxWidth={48} m={{maxWidth: 100}}>
                         <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m">
                             <Column gap="2" fitWidth>
-                                <RevealFx delay={0.2} translateY={20}>
+                                <Column>
                                     <Heading
                                         as="h2"
                                         id="contact-headline"
@@ -90,23 +86,23 @@ export const ContactSection: React.FC = () => {
                                     >
                                         Ich freue mich auf <Text as="span" onBackground="brand-weak">dich</Text>
                                     </Heading>
-                                </RevealFx>
-                                <RevealFx delay={0.25} translateY={20}>
-                                    <Flex className={styles.headlineUnderline} />
-                                </RevealFx>
+                                </Column>
+                                <Column>
+                                    <Flex className={styles.headlineUnderline}/>
+                                </Column>
                             </Column>
                         </Column>
 
-                        <RevealFx delay={0.3} translateY={20}>
+                        <Column>
                             <Text variant="body-default-l" onBackground="brand-medium" marginBottom="l">
                                 Ob Fragen, Terminwünsche oder einfach nur Hallo sagen — ich bin für dich da.
                             </Text>
-                        </RevealFx>
+                        </Column>
 
                         <Column gap="0" marginBottom="m" fillWidth>
                             {contactOptions.map((option, index) => (
                                 <React.Fragment key={option.title}>
-                                    <RevealFx delay={0.4 + (index * 0.08)} translateY={20}>
+                                    <Column>
                                         <Flex className={styles.contactItem} fillWidth>
                                             <SmartLink
                                                 fillWidth
@@ -131,7 +127,7 @@ export const ContactSection: React.FC = () => {
                                                         height="48"
                                                         width="48"
                                                     >
-                                                        <Icon name={option.icon} size="m" onBackground="brand-strong" />
+                                                        <Icon name={option.icon} size="m" onBackground="brand-strong"/>
                                                     </Flex>
 
                                                     <Column gap="2" flex={1}>
@@ -147,24 +143,25 @@ export const ContactSection: React.FC = () => {
                                                 </Flex>
                                             </SmartLink>
                                         </Flex>
-                                    </RevealFx>
+                                    </Column>
                                     {index < contactOptions.length - 1 && (
-                                        <Line background="brand-alpha-weak" fillWidth />
+                                        <Line background="brand-alpha-weak" fillWidth/>
                                     )}
                                 </React.Fragment>
                             ))}
                         </Column>
 
-                        <RevealFx delay={0.75} translateY={20}>
-                            <Text variant="body-default-s" onBackground="brand-medium" style={{ fontStyle: 'italic' }}>
+                        <Column>
+                            <Text variant="body-default-s" onBackground="brand-medium" style={{fontStyle: 'italic'}}>
                                 Antwort innerhalb von 24 Stunden.
                             </Text>
-                        </RevealFx>
+                        </Column>
                     </Column>
 
-                    <Column fillWidth maxWidth={48} horizontal="center" m={{ maxWidth: 100 }}>
-                        <RevealFx delay={0.5} translateY={20}>
-                            <Column className={styles.mapCard} radius="l" fillWidth border="brand-alpha-medium" background="surface">
+                    <Column fillWidth maxWidth={48} horizontal="center" m={{maxWidth: 100}}>
+                        <Column fillWidth center>
+                            <Column className={styles.mapCard} radius="l" fillWidth border="brand-alpha-medium"
+                                    background="surface">
                                 <Flex
                                     gap="m"
                                     paddingX="l"
@@ -172,8 +169,10 @@ export const ContactSection: React.FC = () => {
                                     horizontal="start"
                                     vertical="center"
                                     className={styles.mapHeader}
+                                    fillWidth
                                 >
-                                    <Icon name="mapPin" padding="xs" background="brand-alpha-weak" onBackground="brand-strong" radius="l" size="s" />
+                                    <Icon name="mapPin" padding="xs" background="brand-alpha-weak"
+                                          onBackground="brand-strong" radius="l" size="s"/>
                                     <Column gap="2">
                                         <Heading variant="heading-strong-xs" onBackground="brand-strong">
                                             Studio
@@ -189,7 +188,7 @@ export const ContactSection: React.FC = () => {
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.5!2d8.2167!3d53.1489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6de6a8b8b8b8b%3A0x1234567890abcdef!2sBloherfelder%20Str.%2040%2C%2026129%20Oldenburg!5e0!3m2!1sde!2sde!4v1703000000000!5m2!1sde!2sde"
                                         width="100%"
                                         height="100%"
-                                        style={{ border: 0 }}
+                                        style={{border: 0}}
                                         allowFullScreen
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
@@ -208,7 +207,7 @@ export const ContactSection: React.FC = () => {
                                     <Text variant="label-strong-s" onBackground="brand-strong">Route planen</Text>
                                 </Button>
                             </Column>
-                        </RevealFx>
+                        </Column>
                     </Column>
                 </Flex>
             </Column>

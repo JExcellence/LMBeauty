@@ -10,10 +10,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins(
-                        "http://localhost:3000",
-                        "http://localhost:3001",
-                        "http://localhost:5173",
+                .allowedOriginPatterns(
+                        "http://localhost:*",
+                        "http://127.0.0.1:*",
+                        "http://192.168.*.*:*",
                         "https://lmbeauty.de",
                         "https://www.lmbeauty.de",
                         "https://api.lmbeauty.de"
@@ -24,10 +24,10 @@ public class WebConfig implements WebMvcConfigurer {
                 .maxAge(3600);
 
         registry.addMapping("/api/**")
-                .allowedOrigins(
-                        "http://localhost:3000",
-                        "http://localhost:3001",
-                        "http://localhost:5173",
+                .allowedOriginPatterns(
+                        "http://localhost:*",
+                        "http://127.0.0.1:*",
+                        "http://192.168.*.*:*",
                         "https://lmbeauty.de",
                         "https://www.lmbeauty.de",
                         "https://api.lmbeauty.de"

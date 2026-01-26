@@ -135,6 +135,8 @@ export default function RootLayout({children}: Readonly<{
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
                 <meta name="apple-mobile-web-app-title" content="LM Beauty" />
                 <link rel="manifest" href="/site.webmanifest" />
+                <link rel="preconnect" href="https://lmbeauty.de" />
+                <link rel="dns-prefetch" href="https://lmbeauty.de" />
                 <StructuredData type="home" />
             </head>
             <Providers>

@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next';
+import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
@@ -51,10 +51,6 @@ const nextConfig: NextConfig = {
         removeConsole: process.env.NODE_ENV === 'production',
     },
 
-    experimental: {
-        optimizePackageImports: ['lucide-react', 'framer-motion'],
-    },
-
     /* Security headers */
     async headers() {
         return [
@@ -90,6 +86,16 @@ const nextConfig: NextConfig = {
                     {
                         key: 'Cache-Control',
                         value: 'public, max-age=31536000, immutable',
+                    },
+                ],
+            },
+            // Cache videos with shorter TTL
+            {
+                source: '/videos/:path*',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'public, max-age=86400, stale-while-revalidate=604800',
                     },
                 ],
             },
