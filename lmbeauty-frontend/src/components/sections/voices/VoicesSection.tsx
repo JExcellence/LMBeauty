@@ -76,6 +76,10 @@ export const VoicesSection: React.FC = () => {
 
     const currentVoice = displayVoices[currentIndex];
 
+    if (!currentVoice || displayVoices.length === 0) {
+        return null;
+    }
+
     return (
         <Column
             as="section"
