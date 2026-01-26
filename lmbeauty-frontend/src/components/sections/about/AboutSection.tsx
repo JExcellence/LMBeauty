@@ -187,6 +187,7 @@ export const AboutSection: React.FC = () => {
                                 colorEnd: "brand-solid-strong"
                             }}
                             style={{pointerEvents: 'none'}}
+                            suppressHydrationWarning
                         />
                     </Card>
                 </Column>

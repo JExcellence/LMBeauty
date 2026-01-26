@@ -21,8 +21,15 @@ export const VoicesSection: React.FC = () => {
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [displayVoices, setDisplayVoices] = useState<Voice[]>(voices);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isMounted) return;
+        
         const fetchGoogleReviews = async () => {
             try {
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NEXT_PUBLIC_BACKEND_URL ? process.env.NEXT_PUBLIC_BACKEND_URL + '/api' : 'https://api.lmbeauty.de/api');
@@ -47,10 +54,10 @@ export const VoicesSection: React.FC = () => {
         };
 
         fetchGoogleReviews();
-    }, []);
+    }, [isMounted]);
 
     useEffect(() => {
-        if (!isAutoPlaying || !isVisible) return;
+        if (!isMounted || !isAutoPlaying || !isVisible) return;
 
         const interval = setInterval(() => {
             setIsTransitioning(true);
@@ -61,7 +68,7 @@ export const VoicesSection: React.FC = () => {
         }, 7000);
 
         return () => clearInterval(interval);
-    }, [isAutoPlaying, isVisible, displayVoices.length]);
+    }, [isMounted, isAutoPlaying, isVisible, displayVoices.length]);
 
     const goToSlide = useCallback((index: number) => {
         if (index === currentIndex) return;
@@ -90,6 +97,7 @@ export const VoicesSection: React.FC = () => {
             paddingY="xl"
             paddingX="l"
             horizontal="center"
+            suppressHydrationWarning
         >
             <Background
                 position="absolute"
@@ -108,6 +116,7 @@ export const VoicesSection: React.FC = () => {
                     radius: 100
                 }}
                 zIndex={0}
+                suppressHydrationWarning
             />
             <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
                 <Column gap="l" paddingTop="l" paddingBottom="m">

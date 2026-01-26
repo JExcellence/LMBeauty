@@ -55,6 +55,7 @@ export default function Home() {
                   willChange: 'auto',
                   contain: 'layout style paint'
               }}
+              suppressHydrationWarning
           />
           <Hero />
           <AboutSection />

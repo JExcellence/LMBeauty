@@ -10,7 +10,8 @@ export function Hero() {
             zIndex={1}
             fillWidth
             direction="column"
-            center
+            horizontal="center"
+            vertical="center"
             aria-label="Willkommen bei LM Beauty"
             role="banner"
             style={{
@@ -65,6 +66,7 @@ export function Hero() {
                     radius: 140
                 }}
                 zIndex={1}
+                suppressHydrationWarning
             />
 
             <Fade
@@ -81,8 +83,10 @@ export function Hero() {
                 maxWidth={48}
                 gap="xl"
                 paddingX="l"
-                m={{maxWidth: 100, paddingX: "m"}}
-                s={{paddingX: "s"}}
+                horizontal="center"
+                l={{maxWidth: 48, paddingX: "l", horizontal: "start"}}
+                m={{maxWidth: 100, paddingX: "m", horizontal: "center"}}
+                s={{maxWidth: 100, paddingX: "s", horizontal: "center"}}
                 style={{zIndex: 3}}
             >
                 <HeroContent/>

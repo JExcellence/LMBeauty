@@ -62,6 +62,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                     radius: 100
                 }}
                 zIndex={0}
+                suppressHydrationWarning
             />
             <Background
                 position="absolute"
@@ -80,6 +81,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                     radius: 100
                 }}
                 zIndex={0}
+                suppressHydrationWarning
             />
 
             <Column

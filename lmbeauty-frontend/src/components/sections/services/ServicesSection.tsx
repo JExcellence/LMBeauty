@@ -663,7 +663,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
                     <Column gap="s" fillWidth horizontal="center">
                         <Text
-                            variant="body-default-l"
+                            variant="body-default-xl"
                             onBackground="brand-weak"
                         >
                             {subheadline}
