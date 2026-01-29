@@ -2,7 +2,6 @@ package de.jexcellence.lmbeauty.dto.frontend;
 
 import de.jexcellence.lmbeauty.database.entity.Treatment;
 import de.jexcellence.lmbeauty.database.entity.TreatmentRefill;
-import de.jexcellence.lmbeauty.type.ETreatmentCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -106,7 +105,7 @@ public class ServiceDto {
                         .alt(treatment.getName() + " – " + generatePersonaTag(treatment))
                         .build())
                 .badge(generateBadge(treatment))
-                .bookingUrl("/online-booking?service=" + (treatment.getUrlSlug() != null ? treatment.getUrlSlug() : treatment.getSlug()))
+                .bookingUrl("/#contact?service=" + (treatment.getUrlSlug() != null ? treatment.getUrlSlug() : treatment.getSlug()))
                 .details(ServiceDetailsDto.builder()
                         .refillPrices(generateRefillPrices(treatment))
                         .idealFor(generateIdealFor(treatment))
@@ -121,7 +120,7 @@ public class ServiceDto {
      */
     private static String generatePersonaTag(Treatment treatment) {
         String name = treatment.getName().toLowerCase();
-        
+
         if (name.contains("einzeltechnik") || name.contains("1:1")) {
             return "Der natürliche Weg";
         } else if (name.contains("hybrid")) {
@@ -142,7 +141,7 @@ public class ServiceDto {
      */
     private static String generateBadge(Treatment treatment) {
         String name = treatment.getName().toLowerCase();
-        
+
         if (name.contains("einzeltechnik") || name.contains("hybrid")) {
             return "popular";
         } else if (name.contains("volumen")) {
@@ -150,7 +149,7 @@ public class ServiceDto {
         } else if (treatment.isHasRefillOptions()) {
             return "refill";
         }
-        
+
         return null;
     }
 
@@ -167,8 +166,8 @@ public class ServiceDto {
                 .map(refill -> RefillPriceDto.builder()
                         .weeks(
                                 refill.getWeekThreshold() == 5 ?
-                                "bis " + refill.getWeekThreshold() + " Wochen" :
-                                "ab " + refill.getWeekThreshold() + " Wochen"
+                                        "bis " + refill.getWeekThreshold() + " Wochen" :
+                                        "ab " + refill.getWeekThreshold() + " Wochen"
                         )
                         .price(refill.getPrice() + "€")
                         .build())
@@ -180,7 +179,7 @@ public class ServiceDto {
      */
     private static List<String> generateIdealFor(Treatment treatment) {
         String name = treatment.getName().toLowerCase();
-        
+
         if (name.contains("einzeltechnik") || name.contains("1:1")) {
             return List.of("Erstes Mal Wimpernverlängerung", "Alltag & Beruf", "Wer es natürlich mag");
         } else if (name.contains("hybrid")) {
@@ -199,7 +198,7 @@ public class ServiceDto {
      */
     private static List<String> generateIncludes(Treatment treatment) {
         String name = treatment.getName().toLowerCase();
-        
+
         if (name.contains("volumen")) {
             return List.of("Ausführliche Beratung", "Augenpad-Anwendung", "Pflegehinweise");
         } else {

@@ -183,7 +183,7 @@ const Footer: React.FC = () => {
                                     </SmartLink>
                                 </Column>
                                 <Column>
-                                    <SmartLink href="/online-booking" className={styles.link}>
+                                    <SmartLink href="/#contact" className={styles.link}>
                                         <Text variant="body-default-s" onBackground="brand-medium">
                                             Termin buchen
                                         </Text>

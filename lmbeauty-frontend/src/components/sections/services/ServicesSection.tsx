@@ -48,21 +48,21 @@ const extrasGroups: ServiceGroup[] = [
                 title: 'Wimpernlifting',
                 description: 'Deine Naturwimpern, nur wacher.',
                 price: '49€',
-                bookingUrl: '/online-booking?service=wimpernlifting'
+                bookingUrl: '/#contact?service=wimpernlifting'
             },
             {
                 id: 'augenbrauenlifting',
                 title: 'Augenbrauenlifting',
                 description: 'Der Rahmen, der alles zusammenhält.',
                 price: '49€',
-                bookingUrl: '/online-booking?service=augenbrauenlifting'
+                bookingUrl: '/#contact?service=augenbrauenlifting'
             },
             {
                 id: 'kombi-lifting',
                 title: 'Kombi Paket',
                 description: 'Beides zusammen – spare 13€.',
                 price: '85€',
-                bookingUrl: '/online-booking?service=kombi-lifting'
+                bookingUrl: '/#contact?service=kombi-lifting'
             },
         ],
     },
@@ -75,21 +75,21 @@ const extrasGroups: ServiceGroup[] = [
                 title: 'Augenbrauen zupfen',
                 description: 'Klare Linien, sauber gezupft.',
                 price: '10€',
-                bookingUrl: '/online-booking?service=augenbrauen-zupfen'
+                bookingUrl: '/#contact?service=augenbrauen-zupfen'
             },
             {
                 id: 'augenbrauen-faerben',
                 title: 'Augenbrauen färben',
                 description: 'Mehr Definition, mehr Ausdruck.',
                 price: '10€',
-                bookingUrl: '/online-booking?service=augenbrauen-faerben'
+                bookingUrl: '/#contact?service=augenbrauen-faerben'
             },
             {
                 id: 'naegel-shellac',
                 title: 'Shellac Nägel',
                 description: 'Gepflegt bis in die Fingerspitzen.',
                 price: '35€',
-                bookingUrl: '/online-booking?service=naegel-shellac'
+                bookingUrl: '/#contact?service=naegel-shellac'
             },
         ],
     },

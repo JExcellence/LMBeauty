@@ -42,7 +42,7 @@ const getBookingUrl = (): string => {
     if (isUnderConstruction) {
         return '/#contact';
     }
-    return process.env.NEXT_PUBLIC_BOOKING_URL || '/online-booking';
+    return process.env.NEXT_PUBLIC_BOOKING_URL || '/#contact';
 };
 
 interface ClosureSectionProps {
