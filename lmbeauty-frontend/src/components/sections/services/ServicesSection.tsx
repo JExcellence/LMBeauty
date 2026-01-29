@@ -48,21 +48,21 @@ const extrasGroups: ServiceGroup[] = [
                 title: 'Wimpernlifting',
                 description: 'Deine Naturwimpern, nur wacher.',
                 price: '49€',
-                bookingUrl: '/#contact?service=wimpernlifting'
+                bookingUrl: '/#contact'
             },
             {
                 id: 'augenbrauenlifting',
                 title: 'Augenbrauenlifting',
                 description: 'Der Rahmen, der alles zusammenhält.',
                 price: '49€',
-                bookingUrl: '/#contact?service=augenbrauenlifting'
+                bookingUrl: '/#contact'
             },
             {
                 id: 'kombi-lifting',
                 title: 'Kombi Paket',
                 description: 'Beides zusammen – spare 13€.',
                 price: '85€',
-                bookingUrl: '/#contact?service=kombi-lifting'
+                bookingUrl: '/#contact'
             },
         ],
     },
@@ -75,21 +75,21 @@ const extrasGroups: ServiceGroup[] = [
                 title: 'Augenbrauen zupfen',
                 description: 'Klare Linien, sauber gezupft.',
                 price: '10€',
-                bookingUrl: '/#contact?service=augenbrauen-zupfen'
+                bookingUrl: '/#contact'
             },
             {
                 id: 'augenbrauen-faerben',
                 title: 'Augenbrauen färben',
                 description: 'Mehr Definition, mehr Ausdruck.',
                 price: '10€',
-                bookingUrl: '/#contact?service=augenbrauen-faerben'
+                bookingUrl: '/#contact'
             },
             {
                 id: 'naegel-shellac',
                 title: 'Shellac Nägel',
                 description: 'Gepflegt bis in die Fingerspitzen.',
                 price: '35€',
-                bookingUrl: '/#contact?service=naegel-shellac'
+                bookingUrl: '/#contact'
             },
         ],
     },

@@ -10,7 +10,7 @@ export const defaultServices: Service[] = [
         price: {amount: 75, prefix: 'NEUANLAGE', currency: '€'},
         duration: 120,
         badge: 'refill' as const,
-        bookingUrl: '/#contact?service=einzeltechnik',
+        bookingUrl: '/#contact',
         image: {
             src: "",
             alt: '1:1 Technik Wimpernverlängerung Oldenburg LM Beauty'
@@ -42,7 +42,7 @@ export const defaultServices: Service[] = [
         price: {amount: 85, prefix: 'NEUANLAGE', currency: '€'},
         duration: 120,
         badge: 'popular' as const,
-        bookingUrl: '/#contact?service=hybridtechnik',
+        bookingUrl: '/#contact',
         image: {
             src: "",
             alt: 'Hybrid Technik Wimpernverlängerung Oldenburg LM Beauty'
@@ -74,7 +74,7 @@ export const defaultServices: Service[] = [
         price: {amount: 110, prefix: 'NEUANLAGE', currency: '€'},
         duration: 150,
         badge: 'premium' as const,
-        bookingUrl: '/#contact?service=volumentechnik',
+        bookingUrl: '/#contact',
         image: {
             src: "",
             alt: 'Volumen Technik Wimpernverlängerung Oldenburg LM Beauty'
@@ -112,8 +112,8 @@ export const sectionContent = {
     subtitle: "Deine Augen, nur wacher",
     description: "Professionelle Wimpernverlängerung mit verschiedenen Techniken für jeden Typ und Anlass.",
     refillNote: "Alle Preise verstehen sich als Neuanlage. Refill-Preise sind günstiger und abhängig vom Zeitabstand.",
-    styleQuizUrl: "/style-quiz",
+    styleQuizUrl: "/#contact",
     styleQuizText: "Style-Quiz: Finde deinen perfekten Look",
-    allServicesUrl: "/services",
+    allServicesUrl: "/#contact",
     allServicesText: "Alle Services entdecken"
 };

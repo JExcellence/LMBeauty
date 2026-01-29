@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
                     alt: '1:1 Technik Wimpernverlängerung – natürlicher, definierter Look'
                 },
                 badge: 'popular',
-                bookingUrl: '/#contact?service=einzeltechnik',
+                bookingUrl: '/#contact',
                 details: {
                     refillPrices: [],
                     idealFor: ['Erstes Mal Wimpernverlängerung', 'Alltag & Beruf', 'Wer es natürlich mag'],

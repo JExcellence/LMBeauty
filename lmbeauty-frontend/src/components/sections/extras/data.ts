@@ -12,13 +12,13 @@ export const sanfteVeredelung: ExtraService[] = [
         id: 'wimpernlifting',
         title: 'Wimpernlifting',
         description: 'Deine Naturwimpern, nur wacher.',
-        bookingUrl: '/#contact?service=wimpernlifting',
+        bookingUrl: '/#contact',
     },
     {
         id: 'augenbrauenlifting',
         title: 'Augenbrauenlifting',
         description: 'Der Rahmen, der alles zusammenhält.',
-        bookingUrl: '/#contact?service=augenbrauenlifting',
+        bookingUrl: '/#contact',
     },
 ];
 
@@ -28,13 +28,13 @@ export const feinschliff: ExtraService[] = [
         id: 'zupfen-formen',
         title: 'Zupfen & Formen',
         description: 'Klare Linien, ohne viel Aufwand.',
-        bookingUrl: '/#contact?service=zupfen-formen',
+        bookingUrl: '/#contact',
     },
     {
         id: 'naegel-shellac',
         title: 'Shellac Nägel',
         description: 'Gepflegt bis in die Fingerspitzen.',
-        bookingUrl: '/#contact?service=naegel-shellac',
+        bookingUrl: '/#contact',
     },
 ];
 
@@ -59,5 +59,5 @@ export const sectionContent = {
     subline: 'Kleine Extras, die den Look abrunden — wenn du Lust hast.',
     stylistNote: 'Mein Tipp: Kombiniere deine Wimpern mit einem Lifting für den perfekten Rahmen.',
     ctaText: 'Alle Extras ansehen',
-    ctaUrl: '/preise#extras',
+    ctaUrl: '/',
 };

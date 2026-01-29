@@ -17,7 +17,7 @@ const fallbackServices = [
             alt: '1:1 Technik Wimpernverlängerung – natürlicher, definierter Look'
         },
         badge: 'popular',
-        bookingUrl: '/#contact?service=einzeltechnik',
+        bookingUrl: '/#contact',
         details: {
             refillPrices: [
                 {weeks: '2 Wochen', price: '45€'},
@@ -40,7 +40,7 @@ const fallbackServices = [
             src: 'https://images.unsplash.com/photo-1583001809809-a62e8e7b9c4c?w=600&h=750&fit=crop&q=80',
             alt: 'Hybrid Technik Wimpernverlängerung – ausgewogener Look'
         },
-        bookingUrl: '/#contact?service=hybridtechnik',
+        bookingUrl: '/#contact',
         details: {
             refillPrices: [
                 {weeks: '2 Wochen', price: '50€'},
@@ -63,7 +63,7 @@ const fallbackServices = [
             src: 'https://images.unsplash.com/photo-1583001809809-a62e8e7b9c4c?w=600&h=750&fit=crop&q=80',
             alt: 'Volumen Technik Wimpernverlängerung – dramatischer Look'
         },
-        bookingUrl: '/#contact?service=volumentechnik',
+        bookingUrl: '/#contact',
         details: {
             refillPrices: [
                 {weeks: '2 Wochen', price: '55€'},
