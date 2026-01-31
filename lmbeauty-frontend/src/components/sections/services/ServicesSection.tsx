@@ -48,7 +48,7 @@ const extrasGroups: ServiceGroup[] = [
                 title: 'Wimpernlifting',
                 description: 'Deine Naturwimpern, nur wacher.',
                 price: '49€',
-                bookingUrl: '/#contact'
+                bookingUrl: '/wimpernlifting-oldenburg/'
             },
             {
                 id: 'augenbrauenlifting',

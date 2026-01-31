@@ -370,19 +370,20 @@ public class InstagramService {
             }
         }
         
-        // Lifting - look for lifting keywords
-        if (cleanCaption.contains("wimpernlifting") || 
-            cleanCaption.contains("lash lift") ||
-            cleanCaption.contains("lifting") ||
-            cleanCaption.contains("geliftet")) {
-            return "lifting";
-        }
-        
-        // Augenbrauen - look for brow keywords
+        // Augenbrauen - look for brow keywords (check BEFORE lifting to catch "augenbrauenlifting")
         if (cleanCaption.contains("augenbrauen") || 
             cleanCaption.contains("brows") ||
             cleanCaption.contains("brauen")) {
             return "augenbrauen";
+        }
+        
+        // Lifting - look for SPECIFIC lifting keywords (not just any "lifting")
+        if (cleanCaption.contains("wimpernlifting") || 
+            cleanCaption.contains("lash lift") ||
+            cleanCaption.contains("lashlifting") ||
+            cleanCaption.contains("wimpern lifting") ||
+            cleanCaption.contains("geliftet")) {
+            return "lifting";
         }
         
         // Default category for posts that don't match specific techniques

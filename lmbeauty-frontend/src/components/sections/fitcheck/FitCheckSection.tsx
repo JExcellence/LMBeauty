@@ -29,7 +29,7 @@ export const FitCheckSection: React.FC = () => {
             id="fitcheck"
             aria-labelledby="fitcheck-headline"
             fillWidth
-            paddingY="xl"
+            padding="xl"
             paddingX="l"
             horizontal="center"
         >
@@ -51,14 +51,13 @@ export const FitCheckSection: React.FC = () => {
                 }}
                 zIndex={0}
             />
-            <Column fillWidth maxWidth={80} s={{maxWidth: 100}}>
-                <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m">
+            <Column fillWidth center maxWidth={80}>
+                <Column gap="l" horizontal="start" paddingTop="l" paddingBottom="m" fillWidth>
                     <Column gap="2" fitWidth>
                         <Heading
                             as="h3"
                             id="fitcheck-headline"
                             variant="display-strong-xs"
-                            onBackground="brand-strong"
                         >
                             Für wen das <Text as="span" onBackground="brand-weak">perfekt</Text> ist
                         </Heading>
@@ -85,7 +84,7 @@ export const FitCheckSection: React.FC = () => {
                             </Heading>
                         </Flex>
 
-                        <List as="ul" gap="m" background="brand-weak">
+                        <List as="ul" gap="m">
                             {perfectForItems.map((item, index) => (
                                 <ListItem
                                     key={index}

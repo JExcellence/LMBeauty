@@ -4,7 +4,6 @@ import '@/resources/custom.scss';
 
 import type { Metadata } from 'next';
 import { Providers } from '@/components/providers/Providers';
-import { HashScrollProvider } from '@/components/providers/HashScrollProvider';
 import {baseURL, fonts, style} from '@/resources/once-ui.config';
 import classNames from "classnames";
 import {Background, Banner, Column, Flex, Icon} from "@once-ui-system/core";
@@ -146,25 +145,23 @@ export default function RootLayout({children}: Readonly<{
                 <StructuredData type="home" />
             </head>
             <Providers>
-                <HashScrollProvider>
-                    <Column
-                        as="body"
-                        fillWidth
-                        margin="0"
-                        paddingBottom="0"
-                        paddingX="0"
-                        background="page"
-                        style={{ minHeight: "100vh" }}
-                    >
-                        <Banner position="fixed" top="0" right="0" left="0" zIndex={9} background="brand-alpha-strong" onSolid="brand-alpha-strong">
-                            <Icon name="warning" size="s" />
-                            Wir bauen gerade für dich – täglich kommen neue Features hinzu.
-                        </Banner>
-                        <Column>
-                            {children}
-                        </Column>
+                <Column
+                    as="body"
+                    fillWidth
+                    margin="0"
+                    paddingBottom="0"
+                    paddingX="0"
+                    background="page"
+                    style={{ minHeight: "100vh" }}
+                >
+                    <Banner position="fixed" top="0" right="0" left="0" zIndex={9} background="brand-alpha-strong" onSolid="brand-alpha-strong">
+                        <Icon name="warning" size="s" />
+                        Wir bauen gerade für dich – täglich kommen neue Features hinzu.
+                    </Banner>
+                    <Column>
+                        {children}
                     </Column>
-                </HashScrollProvider>
+                </Column>
             </Providers>
         </Flex>
     );

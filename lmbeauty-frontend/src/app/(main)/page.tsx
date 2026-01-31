@@ -8,6 +8,8 @@ import {
     InfoSection,
     ServicesSection
 } from "@/components/sections";
+import {Footer} from "@/components/footer/Footer";
+import {FloatingContactButton} from "@/components/ui/FloatingContactButton";
 import {baseURL, meta} from "@/resources";
 import {Hero} from "@/components/sections/hero/HeroSection";
 
@@ -66,6 +68,8 @@ export default function Home() {
           <AftermathSection />
           <StandardsSection />
           <ContactSection />
+          <Footer />
+          <FloatingContactButton />
       </Column>
   );
 }

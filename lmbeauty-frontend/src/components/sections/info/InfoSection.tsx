@@ -97,7 +97,6 @@ export const InfoSection: React.FC<InfoSectionProps> = ({
                     fillWidth
                     gap="l"
                     horizontal="start"
-                    paddingTop="xl"
                     paddingBottom="l"
                     className={styles.firstTimerBlock}
                 >
