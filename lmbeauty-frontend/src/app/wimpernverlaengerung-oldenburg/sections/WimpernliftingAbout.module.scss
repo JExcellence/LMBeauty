@@ -1,0 +1,15 @@
+.headlineUnderline {
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196, 96, 122, 0.5) 50%, transparent 100%);
+  margin: 0 auto;
+}
+
+.imageColumn {
+  @media (max-width: 640px) {
+    max-width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

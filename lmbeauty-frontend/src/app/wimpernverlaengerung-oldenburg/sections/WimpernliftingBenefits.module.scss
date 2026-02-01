@@ -1,0 +1,41 @@
+.reasonsList {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reasonItem {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(196, 96, 122, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    padding-left: 12px;
+    border-bottom-color: rgba(196, 96, 122, 0.15);
+    background: rgba(196, 96, 122, 0.02);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 20px 0;
+    
+    &:hover {
+      padding-left: 8px;
+    }
+  }
+}
+
+.headlineUnderline {
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196, 96, 122, 0.5) 50%, transparent 100%);
+  margin: 0 auto;
+}

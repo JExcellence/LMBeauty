@@ -1,0 +1,10 @@
+export { WimpernverlaengerungHero } from './WimpernverlaengerungHero';
+export { WimpernverlaengerungAbout } from './WimpernverlaengerungAbout';
+export { WimpernverlaengerungTechniques } from './WimpernverlaengerungTechniques';
+export { WimpernverlaengerungProcess } from './WimpernverlaengerungProcess';
+export { WimpernverlaengerungBenefits } from './WimpernverlaengerungBenefits';
+export { WimpernverlaengerungForWhom } from './WimpernverlaengerungForWhom';
+export { WimpernverlaengerungAftercare } from './WimpernverlaengerungAftercare';
+export { WimpernverlaengerungGallery } from './WimpernverlaengerungGallery';
+export { WimpernverlaengerungComparison } from './WimpernverlaengerungComparison';
+export { WimpernverlaengerungFAQCTA } from './WimpernverlaengerungFAQCTA';

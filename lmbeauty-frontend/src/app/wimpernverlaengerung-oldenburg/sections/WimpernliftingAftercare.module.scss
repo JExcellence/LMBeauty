@@ -1,0 +1,32 @@
+.aftercareCard {
+  padding: 28px 24px;
+  border-bottom: 1px solid rgba(196, 96, 122, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    padding-left: 36px;
+    background: rgba(196, 96, 122, 0.03);
+    box-shadow: 0 2px 8px rgba(196, 96, 122, 0.06);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+    
+    &:hover {
+      padding-left: 24px;
+    }
+  }
+}
+
+.headlineUnderline {
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(196, 96, 122, 0.5) 50%, transparent 100%);
+  margin: 0 auto;
+}
