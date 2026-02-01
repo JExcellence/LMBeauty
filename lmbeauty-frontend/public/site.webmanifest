@@ -1,0 +1,32 @@
+{
+  "name": "LM Beauty",
+  "short_name": "LM Beauty",
+  "description": "Wimpernverlängerung & Beauty Studio in Oldenburg",
+  "icons": [
+    {
+        "src": "/favicon.png",
+        "sizes": "any",
+        "type": "image/png"
+      },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#D4708A",
+  "background_color": "#FFF9F7",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

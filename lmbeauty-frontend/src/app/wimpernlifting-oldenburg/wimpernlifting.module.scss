@@ -1,0 +1,29 @@
+.headline {
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  @media (max-width: 639px) {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.headlineUnderline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-background-strong, #C4607A) 0%,
+    var(--brand-background-medium, #D4708A) 100%
+  );
+  border-radius: 2px;
+  margin-top: 8px;
+}

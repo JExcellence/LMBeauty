@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+Disallow: /mein-bereich
+
+# Host
+Host: https://lmbeauty.de
+
+# Sitemaps
+Sitemap: https://lmbeauty.de/sitemap.xml

@@ -1,0 +1,68 @@
+.floatingButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: linear-gradient(135deg, #C4607A 0%, #D4708A 100%);
+  border: none;
+  box-shadow: 0 4px 16px rgba(196, 96, 122, 0.3);
+  
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(196, 96, 122, 0.4);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(196, 96, 122, 0.5);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}

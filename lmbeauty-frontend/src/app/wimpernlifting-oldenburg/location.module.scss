@@ -1,0 +1,11 @@
+.headlineUnderline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-medium, #D4708A) 0%,
+    var(--brand-strong, #C4607A) 100%
+  );
+  border-radius: 2px;
+  margin: 0 auto;
+}

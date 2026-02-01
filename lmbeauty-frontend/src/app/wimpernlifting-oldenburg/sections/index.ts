@@ -1,0 +1,9 @@
+export { WimpernliftingHero } from './WimpernliftingHero';
+export { WimpernliftingAbout } from './WimpernliftingAbout';
+export { WimpernliftingProcess } from './WimpernliftingProcess';
+export { WimpernliftingBenefits } from './WimpernliftingBenefits';
+export { WimpernliftingForWhom } from './WimpernliftingForWhom';
+export { WimpernliftingGallery } from './WimpernliftingGallery';
+export { WimpernliftingAftercare } from './WimpernliftingAftercare';
+export { WimpernliftingComparison } from './WimpernliftingComparison';
+export { WimpernliftingFAQCTA } from './WimpernliftingFAQCTA';

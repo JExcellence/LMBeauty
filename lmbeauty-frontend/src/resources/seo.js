@@ -1,7 +1,7 @@
 const schema = {
     logo: "/images/logo.png",
-    type: "HealthAndBeautyBusiness", // More specific than BeautySalon
-    subType: "EyelashSalon", // Specific service type
+    type: "HealthAndBeautyBusiness",
+    subType: "EyelashSalon",
     name: "LM Beauty",
     legalName: "LM Beauty - Lisa Marie Pinske",
     title: "Wimpernverlängerung Oldenburg | LM Beauty - Lash Extensions & Wimpernlifting",
@@ -32,7 +32,6 @@ const schema = {
         "https://instagram.com/_l.m_beauty_",
         "https://www.facebook.com/lmbeauty"
     ],
-    // E-E-A-T Signals for AI
     expertise: {
         certifications: [
             "Zertifizierte Wimpernstylisten",
@@ -64,6 +63,20 @@ const meta = {
         image: "/images/logo.png",
         keywords: "Wimpernverlängerung Preise Oldenburg, Wimpernlifting Kosten, Lash Extensions Preise, Einzeltechnik Preis, Hybrid Wimpern Kosten, Volumen Wimpern Preis"
     },
+    wimpernlifting: {
+        title: "Wimpernlifting Oldenburg ab 49€ | Natürlich wacher Blick | LM Beauty",
+        description: "Professionelles Wimpernlifting in Oldenburg ✓ Deine eigenen Wimpern, nur schöner ✓ 6-8 Wochen Haltbarkeit ✓ Keratin-Versiegelung ✓ Nur 49€ ✓ Jetzt Termin bei LM Beauty buchen!",
+        path: "/wimpernlifting-oldenburg",
+        image: "/images/logo.png",
+        keywords: "Wimpernlifting Oldenburg, Lash Lift Oldenburg, Wimpern Lifting, Wimpernlifting Preise Oldenburg, Wimpernlifting in meiner Nähe, LM Beauty Oldenburg, Wimpernlifting 26129, Keratin Wimpern, Wimpernlifting Erfahrung, Wimpernlifting Vorher Nachher"
+    },
+    wimpernverlaengerung: {
+        title: "Wimpernverlängerung Oldenburg ab 89€ | Einzeltechnik, Hybrid & Volumen | LM Beauty",
+        description: "Professionelle Wimpernverlängerung in Oldenburg ✓ Einzeltechnik, Hybrid & Volumentechnik ✓ 4-6 Wochen Haltbarkeit ✓ Hochwertige Produkte ✓ Ab 89€ ✓ Jetzt Termin bei LM Beauty buchen!",
+        path: "/wimpernverlaengerung-oldenburg",
+        image: "/images/logo.png",
+        keywords: "Wimpernverlängerung Oldenburg, Lash Extensions Oldenburg, Wimpern Extensions, Einzeltechnik Oldenburg, Hybrid Wimpern, Volumen Wimpern, Wimpernverlängerung Preise Oldenburg, LM Beauty Oldenburg, Wimpernverlängerung 26129, Wimpernverlängerung in meiner Nähe"
+    },
     contact: {
         title: "Termin buchen | Wimpernstudio LM Beauty Oldenburg",
         description: "Jetzt Termin für Wimpernverlängerung oder Wimpernlifting buchen ✓ WhatsApp, Telefon oder E-Mail ✓ Bloherfelderstraße 40, 26129 Oldenburg",
@@ -72,11 +85,11 @@ const meta = {
         keywords: "Termin buchen Wimpern Oldenburg, Wimpernstudio Oldenburg Termin, Beauty Termin Oldenburg, Wimpernverlängerung Termin"
     },
     faq: {
-        title: "Häufige Fragen zu Wimpernverlängerung & Wimpernlifting | LM Beauty",
-        description: "Alle Antworten zu Wimpernverlängerung, Wimpernlifting, Pflege, Haltbarkeit und Preisen. Ehrlich und verständlich erklärt.",
+        title: "FAQ - Häufige Fragen zu Wimpernverlängerung & Wimpernlifting | LM Beauty Oldenburg",
+        description: "Alle Antworten zu Wimpernverlängerung, Wimpernlifting, Pflege, Preisen und Buchung in Oldenburg ✓ Ehrlich und verständlich erklärt ✓ Von Lisa bei LM Beauty",
         path: "/faq",
         image: "/images/logo.png",
-        keywords: "Wimpernverlängerung FAQ, Wimpernlifting Fragen, Lash Extensions Pflege, Wimpern Haltbarkeit"
+        keywords: "FAQ Wimpernverlängerung, FAQ Wimpernlifting, Wimpern Fragen, Wimpernverlängerung Oldenburg Fragen, Wimpernlifting Oldenburg Fragen, LM Beauty FAQ, Wimpern Pflege, Wimpern Haltbarkeit, Wimpern Preise"
     },
     impressum: {
         title: "Impressum | LM Beauty Oldenburg",
