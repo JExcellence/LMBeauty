@@ -11,7 +11,7 @@ interface FAQItem {
 
 interface FAQCategory {
     title: string;
-    icon: 'calendar' | 'sparkles' | 'heart' | 'tag' | 'shield';
+    icon: 'calendar' | 'sparkles' | 'heart' | 'tag' | 'shield' | 'helpCircle';
     items: FAQItem[];
 }
 
@@ -39,54 +39,120 @@ const faqCategories: FAQCategory[] = [
         ]
     },
     {
-        title: 'Während der Behandlung',
+        title: 'Wimpernverlängerung',
         icon: 'sparkles',
         items: [
             {
-                question: 'Tut das weh?',
-                answer: 'Nein, überhaupt nicht. Du liegst entspannt mit geschlossenen Augen. Viele Kundinnen schlafen dabei sogar ein.'
+                question: 'Wie lange hält eine Wimpernverlängerung?',
+                answer: 'Eine Wimpernverlängerung hält 4-6 Wochen, abhängig von deinem natürlichen Wimpernzyklus und der Pflege. Mit regelmäßigen Refills alle 3-4 Wochen bleiben deine Wimpern dauerhaft perfekt.'
+            },
+            {
+                question: 'Tut die Behandlung weh?',
+                answer: 'Nein, die Behandlung ist völlig schmerzfrei. Du liegst entspannt mit geschlossenen Augen. Viele Kundinnen schlafen sogar während der Behandlung ein.'
+            },
+            {
+                question: 'Welche Technik ist die richtige für mich?',
+                answer: 'Das hängt von deinem Wunsch-Look und deinen Naturwimpern ab. Einzeltechnik ist natürlich und alltagstauglich, Hybrid bietet mehr Volumen bei natürlichem Look, Volumen ist glamourös und dramatisch. Wir besprechen das vor der Behandlung.'
+            },
+            {
+                question: 'Schädigt die Verlängerung meine Naturwimpern?',
+                answer: 'Bei fachgerechter Anwendung und richtiger Pflege werden deine Naturwimpern nicht beschädigt. Ich arbeite mit hochwertigen Produkten und achte darauf, dass jede Extension einzeln und mit dem richtigen Gewicht aufgebracht wird.'
             },
             {
                 question: 'Wie lange dauert die Behandlung?',
-                answer: 'Einzeltechnik ca. 90-120 Minuten, Hybrid ca. 120-150 Minuten, Volumen ca. 150-180 Minuten. Refills sind kürzer.'
+                answer: 'Die Erstbehandlung dauert 2-3 Stunden, je nach gewählter Technik. Refills dauern 1-2 Stunden. Nimm dir Zeit und genieße die Entspannung.'
             },
             {
-                question: 'Kann ich während der Behandlung mein Handy benutzen?',
-                answer: 'Deine Augen müssen geschlossen bleiben. Aber du kannst gerne Musik oder Podcasts über Kopfhörer hören.'
-            },
-            {
-                question: 'Kann ich zwischendurch eine Pause machen?',
-                answer: 'Natürlich! Sag einfach Bescheid, wenn du eine kurze Pause brauchst. Dein Komfort ist wichtig.'
+                question: 'Kann ich Mascara verwenden?',
+                answer: 'Du brauchst normalerweise keine Mascara mehr. Falls doch, verwende nur ölfreie Mascara und trage sie nur auf die Spitzen auf. Wasserfeste Mascara solltest du vermeiden.'
             }
         ]
     },
     {
-        title: 'Nach der Behandlung',
+        title: 'Wimpernlifting',
+        icon: 'helpCircle',
+        items: [
+            {
+                question: 'Was ist der Unterschied zwischen Lifting und Verlängerung?',
+                answer: 'Beim Lifting werden deine eigenen Wimpern geschwungen und gefärbt – keine Extensions. Es ist pflegeleichter, hält 6-8 Wochen und kostet nur 49€. Perfekt für natürliche Looks.'
+            },
+            {
+                question: 'Warum sollte ich ein Wimpernlifting machen?',
+                answer: 'Ein Wimpernlifting ist wie eine Dauerwelle für deine Wimpern – es bringt sie dauerhaft in Form, ohne dass du täglich zur Zange greifen musst. Deine Wimpern werden direkt am Ansatz nach oben geliftet, wodurch sie viel länger wirken. Der Lifting-Effekt öffnet das Auge optisch und lässt dich sofort frischer und jugendlicher aussehen.'
+            },
+            {
+                question: 'Wie lange hält ein Wimpernlifting?',
+                answer: 'Ein professionelles Lifting hält in der Regel 6 bis 8 Wochen, was dem natürlichen Wachstumszyklus deiner Wimpern entspricht. Nach den ersten 24 Stunden kannst du wieder wie gewohnt Sport treiben, in die Sauna gehen oder schwimmen.'
+            },
+            {
+                question: 'Spare ich wirklich Zeit am Morgen?',
+                answer: 'Ja! Da der Schwung bereits perfekt ist, entfällt das Biegen mit der Wimpernzange; oft ist nicht einmal mehr Mascara nötig. Das spart dir jeden Morgen wertvolle Minuten.'
+            },
+            {
+                question: 'Ist Wimpernlifting schonender als Extensions?',
+                answer: 'Absolut. Im Vergleich zu Extensions wird kein zusätzliches Gewicht (Kunsthaar) auf deine Wimpern geklebt, was die Haarwurzel schont. Meistens werden die Wimpern im Prozess direkt mitgefärbt, was für ein sattes Schwarz sorgt und feine Spitzen sichtbar macht.'
+            },
+            {
+                question: 'Ist Wimpernlifting günstiger als Extensions?',
+                answer: 'Ja, auf Dauer ist es oft preiswerter. Da die Abstände zwischen den Terminen größer sind als bei Extensions-Refills (6-8 Wochen statt 2-3 Wochen), sparst du langfristig Geld.'
+            },
+            {
+                question: 'Kann ich nach dem Lifting Mascara tragen?',
+                answer: 'Ja, nach 24 Stunden kannst du wieder Mascara verwenden. Oft ist das aber gar nicht nötig, da die Wimpern durch die Färbung schon sehr ausdrucksstark sind.'
+            },
+            {
+                question: 'Tut Wimpernlifting weh?',
+                answer: 'Nein. Die Behandlung ist schmerzfrei und entspannend. Du liegst bequem, die Augen sind geschlossen. Viele Kundinnen schlafen sogar ein.'
+            },
+            {
+                question: 'Was muss ich in den ersten 24 Stunden beachten?',
+                answer: 'In den ersten 24 Stunden nach der Behandlung ist es essenziell, dass kein Wasser, Dampf oder Schweiß an die Wimpern kommt, damit die Struktur stabil bleibt. Danach ist alles wieder erlaubt.'
+            },
+            {
+                question: 'Wie pflege ich meine Wimpern nach dem Lifting?',
+                answer: 'Nach den ersten 24 Stunden kannst du deine Wimpern ganz normal behandeln. Für besonders lange Haltbarkeit empfehle ich ein Wimpernserum mit Keratin und sanftes Bürsten mit einem sauberen Bürstchen.'
+            },
+            {
+                question: 'Für wen ist Wimpernlifting nicht geeignet?',
+                answer: 'Bei sehr kurzen oder feinen Wimpern ist der Effekt kaum sichtbar – ähnlich wie bei einem Push-up-BH muss eine gewisse Basis vorhanden sein. Bei Augenentzündungen, Bindehautentzündungen, Lidrandentzündungen oder Gerstenkörnern darf die Behandlung keinesfalls durchgeführt werden.'
+            },
+            {
+                question: 'Kann ich nach einer Augen-OP ein Wimpernlifting machen?',
+                answer: 'Nach Laser-OPs oder anderen Eingriffen am Auge solltest du mindestens 6–12 Monate warten. Eine Rücksprache mit deinem Arzt ist hier unbedingt nötig.'
+            },
+            {
+                question: 'Funktioniert es während der Schwangerschaft?',
+                answer: 'Während der Schwangerschaft oder Stillzeit kann es vorkommen, dass das Lifting aufgrund der Hormone nicht optimal hält oder die Wimpern anders reagieren. Es ist nicht gefährlich, aber das Ergebnis kann variieren.'
+            },
+            {
+                question: 'Werden Lücken in den Wimpern aufgefüllt?',
+                answer: 'Nein, das Lifting biegt nur vorhandene Haare. Lücken werden dadurch nicht aufgefüllt, sondern sind eventuell sogar deutlicher sichtbar.'
+            },
+            {
+                question: 'Was passiert, wenn neue Wimpern nachwachsen?',
+                answer: 'Wenn die gelifteten Wimpern ausfallen und neue, gerade Haare nachwachsen, kann der Look nach ca. 5 Wochen ungleichmäßig wirken (Knick-Optik). Das ist normal und ein Zeichen, dass es Zeit für eine Auffrischung ist.'
+            }
+        ]
+    },
+    {
+        title: 'Pflege & Haltbarkeit',
         icon: 'heart',
         items: [
             {
-                question: 'Wie lange halten die Wimpern?',
-                answer: 'Bei guter Pflege 2-4 Wochen, abhängig von deinem natürlichen Wimpernzyklus. Danach empfehle ich ein Refill.'
-            },
-            {
                 question: 'Wie pflege ich meine Wimpern richtig?',
-                answer: 'Die ersten 24 Stunden kein Wasser. Danach täglich mit einem sauberen Bürstchen kämmen und ölfreie Produkte verwenden.'
+                answer: 'Die ersten 24-48 Stunden kein Wasser. Danach täglich mit einem sauberen Bürstchen kämmen und ölfreie Produkte verwenden. Vermeide mechanisches Reiben.'
             },
             {
                 question: 'Kann ich mit Extensions schwimmen gehen?',
-                answer: 'Ja, nach 24 Stunden ist das kein Problem. Chlor- und Salzwasser können die Haltbarkeit etwas verkürzen.'
+                answer: 'Ja, nach 24-48 Stunden ist das kein Problem. Chlor- und Salzwasser können die Haltbarkeit etwas verkürzen, aber die Extensions sind wasserfest.'
             },
             {
                 question: 'Wann sollte ich zum Refill kommen?',
-                answer: 'Idealerweise alle 2-3 Wochen. Wenn mehr als 50% ausgefallen sind, ist ein Neuaufbau nötig.'
+                answer: 'Idealerweise alle 3-4 Wochen. Wenn mehr als 50% ausgefallen sind, ist ein Neuaufbau nötig. Je regelmäßiger, desto günstiger.'
             },
             {
-                question: 'Kann ich Make-up tragen?',
-                answer: 'Ja, aber verwende ölfreie Produkte. Wasserfeste Mascara solltest du vermeiden, da sie schwer zu entfernen ist.'
-            },
-            {
-                question: 'Was mache ich, wenn eine Wimper abfällt?',
-                answer: 'Das ist normal! Deine Naturwimpern haben einen Zyklus. Nicht ziehen oder zupfen, einfach ausfallen lassen.'
+                question: 'Was kostet ein Refill?',
+                answer: 'Refills kosten je nach Zeitabstand zwischen 45€ und 75€. Je regelmäßiger du kommst (alle 3-4 Wochen), desto günstiger. Genaue Preise besprechen wir beim Ersttermin.'
             }
         ]
     },
@@ -96,7 +162,7 @@ const faqCategories: FAQCategory[] = [
         items: [
             {
                 question: 'Was kostet eine Wimpernverlängerung?',
-                answer: 'Einzeltechnik ab 89€, Hybrid ab 109€, Volumen ab 129€. Refills sind günstiger.'
+                answer: 'Einzeltechnik 89€, Hybrid 99€, Volumen 109€. Wimpernlifting kostet 49€. Alle Preise inkl. Beratung und Nachsorge.'
             },
             {
                 question: 'Wie kann ich bezahlen?',
@@ -105,10 +171,6 @@ const faqCategories: FAQCategory[] = [
             {
                 question: 'Gibt es Rabatte oder Pakete?',
                 answer: 'Ja! Mit der Stempelkarte bekommst du nach 10 Behandlungen eine gratis. Frag mich nach aktuellen Angeboten.'
-            },
-            {
-                question: 'Was kostet ein Refill?',
-                answer: 'Je nach Zeitabstand: 2 Wochen ab 35€, 3 Wochen ab 45€, 4 Wochen ab 55€. Abhängig vom Zustand.'
             }
         ]
     },
@@ -122,7 +184,7 @@ const faqCategories: FAQCategory[] = [
             },
             {
                 question: 'Kann ich allergisch reagieren?',
-                answer: 'Allergien sind selten, aber möglich. Wenn du empfindlich bist, machen wir vorher einen Patch-Test.'
+                answer: 'Allergien sind selten, aber möglich. Wenn du empfindlich bist, machen wir vorher einen Patch-Test. Wenn du empfindlich auf Dauerwellen-Lotionen oder Wimpernfarbe reagierst, ist Vorsicht geboten.'
             },
             {
                 question: 'Ich habe empfindliche Augen — ist das ein Problem?',
